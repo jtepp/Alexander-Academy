@@ -23,12 +23,18 @@
             </p>
         </div>
 
-        <div class="textbook-thumb">
+        <div class="textbook-thumb"
+            onclick="const cl = document.getElementById('look-inside-popover').classList; cl.toggle('popen'); cl.toggle('pclosed')">
             <img class="thumbnail-img" src="textbook-thumbnail.png" alt="">
         </div>
-
     </div>
-    <div class="look-inside-popover"></div>
+
+    <div id="look-inside-popover" class="popen"
+        onclick="if (event.target.classList.contains('popen')) {this.classList.remove('popen'); this.classList.add('pclosed');}">
+        <div class="popover-content">
+            <embed src="pdf.pdf#toolbar=0" type="">
+        </div>
+    </div>
 
 
     <script src="look-inside.js"></script>

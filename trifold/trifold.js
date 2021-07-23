@@ -22,7 +22,7 @@ book.onclick = function (e) {
         btn.innerText = "Reset"
         btn.classList.add("reset-btn")
     } else {
-        btn.innerText = "Click to open ⤵︎"
+        btn.innerHTML = "Click to open &#10549;"
         btn.classList.remove("reset-btn")
     }
 }
@@ -36,7 +36,7 @@ btn.onclick = function (e) {
         document.getElementById("p1").classList.add("top")
         book.classList.remove("flipped")
         closed = false
-        btn.innerText = "Click to open ⤵︎"
+        btn.innerHTML = "Click to open &#10549;"
         btn.classList.remove("reset-btn")
     }
 }
