@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset=“UTF-8”>
+    <!-- <link rel="stylesheet" href="https://cdn.statically.io/gh/jtepp/allpurpose/Home/dist/alexander/style.css"> -->
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <title>Teachers | Alexander Academy</title>
+</head>
+
+<body class="preload" onload="document.querySelector('body').classList.remove('preload')">
+    <div id="main-container">
+
+
+        <div id="teaching-staff-header">
+            <h1>Teaching Staff</h1>
+        </div>
+
+        <div id="filter-cont">
+
+            <div class="filter-button" id="People" selected="All">
+                <div class="triangle-down"></div>
+                <div class="filter-menu fmclosed">
+                    <div id="All-people" class="filter-item-container" selected=true>
+                        <div class="filter-item-text">All</div>
+                    </div>
+                    <div class="filter-item-container" selected=false>
+                        <div id="Admin-people" class="filter-item-text">Admin</div>
+                    </div>
+                    <div class="filter-item-container" selected=false>
+                        <div id="Tutor-people" class="filter-item-text">Tutor</div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="filter-button" id="Subject" selected="All">
+                <div class="triangle-down"></div>
+                <div class="filter-menu fmclosed" id="subjects">
+                    <div id="All-subjects" class="filter-item-container" selected=true>
+                        <div lass="filter-item-text">All</div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="filter-button" id="School" selected="All">
+                <div class="triangle-down"></div>
+                <div class="filter-menu fmclosed" id="schools">
+                    <div id="All-schools" class="filter-item-container" selected=true>
+                        <div class="filter-item-text">All</div>
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="filter-button" id="Location" selected="All">
+                <div class="triangle-down"></div>
+                <div class="filter-menu fmclosed">
+                    <div id="All-location" class="filter-item-container" selected=true>
+                        <div class="filter-item-text">All</div>
+                    </div>
+                    <div id="In-person-location" class="filter-item-container" selected=false>
+                        <div class="filter-item-text">In-person</div>
+                    </div>
+                    <div id="Online-location" class="filter-item-container" selected=false>
+                        <div class="filter-item-text">Online</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="filter-reset-line">
+            <p>Viewing 8 of 8 results.&nbsp;</p>
+            <div class="link-button">Reset all filters.</div>
+        </div>
+        <div id="tutor-container">
+
+        </div>
+    </div>
+
+
+    <!--  -->
+    <div id="sheet-back" class="sclosed">
+        <!--  -->
+        <div id="sheet-container" class="scontent">
+            <div id="sheet-content-container">
+
+                <div id="sheet-header">
+                    <div id="sheet-name"></div>
+                    <div id="sheet-school" class="oblique"></div>
+                </div>
+                <div id="sheet-body">
+                    <div id="sheet-body-images">
+                        <img src="" alt="top" id="sheet-pic-top" class="sheet-pic">
+                        <img src="" alt="alt" id="sheet-pic-alt" class="sheet-pic">
+                    </div>
+                    <div id="sheet-body-content">
+                        <div id="sheet-body-about" field="About">
+                        </div>
+                        <div id="sheet-body-subjects">
+                        </div>
+                    </div>
+                </div>
+                <div id="sheet-request-tutor-content" class="sheet-request-tutor oblique">
+                    Request Tutor Online
+                </div>
+            </div>
+            <div id="sheet-request-container">
+                <div id="sheet-request-header">
+                    <div id="request-header-top">Requesting a Tutor</div>
+                    <div id="request-header-bot">Please fill out the information below and we will contact you.</div>
+                </div>
+                <form action="" id="request-form">
+                    <div class="request-long request-box" field="Parent Name *" contenteditable></div>
+                    <div class="request-long request-box" field="Parent Email *" contenteditable></div>
+                    <div class="request-long request-box" field="Parent Cell" contenteditable></div>
+
+                    <div class="request-row">
+
+                        <div class="request-med request-dropdown request-box" selected="All" field="Subject *"
+                            id="subjectdrop">
+                            <div class="triangle-down"></div>
+                            <div class="request-menu rmclosed" id="subjectsreq">
+                                <div class="request-item-container">
+                                    <div class="request-item-text">
+                                        All
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="request-short request-dropdown request-box" selected="All" field="Location *"
+                            id="locationdrop">
+                            <div class="triangle-down"></div>
+                            <div class="request-menu rmclosed">
+                                <div id="All-locationreq" class="request-item-container" selected=true>
+                                    <div class="request-item-text">All</div>
+                                </div>
+                                <div id="In-person-locationreq" class="request-item-container" selected=false>
+                                    <div class="request-item-text">In-person</div>
+                                </div>
+                                <div id="Online-locationreq" class="request-item-container" selected=false>
+                                    <div class="request-item-text">Online</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="request-row">
+
+
+                        <div class="request-med request-dropdown request-box" selected="All" field="Tutor *"
+                            id="tutordrop">
+                            <div class="triangle-down"></div>
+                            <div class="request-menu rmclosed" id="tutorsreq">
+                                <div class="request-item-container">
+                                    <div class="request-item-text">
+                                        All
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="request-short request-dropdown request-box" selected="Select..."
+                            field="Preferred Meeting Time *" id="preferred-meeting-time">
+                            <div class="triangle-down"></div>
+                            <div class="request-menu rmclosed">
+                                <div class="request-item-container">
+                                    <div class="request-item-text">
+                                        All
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="textarea-before" field="Message"></div>
+                    <textarea class="request-message" contenteditable></textarea> -->
+                </form>
+                <div id="sheet-request-tutor-request" class="sheet-request-tutor oblique disabled-button">
+                    Request Tutor Online
+                </div>
+            </div>
+
+            <div id="sheet-thanks-container">
+                Thank you, we will contact you soon.
+            </div>
+
+            <div id="sheet-close" onclick="closeSheet()"></div>
+        </div>
+
+    </div>
+    <!-- <script src="https://cdn.statically.io/gh/jtepp/allPurpose/Home/dist/alexander/script.js"></script> -->
+    <script src="script.js"></script>
+</body>
+
+</html>
