@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 200px;
+    gap: 100px;
+}
+
+.textbook-thumb {
+    position: relative;
+    width: 100%;
+    min-width: 250px;
+    max-width: 400px;
+    box-shadow: 1px 1px 6px #000;
+    cursor: pointer;
+}
+
+.textbook-thumb::before {
+    content: "Look inside ⤵︎";
+    position: absolute;
+    transform: translate(0, -100%);
+    top: 0;
+    right: 0;
+    font-style: oblique;
+    font-size: 20px;
+}
+
+.textbook-thumb>img {
+    width: 100%;
+    height: auto;
+}
