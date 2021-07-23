@@ -12,7 +12,7 @@
     width: 100%;
     min-width: 250px;
     max-width: 400px;
-    height: auto;
+    height: fit-content;
     box-shadow: 1px 1px 6px #000;
     cursor: pointer;
     background-size: cover;
@@ -35,12 +35,11 @@
 }
 
 #look-inside-popover.pclosed {
-    opacity: 0;
-    pointer-events: none;
+    transform: scale(0);
 }
 
 #look-inside-popover.popen {
-    opacity: 1;
+    transform: scale(1);
 }
 
 #look-inside-popover {
