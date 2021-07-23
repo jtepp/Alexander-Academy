@@ -20,8 +20,8 @@ class Tutor {
             "History": [randomElement(["World History", "United States", "Civilizations"])],
             "SAT/ACT": [randomElement(["SAT", "ACT"])]
         }
-        this.imgurl = "https://raw.githubusercontent.com/jtepp/allPurpose/Home/dist/alexander/Tutor" + Math.floor(Math.random() * 2 + 1) + ".png"
-        this.altimgurl = "https://raw.githubusercontent.com/jtepp/allPurpose/Home/dist/alexander/alttutor.png"
+        this.imgurl = "https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/Tutor" + Math.floor(Math.random() * 2 + 1) + ".png"
+        this.altimgurl = "https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/alttutor.png"
         this.location = randomElement(["in-person", "online"])
         this.role = randomElement(["tutor", "admin"])
     }
