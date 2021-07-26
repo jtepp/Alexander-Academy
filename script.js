@@ -23,8 +23,8 @@ class Tutor {
         }
         this.imgurl = "https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/Tutor" + Math.floor(Math.random() * 2 + 1) + ".png"
         this.altimgurl = "https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/alttutor.png"
-        this.location = randomElement(["in-person", "online"])
-        this.role = randomElement(["tutor", "admin"])
+        this.location = randomElement(["Atlanta", "Boston", "New York"])
+        this.role = randomElement(["Tutor", "Admin"])
     }
 
 }
@@ -32,8 +32,10 @@ class Tutor {
 var chosenSubjects = []
 var chosenTutors = []
 var chosenSchools = []
+var chosenLocations = []
 var allSubjects = {}
 var allSchools = []
+var allLocations = []
 var allTutors = [...Array(Math.floor(16 + Math.random() * 10))].map(() => new Tutor()) //make list of tutors
 
 processTutors(allTutors, true)
@@ -79,7 +81,7 @@ document.body.onclick = function (e) {
         toggleClassOpenClosed(e.target.children[1], "fm")
 
 
-    } else if (!e.target.classList.toString().includes("filter")) { // Close all filters if target has nothing to do with filters
+    } else if (!e.target.classList.toString().includes("filter") && !e.target.classList.contains("header-box")) { // Close all filters if target has nothing to do with filters
         for (let el of document.getElementsByClassName("filter-button")) {
             el.children[1].classList.remove("fmopen")
             el.children[1].classList.add("fmclosed")
@@ -98,7 +100,7 @@ document.body.onclick = function (e) {
         toggleClassOpenClosed(e.target.children[1], "rm")
 
 
-    } else if (!e.target.classList.toString().includes("dropdown") && !e.target.classList.toString().includes("item")) {
+    } else if (!e.target.classList.toString().includes("dropdown") && !e.target.classList.toString().includes("item") && !e.target.classList.contains("header-box")) {
         for (let el of document.getElementsByClassName("request-dropdown")) {
             el.children[1].classList.remove("rmopen")
             el.children[1].classList.add("rmclosed")
@@ -172,15 +174,23 @@ document.body.onclick = function (e) {
                 if (c != e.target)
                     c.children[0].setAttribute("checked", "false")
             }
+        } else if (e.target.id == "All-locations") {
+            chosenLocations = []
+            document.getElementById("Location").setAttribute("selected", "Online")
+            for (let c of e.target.parentNode.children) {
+                if (c != e.target)
+                    c.children[0].setAttribute("checked", "false")
+            }
         }
 
 
     } else if (e.target.classList.contains("filter-dropdown-header")) { // Click dropdown header to toggle 
         toggleClassOpenClosed(e.target.nextSibling, "fid")
-    } else if (e.target.classList.contains("filter-header-box")) { // toggle header checkbox and children
+    } else if (e.target.classList.contains("header-box")) { // toggle header checkbox and children
         toggleHeaderCheckbox(e.target)
     } else if (e.target.classList.contains("filter-item-container") && e.target.children[0].classList.contains("filter-item-checkbox")) { //click checkbox to toggle
-        toggleAttributeCheckBox(e.target.children[0], "checked", (e.target.parentNode.classList.contains("filter-item-dropdown")) ? "subject" : "school")
+        console.log(e.target.parentNode.parentNode.id.toLowerCase())
+        toggleAttributeCheckBox(e.target.children[0], "checked", e.target.parentNode.parentNode.id.toLowerCase())
         for (let el of document.getElementsByClassName("request-item-checkbox")) {
             if (el.innerHTML == e.target.children[0].innerHTML) {
                 // toggleAttributeCheckBox(el, "checked", "subject")
@@ -203,14 +213,6 @@ document.body.onclick = function (e) {
         e.target.setAttribute("selected", true)
 
         // change filter stuff here too
-
-        if (e.target.parentNode.parentNode.id == "locationdrop") {
-            document.getElementById("Location").setAttribute("selected", newText)
-            for (let el of document.getElementById("Location").children[1].children) {
-                el.setAttribute("selected", false)
-            }
-            document.getElementById(e.target.id.replace("req", "")).setAttribute("selected", true)
-        }
 
     }
     if (e.target.id == "All-subjectsreq") {
@@ -281,7 +283,7 @@ document.body.onclick = function (e) {
     }
 
 
-    if (e.target.classList.contains("link-button")) { // Click on reset button to reset all filters
+    if (e.target.id == "reset-link") { // Click on reset button to reset all filters
         setFalseExceptAll()
         filterTutors()
     }
@@ -318,16 +320,18 @@ function toggleClassOpenClosed(element, pre) {
 function toggleAttributeCheckBox(element, attr, usage) {
     if (element.getAttribute(attr) == "true") {
         element.setAttribute(attr, "false")
-        if (usage == "subject") {
+        if (usage == "subjects") {
             removeElementFromArray(chosenSubjects, element.innerText)
         } else if (usage == "school") {
             removeElementFromArray(chosenSchools, element.innerText)
         } else if (usage == "tutor") {
             removeElementFromArray(chosenTutors, element.innerText)
+        } else if (usage == "location") {
+            removeElementFromArray(chosenLocations, element.innerText)
         }
     } else if (element.getAttribute(attr) == "false") {
         element.setAttribute(attr, "true")
-        if (usage == "subject") {
+        if (usage == "subjects") {
             if (!chosenSubjects.includes(element.innerText)) {
                 chosenSubjects.push(element.innerText)
             }
@@ -339,9 +343,13 @@ function toggleAttributeCheckBox(element, attr, usage) {
             if (!chosenTutors.includes(element.innerText)) {
                 chosenTutors.push(element.innerText)
             }
+        } else if (usage == "location") {
+            if (!chosenLocations.includes(element.innerText)) {
+                chosenLocations.push(element.innerText)
+            }
         }
     }
-    if (usage == "subject") {
+    if (usage == "subjects") {
         const header = element.parentNode.parentNode.previousSibling
         if (chosenSubjects.length == 0) {
             document.getElementById("Subject").setAttribute("selected", "All")
@@ -384,13 +392,17 @@ function toggleAttributeCheckBox(element, attr, usage) {
             document.getElementById("tutordrop").setAttribute("selected", chosenTutors.length < 2 ? chosenTutors.join(", ") : `${chosenTutors[0]},...`)
             document.getElementById("All-tutorsreq").setAttribute("selected", "false")
         }
+    } else if (usage == "location") {
+        if (chosenLocations.length == 0) {
+            document.getElementById("Location").setAttribute("selected", "All")
+        } else {
+            document.getElementById("Location").setAttribute("selected", chosenLocations.length < 3 ? chosenLocations.join(", ") : `${chosenLocations[0]}, ${chosenLocations[1]},...`)
+        }
     }
     filterTutors()
-    console.log(chosenSubjects)
 }
 
 function setFalseExceptAll(onlyCheckboxes) {
-    console.log("setfalse")
     for (let el of document.getElementsByClassName("filter-item-container")) {
         if (el.getAttribute("selected") == "true" && el.children[0].innerText != "All") {
             el.setAttribute('selected', 'false')
@@ -398,7 +410,13 @@ function setFalseExceptAll(onlyCheckboxes) {
     }
     //set all elements of filter-button to attribuute selected = All
     for (let el of document.getElementsByClassName("filter-button")) {
-        el.setAttribute('selected', 'All')
+        if (el.id == "Location") {
+            el.setAttribute('selected', 'Online')
+        } else if (el.id == "People") {
+            el.setAttribute('selected', 'Tutor')
+        } else {
+            el.setAttribute('selected', 'All')
+        }
     }
     for (let el of document.getElementsByClassName("filter-item-checkbox")) {
         el.setAttribute('checked', 'false')
@@ -418,6 +436,14 @@ function setFalseExceptAll(onlyCheckboxes) {
         el.setAttribute('checked', 'false')
         chosenSubjects = []
     }
+
+    for (let el of document.querySelectorAll("[all-selected]")) {
+        el.setAttribute('all-selected', 'false')
+    }
+    for (let el of document.querySelectorAll("[selected-inside]")) {
+        el.setAttribute('selected-inside', '')
+    }
+
 
 }
 
@@ -453,6 +479,9 @@ function processTutors(givenTutors, initial) { // Iterate through tutors to make
     for (let t of givenTutors) {
         if (!allSchools.includes(t.school)) { // if list doesnt have this school, add it
             allSchools.push(t.school)
+        }
+        if (!allLocations.includes(t.location)) { // if list doesnt have this location, add it
+            allLocations.push(t.location)
         }
         for (let s in t.subjects) { // subjects
             for (let c of t.subjects[s]) { // classes
@@ -493,6 +522,18 @@ function processTutors(givenTutors, initial) { // Iterate through tutors to make
         for (let tut of allTutors) { //req tutors
             tur.appendChild(returnDropdownCheck(tut.name, true))
         }
+        let ef = document.getElementById("locations")
+        ef.innerHTML = ""
+        ef.appendChild(returnAllButton("locations", false, "Online"))
+        for (let l of allLocations) { //locations
+            ef.appendChild(returnDropdownCheck(l))
+        }
+        let er = document.getElementById("locationsreq")
+        er.innerHTML = ""
+        er.appendChild(returnAllButton("locationsreq", true, "Online"))
+        for (let l of allLocations) { //locations
+            er.appendChild(returnDropdownText(l, true))
+        }
     }
     document.getElementById("filter-reset-line").children[0].innerHTML = `Viewing ${givenTutors.length} of ${allTutors.length} results&nbsp;`
 }
@@ -502,9 +543,9 @@ function returnDropdownHeader(name, request) {
     dropdownHeader.classList.add((request ? "request" : "filter") + "-dropdown-header")
     dropdownHeader.setAttribute('selected-inside', "")
     dropdownHeader.innerText = name
-    let fhcb = document.createElement("div")
-    fhcb.classList.add("filter-header-box")
-    dropdownHeader.appendChild(fhcb)
+    let hb = document.createElement("div")
+    hb.classList.add("header-box")
+    dropdownHeader.appendChild(hb)
     return dropdownHeader
 }
 
@@ -529,13 +570,13 @@ function returnDropdownItemsAdded(classes, request) {
     return dropdown
 }
 
-function returnDropdownText(name) {
+function returnDropdownText(name, request) {
     let schoolcont = document.createElement("div")
-    schoolcont.classList.add("filter-item-container")
+    schoolcont.classList.add((request ? "request" : "filter") + "-item-container")
     schoolcont.setAttribute("selected", "false")
 
     let schoolitem = document.createElement("div")
-    schoolitem.classList.add("filter-item-text")
+    schoolitem.classList.add((request ? "request" : "filter") + "-item-text")
     schoolitem.innerHTML = name
 
     schoolcont.appendChild(schoolitem)
@@ -545,18 +586,18 @@ function returnDropdownText(name) {
 }
 
 function returnDropdownCheck(name, request) {
-    let schoolcont = document.createElement("div")
-    schoolcont.classList.add((request ? "request" : "filter") + "-item-container")
-    schoolcont.setAttribute("selected", "false")
+    let dcont = document.createElement("div")
+    dcont.classList.add((request ? "request" : "filter") + "-item-container")
+    dcont.setAttribute("selected", "false")
 
-    let schoolitem = document.createElement("div")
-    schoolitem.classList.add((request ? "request" : "filter") + "-item-checkbox")
-    schoolitem.setAttribute("checked", "false")
-    schoolitem.innerHTML = name
+    let ditem = document.createElement("div")
+    ditem.classList.add((request ? "request" : "filter") + "-item-checkbox")
+    ditem.setAttribute("checked", "false")
+    ditem.innerHTML = name
 
-    schoolcont.appendChild(schoolitem)
+    dcont.appendChild(ditem)
 
-    return schoolcont
+    return dcont
 
 }
 
@@ -637,8 +678,8 @@ function filterTutors() {
         const tSubjects = currentSubject == "All" ? true : chosenSubjects.every(subject => {
             return Object.values(tutor.subjects).flat().includes(subject)
         })
-        const tLocation = currentLocation == "All" ? true : currentLocation.toLowerCase() == tutor.location
-        const tPeople = currentPeople == "All" ? true : currentPeople.toLowerCase() == tutor.role
+        const tLocation = currentLocation == "Online" ? true : chosenLocations.includes(tutor.location)
+        const tPeople = currentPeople == tutor.role
 
         return (tSchool && tSubjects && tLocation && tPeople)
     })
@@ -666,7 +707,7 @@ function removeElementFromArray(arr, elem) {
     }
 }
 
-function returnAllButton(idsuffix, request) {
+function returnAllButton(idsuffix, request, alt) {
     const d = document.createElement("div")
     d.classList.add((request ? "request" : "filter") + "-item-container")
     d.setAttribute("selected", "true")
@@ -674,7 +715,7 @@ function returnAllButton(idsuffix, request) {
 
     const a = document.createElement("div")
     a.classList.add((request ? "request" : "filter") + "-item-text")
-    a.innerHTML = "All"
+    a.innerHTML = alt || "All"
 
     d.appendChild(a)
 
@@ -689,7 +730,7 @@ function toggleHeaderCheckbox(el) {
         header.setAttribute("all-selected", "true")
         for (let c of header.nextSibling.children) {
             if (c.children[0].getAttribute("checked") == "false") {
-                toggleAttributeCheckBox(c.children[0], "checked", "subject")
+                toggleAttributeCheckBox(c.children[0], "checked", "subjects")
                 // if (!chosenSubjects.includes(c.children[0].innerText)) {
                 //     toggleAttributeCheckBox(c.children[0], "checked", "subject")
                 // }
@@ -700,7 +741,7 @@ function toggleHeaderCheckbox(el) {
         header.setAttribute("all-selected", "false")
         for (let c of header.nextSibling.children) {
             if (c.children[0].getAttribute("checked") == "true") {
-                toggleAttributeCheckBox(c.children[0], "checked", "subject")
+                toggleAttributeCheckBox(c.children[0], "checked", "subjects")
                 // if (chosenSubjects.includes(c.children[0].innerText)) {
                 //     removeElementFromArray(chosenSubjects, c.children[0].innerText)
                 // }

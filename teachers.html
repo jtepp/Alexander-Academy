@@ -29,17 +29,17 @@
 
         <div id="filter-cont">
 
-            <div class="filter-button" id="People" selected="All">
+            <div class="filter-button" id="People" selected="Tutor">
                 <div class="triangle-down"></div>
                 <div class="filter-menu fmclosed">
-                    <div id="All-people" class="filter-item-container" selected=true>
+                    <!-- <div id="All-people" class="filter-item-container" selected=true>
                         <div class="filter-item-text">All</div>
+                    </div> -->
+                    <div class="filter-item-container" selected=false>
+                        <div id="Tutor-people" class="filter-item-text">Tutor</div>
                     </div>
                     <div class="filter-item-container" selected=false>
                         <div id="Admin-people" class="filter-item-text">Admin</div>
-                    </div>
-                    <div class="filter-item-container" selected=false>
-                        <div id="Tutor-people" class="filter-item-text">Tutor</div>
                     </div>
 
                 </div>
@@ -64,18 +64,10 @@
 
                 </div>
             </div>
-            <div class="filter-button" id="Location" selected="All">
+            <div class="filter-button" id="Location" selected="Online">
                 <div class="triangle-down"></div>
-                <div class="filter-menu fmclosed">
-                    <div id="All-location" class="filter-item-container" selected=true>
-                        <div class="filter-item-text">All</div>
-                    </div>
-                    <div id="In-person-location" class="filter-item-container" selected=false>
-                        <div class="filter-item-text">In-person</div>
-                    </div>
-                    <div id="Online-location" class="filter-item-container" selected=false>
-                        <div class="filter-item-text">Online</div>
-                    </div>
+                <div class="filter-menu fmclosed" id="locations">
+
                 </div>
             </div>
 
@@ -83,7 +75,7 @@
 
         <div id="filter-reset-line">
             <p>Viewing 8 of 8 results.&nbsp;</p>
-            <div class="link-button">Reset all filters.</div>
+            <div class="link-button" id="reset-link">Reset all filters.</div>
         </div>
         <div id="tutor-container">
 
@@ -140,19 +132,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="request-short request-dropdown request-box" selected="All" field="Location *"
+                        <div class="request-short request-dropdown request-box" selected="Online" field="Location *"
                             id="locationdrop">
                             <div class="triangle-down"></div>
-                            <div class="request-menu rmclosed">
-                                <div id="All-locationreq" class="request-item-container" selected=true>
-                                    <div class="request-item-text">All</div>
-                                </div>
-                                <div id="In-person-locationreq" class="request-item-container" selected=false>
-                                    <div class="request-item-text">In-person</div>
-                                </div>
-                                <div id="Online-locationreq" class="request-item-container" selected=false>
-                                    <div class="request-item-text">Online</div>
-                                </div>
+                            <div class="request-menu rmclosed" id="locationsreq">
+
                             </div>
                         </div>
 

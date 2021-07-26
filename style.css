@@ -60,7 +60,7 @@ body {
 #main-container {
     display: flex;
     flex-direction: column;
-    margin-top: 234px;
+    margin-top: 202px;
     margin-bottom: 200px;
 }
 
@@ -121,7 +121,6 @@ body {
     content: attr(selected);
     padding-left: 12px;
     max-height: 30px;
-    overflow-y: scroll;
     margin-bottom: -5px;
 }
 
@@ -230,14 +229,18 @@ body {
     background: #CBCBCB;
 }
 
-.filter-header-box {
+.header-box {
     position: absolute;
     top: calc(50% - 4px);
     left: 181px;
     transform: translateY(-50%);
 }
 
-[selected-inside=""]>.filter-header-box {
+.request-dropdown-header>.header-box {
+    left: 171px;
+}
+
+[selected-inside=""]>.header-box {
     width: 15px;
     height: 15px;
     border: 0.5px solid #1f1f1f;
@@ -246,7 +249,7 @@ body {
     overflow: hidden;
 }
 
-:not([selected-inside=""])>.filter-header-box {
+:not([selected-inside=""])>.header-box {
     width: 15px;
     height: 15px;
     background-color: #CBCBCB;
@@ -258,7 +261,7 @@ body {
     overflow: hidden;
 }
 
-[all-selected="true"]>.filter-header-box {
+[all-selected="true"]>.header-box {
     width: 15px;
     height: 15px;
     background-color: #CBCBCB;
@@ -341,8 +344,7 @@ body {
 }
 
 
-.filter-item-checkbox[checked=false]::before,
-.request-item-checkbox[checked=false]::before {
+.filter-item-checkbox[checked=false]::before {
     position: absolute;
     top: calc(50% - 4px);
     left: 181px;
@@ -356,11 +358,41 @@ body {
     overflow: hidden;
 }
 
-.filter-item-checkbox[checked=true]::before,
-.request-item-checkbox[checked=true]::before {
+.filter-item-checkbox[checked=true]::before {
     position: absolute;
     top: calc(50% - 4px);
     left: 181px;
+    transform: translateY(-50%);
+    content: "";
+    width: 15px;
+    height: 15px;
+    background-color: #CBCBCB;
+    background-image: url("https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/checkmark.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    border-radius: 1px;
+    overflow: hidden;
+}
+
+.request-item-checkbox[checked=false]::before {
+    position: absolute;
+    top: calc(50% - 4px);
+    left: 171px;
+    transform: translateY(-50%);
+    content: "";
+    width: 15px;
+    height: 15px;
+    border: 0.5px solid #1f1f1f;
+    box-sizing: border-box;
+    border-radius: 1px;
+    overflow: hidden;
+}
+
+.request-item-checkbox[checked=true]::before {
+    position: absolute;
+    top: calc(50% - 4px);
+    left: 171px;
     transform: translateY(-50%);
     content: "";
     width: 15px;
@@ -644,6 +676,10 @@ body {
     -webkit-user-select: none;
 }
 
+.sheet-request-tutor:hover {
+    background: rgba(80, 24, 26, 0.18);
+}
+
 #sheet-close {
     width: 22px;
     height: 22px;
@@ -690,7 +726,8 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    width: fit-content;
+    min-width: 370px;
+    width: 50%;
     gap: 20px;
 }
 
@@ -904,7 +941,7 @@ body {
 
 #sidebar {
     padding-left: 108px;
-    margin-top: 234px;
+    margin-top: 213px;
     display: flex;
     flex-direction: column;
     min-width: 252px;
@@ -920,7 +957,7 @@ body {
     cursor: pointer;
 }
 
-#sidebar-about {
+#sidebar-about::before {
     font-weight: 700;
     font-size: 24px;
     color: var(--maroon)
@@ -928,4 +965,8 @@ body {
 
 [text="Teaching Staff"]::before {
     font-weight: 700;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
