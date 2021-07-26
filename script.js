@@ -183,7 +183,8 @@ document.body.onclick = function (e) {
         toggleAttributeCheckBox(e.target.children[0], "checked", (e.target.parentNode.classList.contains("filter-item-dropdown")) ? "subject" : "school")
         for (let el of document.getElementsByClassName("request-item-checkbox")) {
             if (el.innerHTML == e.target.children[0].innerHTML) {
-                toggleAttributeCheckBox(el, "checked", "subject")
+                // toggleAttributeCheckBox(el, "checked", "subject")
+                // for some reason this was running twice ??????
             }
         }
 
@@ -244,6 +245,7 @@ document.body.onclick = function (e) {
             if (c != e.target)
                 c.children[0].setAttribute("checked", "false")
         }
+
         filterTutors()
     }
 
@@ -388,6 +390,7 @@ function toggleAttributeCheckBox(element, attr, usage) {
 }
 
 function setFalseExceptAll(onlyCheckboxes) {
+    console.log("setfalse")
     for (let el of document.getElementsByClassName("filter-item-container")) {
         if (el.getAttribute("selected") == "true" && el.children[0].innerText != "All") {
             el.setAttribute('selected', 'false')
@@ -703,7 +706,5 @@ function toggleHeaderCheckbox(el) {
             }
         }
     }
-
-    filterTutors()
     console.log(header.getAttribute("selected-inside"))
 }
