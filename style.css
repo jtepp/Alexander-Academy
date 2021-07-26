@@ -60,7 +60,7 @@ body {
 #main-container {
     display: flex;
     flex-direction: column;
-    margin: 234px 114px 0px 0px;
+    margin-top: 234px;
     margin-bottom: 200px;
 }
 
@@ -89,6 +89,7 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 50px;
 }
 
 .filter-button {
@@ -98,7 +99,7 @@ body {
     border: 1px solid var(--border);
     border-radius: 5px;
     position: relative;
-    margin-right: 50px;
+    /* margin-right: 50px; */
     margin-top: 69px;
     display: flex;
     flex-direction: row;
