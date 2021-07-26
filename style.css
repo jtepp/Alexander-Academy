@@ -53,12 +53,14 @@
 
 body {
     background-color: var(--background);
+    display: flex;
+    flex-direction: row;
 }
 
 #main-container {
     display: flex;
     flex-direction: column;
-    margin: 234px 114px 0px 114px;
+    margin: 234px 114px 0px 0px;
     margin-bottom: 200px;
 }
 
@@ -447,7 +449,7 @@ body {
     }
 
     #main-container {
-        margin-left: 10%;
+        /* margin-left: 10%; */
         margin-right: 10%;
     }
 }
@@ -482,7 +484,7 @@ body {
     transform: translate(-50%, -50%);
     background: #fff;
     border-radius: 10px;
-    max-height: 80vh;
+    max-height: 90vh;
     max-width: 80vw;
     transition: top var(--transition), transform var(--transition);
     height: fit-content;
@@ -494,7 +496,11 @@ body {
 }
 
 #sheet-container.srequest {
-    min-width: 485px;
+    /* min-width: 485px; */
+}
+
+#preferred-meeting-time::before {
+    font-size: 12px;
 }
 
 #sheet-content-container {
@@ -682,29 +688,29 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 58px;
+    padding: 20px;
     width: fit-content;
-    gap: 50px;
+    gap: 20px;
 }
 
 #sheet-request-header {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    align-items: center;
+    align-items: left;
     width: 100%;
-    margin-bottom: 27px;
+    gap: 5px;
+    margin-bottom: 20px;
 }
 
 #request-header-top {
     color: var(--maroon);
-    font-size: 36px;
+    font-size: 18px;
     font-weight: bold;
 }
 
 #request-header-bot {
     color: var(--black);
-    font-size: 18px;
+    font-size: 16px;
 }
 
 #request-form {
@@ -712,7 +718,7 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    gap: 50px;
+    gap: 36px;
 }
 
 #request-form>*:not(.request-row),
@@ -746,6 +752,7 @@ body {
     transform: translateY(-100%);
     left: 0;
     top: -10px;
+    font-size: 14px;
     cursor: default;
 }
 
@@ -890,4 +897,32 @@ body {
     -moz-transition: none !important;
     -ms-transition: none !important;
     -o-transition: none !important;
+}
+
+#sidebar {
+    padding-left: 108px;
+    margin-top: 234px;
+    display: flex;
+    flex-direction: column;
+    min-width: 252px;
+    /* align-items: center; */
+    text-align: left;
+    gap: 23px;
+}
+
+#sidebar>*::before {
+    content: attr(text);
+    font-size: 18px;
+    color: var(--black);
+    cursor: pointer;
+}
+
+#sidebar-about {
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--maroon)
+}
+
+[text="Teaching Staff"]::before {
+    font-weight: 700;
 }
