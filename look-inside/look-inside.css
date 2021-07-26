@@ -65,5 +65,7 @@
 
 .popover-content>embed {
     width: 600px;
-    height: 400px;
+    height: 800px;
+    max-width: 80vw;
+    max-height: 80vh;
 }

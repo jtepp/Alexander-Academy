@@ -12,6 +12,7 @@ class Tutor {
         this.school = randomElement(["Yale", "Duke", "Georgia Tech", "Harvard", "Columbia", "MIT", "Stanford"])
         this.sat = Math.floor(150 + Math.random() * 1) * 10
         this.act = Math.floor(30 + Math.random() * 9)
+        this.ap5 = ["Calculus", "Biology", "Forensics", "Psychology", "US History", "Chemistry", "Physics 1"]
         this.about = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua onsectetur adipiscing elit, sed do adipiscing elit, sed do eiusmod tempor incididu ut labore et dolore magna aliqua onsectetur ghnmm nmk"
         this.subjects = {
             "Math": randomSlice(["Algebra 1", "Algebra 2", "Calculus", "Geometry", "Linear Algebra"], 2),
@@ -137,6 +138,12 @@ document.body.onclick = function (e) {
             chosenSubjects = []
             document.getElementById("Subject").setAttribute("selected", "All")
             document.getElementById("subjectdrop").setAttribute("selected", "All")
+            for (let h of e.target.parentNode.children) {
+                if (h.classList.contains("filter-dropdown-header")) {
+                    h.setAttribute('selected-inside', '')
+                    h.setAttribute('all-selected', 'false')
+                }
+            }
 
             for (let el of e.target.parentNode.children) {
                 if (el.classList.contains("filter-item-dropdown")) {
@@ -170,6 +177,8 @@ document.body.onclick = function (e) {
 
     } else if (e.target.classList.contains("filter-dropdown-header")) { // Click dropdown header to toggle 
         toggleClassOpenClosed(e.target.nextSibling, "fid")
+    } else if (e.target.classList.contains("filter-header-checkbox")) { // toggle header checkbox and children
+        toggleHeaderCheckbox(e.target)
     } else if (e.target.classList.contains("filter-item-container") && e.target.children[0].classList.contains("filter-item-checkbox")) { //click checkbox to toggle
         toggleAttributeCheckBox(e.target.children[0], "checked", (e.target.parentNode.classList.contains("filter-item-dropdown")) ? "subject" : "school")
         for (let el of document.getElementsByClassName("request-item-checkbox")) {
@@ -331,11 +340,16 @@ function toggleAttributeCheckBox(element, attr, usage) {
         }
     }
     if (usage == "subject") {
+        const header = element.parentNode.parentNode.previousSibling
         if (chosenSubjects.length == 0) {
             document.getElementById("Subject").setAttribute("selected", "All")
             document.getElementById("subjectdrop").setAttribute("selected", "All")
             document.getElementById("All-subjects").setAttribute("selected", "true")
             document.getElementById("All-subjectsreq").setAttribute("selected", "true")
+            if (header.classList.toString().includes("-dropdown-header")) {
+                header.setAttribute("selected-inside", "")
+                header.setAttribute("all-selected", "false")
+            }
         } else {
 
             document.getElementById("Subject").setAttribute("selected", chosenSubjects.length < 2 ? chosenSubjects.join(", ") : `${chosenSubjects[0]},...`)
@@ -343,6 +357,14 @@ function toggleAttributeCheckBox(element, attr, usage) {
             document.getElementById("All-subjects").setAttribute("selected", "false")
             document.getElementById("All-subjectsreq").setAttribute("selected", "false")
 
+            if (header.classList.toString().includes("-dropdown-header")) {
+                header.setAttribute("selected-inside", chosenSubjects.join(", "))
+                if ([...element.parentNode.parentNode.children].every(x => x.children[0].getAttribute("checked") == "true")) {
+                    header.setAttribute("all-selected", "true")
+                } else {
+                    header.setAttribute("all-selected", "false")
+                }
+            }
         }
     } else if (usage == "school") {
         if (chosenSchools.length == 0) {
@@ -473,7 +495,11 @@ function processTutors(givenTutors, initial) { // Iterate through tutors to make
 function returnDropdownHeader(name, request) {
     let dropdownHeader = document.createElement("div")
     dropdownHeader.classList.add((request ? "request" : "filter") + "-dropdown-header")
+    dropdownHeader.setAttribute('selected-inside', "")
     dropdownHeader.innerText = name
+    let fhcb = document.createElement("div")
+    fhcb.classList.add("filter-header-checkbox")
+    dropdownHeader.appendChild(fhcb)
     return dropdownHeader
 }
 
@@ -584,7 +610,13 @@ function fillSheet(tutor) {
 
     sat.innerHTML = `${tutor.sat ? "SAT "+tutor.sat : ""}${(tutor.sat && tutor.act) ? "<br>" : ""}${tutor.act ? "ACT "+tutor.act : ""}`
 
+    const ap5 = document.createElement("div")
+    ap5.setAttribute("field", "AP 5's")
+    ap5.innerText = tutor.ap5.map(a => "AP " + a).join(", ")
+
+
     subjects.appendChild(sat)
+    subjects.appendChild(ap5)
     subjects.appendChild(ts)
 
 }
@@ -642,4 +674,22 @@ function returnAllButton(idsuffix, request) {
     d.appendChild(a)
 
     return d
+}
+
+function toggleHeaderCheckbox(el) {
+    const header = el.parentNode
+
+    if (header.getAttribute("selected-inside") == "") {
+        header.setAttribute("selected-inside", allSubjects[header.innerText].join(", "))
+        header.setAttribute("all-selected", "true")
+        for (let c of header.nextSibling.children) {
+            c.children[0].setAttribute("checked", "true")
+        }
+    } else {
+        header.setAttribute("selected-inside", "")
+        header.setAttribute("all-selected", "false")
+        for (let c of header.nextSibling.children) {
+            c.children[0].setAttribute("checked", "false")
+        }
+    }
 }
