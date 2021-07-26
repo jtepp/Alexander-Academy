@@ -435,6 +435,7 @@ function returnTutor(tutor) {
     tutorHtml.classList.add("tutor-cell")
 
     tutorImg.src = tutor.imgurl
+    tutorImg.setAttribute("draggable", "false")
 
     tutorHtml.appendChild(tutorImg)
 

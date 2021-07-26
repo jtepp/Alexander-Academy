@@ -752,7 +752,7 @@ body {
     position: absolute;
     transform: translateY(-100%);
     left: 0;
-    top: -10px;
+    top: 0px;
     font-size: 14px;
     cursor: default;
 }
@@ -791,12 +791,14 @@ body {
 }
 
 .textarea-before::before {
-    font-size: 18px;
     content: attr(field);
     position: absolute;
-    padding-left: 14px;
+    transform: translateY(-100%);
     left: 0px;
-    top: -15px;
+    top: 0px;
+    font-size: 14px;
+    cursor: default;
+    padding-left: 14px;
 }
 
 .request-dropdown {
