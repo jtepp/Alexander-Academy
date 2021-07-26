@@ -177,7 +177,7 @@ document.body.onclick = function (e) {
 
     } else if (e.target.classList.contains("filter-dropdown-header")) { // Click dropdown header to toggle 
         toggleClassOpenClosed(e.target.nextSibling, "fid")
-    } else if (e.target.classList.contains("filter-header-checkbox")) { // toggle header checkbox and children
+    } else if (e.target.classList.contains("filter-header-box")) { // toggle header checkbox and children
         toggleHeaderCheckbox(e.target)
     } else if (e.target.classList.contains("filter-item-container") && e.target.children[0].classList.contains("filter-item-checkbox")) { //click checkbox to toggle
         toggleAttributeCheckBox(e.target.children[0], "checked", (e.target.parentNode.classList.contains("filter-item-dropdown")) ? "subject" : "school")
@@ -323,7 +323,7 @@ function toggleAttributeCheckBox(element, attr, usage) {
         } else if (usage == "tutor") {
             removeElementFromArray(chosenTutors, element.innerText)
         }
-    } else {
+    } else if (element.getAttribute(attr) == "false") {
         element.setAttribute(attr, "true")
         if (usage == "subject") {
             if (!chosenSubjects.includes(element.innerText)) {
@@ -384,6 +384,7 @@ function toggleAttributeCheckBox(element, attr, usage) {
         }
     }
     filterTutors()
+    console.log(chosenSubjects)
 }
 
 function setFalseExceptAll(onlyCheckboxes) {
@@ -498,7 +499,7 @@ function returnDropdownHeader(name, request) {
     dropdownHeader.setAttribute('selected-inside', "")
     dropdownHeader.innerText = name
     let fhcb = document.createElement("div")
-    fhcb.classList.add("filter-header-checkbox")
+    fhcb.classList.add("filter-header-box")
     dropdownHeader.appendChild(fhcb)
     return dropdownHeader
 }
@@ -683,13 +684,26 @@ function toggleHeaderCheckbox(el) {
         header.setAttribute("selected-inside", allSubjects[header.innerText].join(", "))
         header.setAttribute("all-selected", "true")
         for (let c of header.nextSibling.children) {
-            c.children[0].setAttribute("checked", "true")
+            if (c.children[0].getAttribute("checked") == "false") {
+                toggleAttributeCheckBox(c.children[0], "checked", "subject")
+                // if (!chosenSubjects.includes(c.children[0].innerText)) {
+                //     toggleAttributeCheckBox(c.children[0], "checked", "subject")
+                // }
+            }
         }
     } else {
         header.setAttribute("selected-inside", "")
         header.setAttribute("all-selected", "false")
         for (let c of header.nextSibling.children) {
-            c.children[0].setAttribute("checked", "false")
+            if (c.children[0].getAttribute("checked") == "true") {
+                toggleAttributeCheckBox(c.children[0], "checked", "subject")
+                // if (chosenSubjects.includes(c.children[0].innerText)) {
+                //     removeElementFromArray(chosenSubjects, c.children[0].innerText)
+                // }
+            }
         }
     }
+
+    filterTutors()
+    console.log(header.getAttribute("selected-inside"))
 }

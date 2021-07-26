@@ -227,14 +227,14 @@ body {
     background: #CBCBCB;
 }
 
-.filter-header-checkbox {
+.filter-header-box {
     position: absolute;
     top: calc(50% - 4px);
     left: 181px;
     transform: translateY(-50%);
 }
 
-[selected-inside=""]>.filter-header-checkbox {
+[selected-inside=""]>.filter-header-box {
     width: 15px;
     height: 15px;
     border: 0.5px solid #1f1f1f;
@@ -243,7 +243,7 @@ body {
     overflow: hidden;
 }
 
-:not([selected-inside=""])>.filter-header-checkbox {
+:not([selected-inside=""])>.filter-header-box {
     width: 15px;
     height: 15px;
     background-color: #CBCBCB;
@@ -255,7 +255,7 @@ body {
     overflow: hidden;
 }
 
-[all-selected="true"]>.filter-header-checkbox {
+[all-selected="true"]>.filter-header-box {
     width: 15px;
     height: 15px;
     background-color: #CBCBCB;
