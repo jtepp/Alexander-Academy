@@ -521,9 +521,14 @@ body {
     transition: top var(--transition), transform var(--transition);
 }
 
-#sheet-container:not(.sheet-thanks-container) {
+#sheet-container:not(.sthanks) {
     width: 501px;
     height: 651px;
+}
+
+#sheet-container.sthanks {
+    width: 501px;
+    height: 108px;
 }
 
 #sheet-container>div:not(#sheet-close):not(#sheet-thanks-container) {
@@ -532,21 +537,25 @@ body {
 
 
 #sheet-thanks-container {
-    padding: 22px 40px;
+    /* padding: 22px 40px; */
+    margin-top: 22px;
     text-align: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 20px;
 }
 
 .thanks-header {
     font-weight: 700;
     font-size: 18px;
+    line-height: 25px;
     color: var(--maroon);
 }
 
 .thanks-msg {
     font-size: 16px;
+    line-height: 19px;
     color: var(--black);
 }
 
@@ -604,6 +613,7 @@ body {
 #sheet-body-about {
     position: relative;
     margin-top: 20px;
+    line-height: 20px;
 }
 
 #sheet-body-content>::before {
@@ -619,6 +629,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 55px;
+    line-height: 20px;
 }
 
 #sheet-body-subjects>div {
@@ -633,6 +644,7 @@ body {
     font-size: 16px;
     color: var(--black);
     font-weight: bold;
+    line-height: 25px;
 }
 
 /* #sheet-body-subjects>div {
@@ -832,6 +844,10 @@ body {
     font-size: 14px;
     cursor: default;
     padding-left: 14px;
+}
+
+.textarea-before::after {
+    content: "If there is any other information that you would like us to know, please leave a message here.";
 }
 
 .request-dropdown {

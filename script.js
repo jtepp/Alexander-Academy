@@ -91,9 +91,11 @@ document.body.onclick = function (e) {
     if (e.target.classList.contains("request-dropdown")) { // Click on request-dropdown button toggle request menu and turn others off
 
         for (let el of document.getElementsByClassName("request-dropdown")) {
-            if (el.children[1] != e.target.children[1]) {
-                el.children[1].classList.remove("rmopen")
-                el.children[1].classList.add("rmclosed")
+            if (el.children.length > 1) {
+                if (el.children[1] != e.target.children[1]) {
+                    el.children[1].classList.remove("rmopen")
+                    el.children[1].classList.add("rmclosed")
+                }
             }
         }
 
@@ -102,8 +104,10 @@ document.body.onclick = function (e) {
 
     } else if (!e.target.classList.toString().includes("dropdown") && !e.target.classList.toString().includes("item") && !e.target.classList.contains("header-box")) {
         for (let el of document.getElementsByClassName("request-dropdown")) {
-            el.children[1].classList.remove("rmopen")
-            el.children[1].classList.add("rmclosed")
+            if (el.children.length > 1) {
+                el.children[1].classList.remove("rmopen")
+                el.children[1].classList.add("rmclosed")
+            }
         }
     }
 
@@ -514,14 +518,14 @@ function processTutors(givenTutors, initial) { // Iterate through tutors to make
         let s = document.getElementById("schools")
         s.innerHTML = ""
         s.appendChild(returnAllButton("schools"))
-        let tur = document.getElementById("tutorsreq")
-        tur.innerHTML = ""
-        tur.appendChild(returnAllButton("tutorsreq", true))
+        // let tur = document.getElementById("tutorsreq")
+        // tur.innerHTML = ""
+        // tur.appendChild(returnAllButton("tutorsreq", true))
+        // for (let tut of allTutors) { //req tutors
+        // tur.appendChild(returnDropdownCheck(tut.name, true))
+        // }
         for (let v of allSchools) { // schools
             s.appendChild(returnDropdownCheck(v))
-        }
-        for (let tut of allTutors) { //req tutors
-            tur.appendChild(returnDropdownCheck(tut.name, true))
         }
         let ef = document.getElementById("locations")
         ef.innerHTML = ""
