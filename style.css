@@ -997,6 +997,10 @@ body {
     color: var(--maroon)
 }
 
+.sidebar-item {
+    width: 252px;
+}
+
 [text="Teaching Staff"]::before {
     font-weight: 700;
 }
