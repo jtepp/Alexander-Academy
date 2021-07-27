@@ -981,7 +981,7 @@ body {
     min-width: 252px;
     /* align-items: center; */
     text-align: left;
-    gap: 23px;
+    gap: 15px;
 }
 
 #sidebar>*::before {
