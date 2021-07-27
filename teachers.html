@@ -121,7 +121,7 @@
 
                     <div class="request-row">
 
-                        <div class="request-med request-dropdown request-box" selected="All" field="Subject *"
+                        <div class="request-half request-dropdown request-box" selected="All" field="Subject *"
                             id="subjectdrop">
                             <div class="triangle-down"></div>
                             <div class="request-menu rmclosed" id="subjectsreq">
@@ -132,7 +132,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="request-short request-dropdown request-box" selected="Online" field="Location *"
+                        <div class="request-half request-dropdown request-box" field="Grade *" id="gradereq"
+                            contenteditable>
+                        </div>
+
+                    </div>
+                    <div class="request-row">
+
+                        <div class="request-half request-dropdown request-box" selected="Online" field="Location *"
                             id="locationdrop">
                             <div class="triangle-down"></div>
                             <div class="request-menu rmclosed" id="locationsreq">
@@ -140,31 +147,17 @@
                             </div>
                         </div>
 
-                    </div>
-                    <div class="request-row">
-
-
-                        <div class="request-med request-dropdown request-box" selected="All" field="Tutor *"
-                            id="tutordrop">
-                            <div class="triangle-down"></div>
-                            <div class="request-menu rmclosed" id="tutorsreq">
-                                <div class="request-item-container">
-                                    <div class="request-item-text">
-                                        All
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="request-short request-dropdown request-box" selected="Select..."
-                            field="Preferred Meeting Time *" id="preferred-meeting-time">
-                            <div class="triangle-down"></div>
+                        <!-- selected="Select..." -->
+                        <div class="request-half request-dropdown request-box" field="Preferred Meeting Time *"
+                            id="preferred-meeting-time" contenteditable>
+                            <!-- <div class="triangle-down"></div>
                             <div class="request-menu rmclosed">
                                 <div class="request-item-container">
                                     <div class="request-item-text">
                                         All
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 

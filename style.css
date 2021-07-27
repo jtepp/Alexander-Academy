@@ -89,7 +89,7 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 50px;
+    gap: 0px 50px;
 }
 
 .filter-button {
@@ -137,12 +137,14 @@ body {
 .filter-menu {
     max-width: 219px;
     min-width: 219px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
 }
 
 .request-menu {
     width: 100%;
     left: 0;
     z-index: 2;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
 }
 
 .filter-menu,
@@ -516,17 +518,16 @@ body {
     transform: translate(-50%, -50%);
     background: #fff;
     border-radius: 10px;
+    transition: top var(--transition), transform var(--transition);
+}
+
+#sheet-container:not(.sheet-thanks-container) {
     width: 501px;
     height: 651px;
-    transition: top var(--transition), transform var(--transition);
 }
 
 #sheet-container>div:not(#sheet-close):not(#sheet-thanks-container) {
     padding: 21px;
-}
-
-#preferred-meeting-time::before {
-    font-size: 12px;
 }
 
 
@@ -780,7 +781,7 @@ body {
     position: absolute;
     transform: translateY(-100%);
     left: 0;
-    top: 0px;
+    top: -3px;
     font-size: 14px;
     cursor: default;
 }
@@ -797,18 +798,22 @@ body {
     width: 35%;
 }
 
+.request-half {
+    width: 215px;
+}
+
 .request-message {
     position: relative;
     min-width: calc(100% - 28px);
     max-width: calc(100% - 28px);
-    height: 92px;
+    height: 76px;
     background: #fff;
     border: 1px solid #888888;
     border-radius: 5px;
     color: var(--black);
-    font-size: 20px;
+    font-size: 14px;
     word-wrap: break-word;
-    resize: vertical;
+    resize: none;
 }
 
 .textarea-before {
@@ -960,4 +965,8 @@ body {
 
 ::-webkit-scrollbar {
     display: none;
+}
+
+[contenteditable] {
+    cursor: text;
 }
