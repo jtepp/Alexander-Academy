@@ -13,7 +13,7 @@ class Tutor {
         this.sat = Math.floor(150 + Math.random() * 1) * 10
         this.act = Math.floor(30 + Math.random() * 9)
         this.ap5 = ["Calculus", "Biology", "Forensics", "Psychology", "US History", "Chemistry", "Physics 1"]
-        this.about = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua onsectetur adipiscing elit, sed do adipiscing elit, sed do eiusmod tempor incididu ut labore et dolore magna aliqua onsectetur ghnmm nmk"
+        this.about = "Aradhya IS PhD student studying Quantitative Biosciences at Georgia Tech. Originally from New Jersey, Aradhya is an avid musician, playing both violin and guitar. He also enjoys reading and learning more about various subjects, including math and computer science..."
         this.subjects = {
             "Math": randomSlice(["Algebra 1", "Algebra 2", "Calculus", "Geometry", "Linear Algebra"], 2),
             "English": randomSlice(["Creative Writing", "Shakespeare", "Literature", "Public Speaking", "Spelling"], 3),

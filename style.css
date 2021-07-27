@@ -110,7 +110,7 @@ body {
 
 .filter-button::after {
     content: attr(id);
-    color: var(--maroon);
+    color: var(--black);
     font-weight: 700;
     position: absolute;
     top: -29px;
@@ -217,7 +217,6 @@ body {
     background: #fff;
     position: relative;
     padding-top: 14px;
-    /* padding-bottom: 10px; */
     padding-left: 29px;
     font-size: 18px;
     padding-bottom: 10px;
@@ -425,15 +424,14 @@ body {
     flex-direction: row;
     justify-content: left;
     flex-wrap: wrap;
-    gap: 83px;
+    gap: 55px 83px;
     min-width: 260px;
 }
 
 .tutor-cell {
-    width: 220px;
+    width: 176px;
     height: auto;
     margin-top: 72px;
-    margin-bottom: 55px;
     font-size: 18px;
     position: relative;
     cursor: pointer;
@@ -503,7 +501,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.2);
     overflow: scroll;
@@ -518,28 +516,19 @@ body {
     transform: translate(-50%, -50%);
     background: #fff;
     border-radius: 10px;
-    max-height: 90vh;
-    max-width: 80vw;
+    width: 501px;
+    height: 651px;
     transition: top var(--transition), transform var(--transition);
-    height: fit-content;
 }
 
-#sheet-container.scontent {
-    min-width: 255px;
-    max-width: 700px;
-}
-
-#sheet-container.srequest {
-    /* min-width: 485px; */
+#sheet-container>div:not(#sheet-close):not(#sheet-thanks-container) {
+    padding: 21px;
 }
 
 #preferred-meeting-time::before {
     font-size: 12px;
 }
 
-#sheet-content-container {
-    padding: 20px;
-}
 
 #sheet-thanks-container {
     padding: 22px 40px;
@@ -563,11 +552,12 @@ body {
 #sheet-name {
     color: var(--maroon);
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 #sheet-school {
     color: var(--black);
+    font-size: 16px;
 }
 
 #sheet-header {
@@ -582,34 +572,32 @@ body {
 #sheet-body {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 23px;
     overflow: scroll;
     margin-bottom: 40px;
-
 }
 
 #sheet-body-images {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 28px;
     max-height: fit-content;
-
 }
 
 .sheet-pic {
     width: max(100px, 12vw);
     height: auto;
     border-radius: 10px;
-    max-width: 200px;
+    max-width: 137px;
 }
 
 
 #sheet-body-content {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 45px;
     font-size: 14px;
-    max-width: 320px;
+    /* max-width: 320px; */
 }
 
 #sheet-body-about {
@@ -629,11 +617,11 @@ body {
 #sheet-body-subjects {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 55px;
 }
 
 #sheet-body-subjects>div {
-    margin-top: 20px;
+    /* margin-top: 25px; */
     position: relative;
 }
 
@@ -663,16 +651,21 @@ body {
 
 
 .sheet-request-tutor {
-    margin: 0 auto;
-    width: max-content;
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    line-height: 44px;
+    width: 202px;
+    height: 44px;
     color: var(--maroon);
-    padding: 10px 18px 10px 18px;
     /* background: ; */
     border: 1px solid var(--maroon);
     box-sizing: border-box;
     border-radius: 10px;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 18px;
     user-select: none;
     -webkit-user-select: none;
 }
@@ -726,9 +719,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
-    min-width: 370px;
-    width: 50%;
     gap: 20px;
 }
 
@@ -811,7 +801,7 @@ body {
     position: relative;
     min-width: calc(100% - 28px);
     max-width: calc(100% - 28px);
-    height: 100px;
+    height: 92px;
     background: #fff;
     border: 1px solid #888888;
     border-radius: 5px;
