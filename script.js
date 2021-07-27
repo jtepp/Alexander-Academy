@@ -193,8 +193,7 @@ document.body.onclick = function (e) {
         toggleAttributeCheckBox(e.target.children[0], "checked", e.target.parentNode.parentNode.id.toLowerCase())
         for (let el of document.getElementsByClassName("request-item-checkbox")) {
             if (el.innerHTML == e.target.children[0].innerHTML) {
-                // toggleAttributeCheckBox(el, "checked", "subject")
-                // for some reason this was running twice ??????
+                toggleAttributeCheckBox(el, "checked", e.target.parentNode.parentNode.id.toLowerCase())
             }
         }
 
@@ -254,11 +253,13 @@ document.body.onclick = function (e) {
     if (e.target.classList.contains("request-dropdown-header")) { // Click on dropdown to toggle
         toggleClassOpenClosed(e.target.nextSibling, "rid")
     } else if (e.target.classList.contains("request-item-container") && e.target.children[0].classList.contains("request-item-checkbox")) { //click checkbox to toggle
-        toggleAttributeCheckBox(e.target.children[0], "checked", (e.target.parentNode.classList.contains("request-item-dropdown")) ? "subject" : "tutor")
+        toggleAttributeCheckBox(e.target.children[0], "checked", e.target.parentNode.parentNode.id.toLowerCase().replace("req", ""))
+        console.log(true)
 
         for (let el of document.getElementsByClassName("filter-item-checkbox")) {
             if (el.innerHTML == e.target.children[0].innerHTML) {
-                toggleAttributeCheckBox(el, "checked", "subject")
+                toggleAttributeCheckBox(el, "checked", e.target.parentNode.parentNode.id.toLowerCase().replace("req", ""))
+                console.log(true)
             }
         }
 
@@ -724,6 +725,21 @@ function returnAllButton(idsuffix, request, alt) {
 
 function toggleHeaderCheckbox(el) {
     const header = el.parentNode
+    let otherHeader;
+
+    if (el.parentNode.classList.toString().includes("filter")) {
+        for (let elem of document.getElementsByClassName("request-dropdown-header")) {
+            if (elem.innerText == header.innerText) {
+                otherHeader = elem
+            }
+        }
+    } else if (el.parentNode.classList.toString().includes("request")) {
+        for (let elem of document.getElementsByClassName("filter-dropdown-header")) {
+            if (elem.innerText == header.innerText) {
+                otherHeader = elem
+            }
+        }
+    }
 
     if (header.getAttribute("selected-inside") == "") {
         header.setAttribute("selected-inside", allSubjects[header.innerText].join(", "))
@@ -731,9 +747,13 @@ function toggleHeaderCheckbox(el) {
         for (let c of header.nextSibling.children) {
             if (c.children[0].getAttribute("checked") == "false") {
                 toggleAttributeCheckBox(c.children[0], "checked", "subjects")
-                // if (!chosenSubjects.includes(c.children[0].innerText)) {
-                //     toggleAttributeCheckBox(c.children[0], "checked", "subject")
-                // }
+            }
+        }
+        otherHeader.setAttribute("selected-inside", allSubjects[header.innerText].join(", "))
+        otherHeader.setAttribute("all-selected", "true")
+        for (let c of otherHeader.nextSibling.children) {
+            if (c.children[0].getAttribute("checked") == "false") {
+                toggleAttributeCheckBox(c.children[0], "checked", "subjects")
             }
         }
     } else {
@@ -742,9 +762,13 @@ function toggleHeaderCheckbox(el) {
         for (let c of header.nextSibling.children) {
             if (c.children[0].getAttribute("checked") == "true") {
                 toggleAttributeCheckBox(c.children[0], "checked", "subjects")
-                // if (chosenSubjects.includes(c.children[0].innerText)) {
-                //     removeElementFromArray(chosenSubjects, c.children[0].innerText)
-                // }
+            }
+        }
+        otherHeader.setAttribute("selected-inside", "")
+        otherHeader.setAttribute("all-selected", "false")
+        for (let c of otherHeader.nextSibling.children) {
+            if (c.children[0].getAttribute("checked") == "true") {
+                toggleAttributeCheckBox(c.children[0], "checked", "subjects")
             }
         }
     }
