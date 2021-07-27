@@ -979,7 +979,7 @@ body {
     display: flex;
     flex-direction: column;
     min-width: 252px;
-    width: 252px;
+    width: max-content;
     /* align-items: center; */
     text-align: left;
     gap: 15px;
