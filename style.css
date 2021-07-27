@@ -699,15 +699,25 @@ body {
     cursor: pointer;
 }
 
-#sheet-container.srequest #sheet-content-container,
-#sheet-container.sthanks #sheet-content-container {
-    display: none;
-}
-
-#sheet-container.scontent #sheet-request-container,
+#sheet-container.sthanks #sheet-content-container,
 #sheet-container.sthanks #sheet-request-container {
     display: none;
 }
+
+#sheet-container.scontent #sheet-request-container {
+    /*move right*/
+    display: flex;
+    left: 200%;
+}
+
+#sheet-container.srequest #sheet-content-container {
+    /*move left*/
+    display: block;
+    left: -200%;
+}
+
+
+
 
 #sheet-container.srequest #sheet-thanks-container,
 #sheet-container.scontent #sheet-thanks-container {
@@ -726,13 +736,27 @@ body {
     display: flex;
 }
 
-
+#sheet-content-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: calc(100% - 42px);
+    height: calc(100% - 42px);
+    /* min-width: 459px;
+    min-width: 609px; */
+    transition: left var(--transition);
+}
 
 #sheet-request-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: calc(100% - 42px);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    transition: left var(--transition);
 }
 
 #sheet-request-header {
@@ -816,21 +840,22 @@ body {
 
 .request-message {
     position: relative;
-    min-width: calc(100% - 28px);
-    max-width: calc(100% - 28px);
+    width: calc(100% - 28px);
     height: 76px;
     background: #fff;
-    border: 1px solid #888888;
+    border: 1px solid var(--black);
     border-radius: 5px;
     color: var(--black);
     font-size: 14px;
     word-wrap: break-word;
     resize: none;
+    margin-bottom: 67px;
 }
 
 .textarea-before {
     position: relative;
-    width: 100%;
+    width: calc(100% - 28px);
+    left: 0px;
     height: 0;
     margin-bottom: -50px;
 }
@@ -843,11 +868,7 @@ body {
     top: 0px;
     font-size: 14px;
     cursor: default;
-    padding-left: 14px;
-}
-
-.textarea-before::after {
-    content: "If there is any other information that you would like us to know, please leave a message here.";
+    /* padding-left: 14px; */
 }
 
 .request-dropdown {
@@ -933,6 +954,7 @@ body {
 
 #sheet-container {
     top: 50%;
+    overflow: hidden;
 }
 
 .sopen #sheet-container {

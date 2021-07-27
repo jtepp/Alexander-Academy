@@ -613,6 +613,26 @@ function closeSheet() {
         document.getElementById("sheet-container").classList.remove("srequest")
         document.getElementById("sheet-container").classList.remove("sthanks")
         document.getElementById("sheet-container").classList.add("scontent")
+        //clear request form
+        for (let el of document.getElementsByClassName("request-box")) {
+            if (el.id == "subjectdrop") {
+                //its linked so leave it
+            } else if (el.id == "locationdrop") {
+                el.setAttribute("selected", "Online")
+
+                for (let elem of el.children[1].children) {
+                    if (elem.innerText == "Online") {
+                        elem.setAttribute("selected", "true")
+                    } else {
+                        elem.setAttribute("selected", "false")
+                    }
+                }
+
+            } else {
+                el.innerText = ""
+            }
+        }
+        document.getElementsByClassName("request-message")[0].value = ""
     }, 300)
 }
 
