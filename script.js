@@ -1,11 +1,16 @@
 class Tutor {
-    //  constructor(name, school, sat, act, about, subjects) {
-    //     this.name = name
-    //     this.school = school
-    //     this.sat = sat
-    //     this.act = act
-    //     this.about = about
-    //     this.subjects = subjects
+    // constructor(obj) {
+    //     this.name = obj.name
+    //     this.about = obj.about
+    //     this.school = obj.school
+    //     this.sat = obj.satact.split(",")[0]
+    //     this.act = obj.satact.split(",")[1]
+    //     this.ap5 = obj.ap5.split(",")
+    //     this.subjects = obj.subjects.split(", ")
+    //     this.imgurl = obj.imgurl
+    //     this.altimgurl = obj.altimgurl
+    //     this.location = obj.location
+    //     this.role = "Tutor" //obj.role
     // }
     constructor() {
         this.name = randomElement(["Emma Smith", "Clay Oxford", "Krystal McRae", "Sophia Smith", "Alexandria Ferguson", "Nora McRae", "Mia Smith", "Sophia Fine"])
@@ -13,7 +18,7 @@ class Tutor {
         this.sat = Math.floor(150 + Math.random() * 1) * 10
         this.act = Math.floor(30 + Math.random() * 9)
         this.ap5 = ["Calculus", "Biology", "Forensics", "Psychology", "US History", "Chemistry", "Physics 1"]
-        this.about = "Aradhya IS PhD student studying Quantitative Biosciences at Georgia Tech. Originally from New Jersey, Aradhya is an avid musician, playing both violin and guitar. He also enjoys reading and learning more about various subjects, including math and computer science..."
+        this.about = "Aradhya is a PhD student studying Quantitative Biosciences at Georgia Tech. Originally from New Jersey, Aradhya is an avid musician, playing both violin and guitar. He also enjoys reading and learning more about various subjects, including math and computer science.##Aradhya has been teaching SAT and ACT for more than four years and is the director of Alexander Academy’s yearly Math for College Workshop at Georgia Tech. He has also taught various high school subjects including chemistry, physics, and calculus. Aradhya finds teaching like a puzzle, finding new perspectives to better explain concepts. He enjoys seeing students quickly improve after they learn a new way to solve a problem."
         this.subjects = {
             "Math": randomSlice(["Algebra 1", "Algebra 2", "Calculus", "Geometry", "Linear Algebra"], 2),
             "English": randomSlice(["Creative Writing", "Shakespeare", "Literature", "Public Speaking", "Spelling"], 3),
@@ -660,7 +665,29 @@ function fillSheet(tutor) {
     topimg.src = tutor.imgurl
     altimg.src = tutor.altimgurl
 
-    about.innerText = tutor.about
+    about.innerHTML = ""
+
+    about.setAttribute("read-more", "false")
+
+    const abtMain = document.createElement("span")
+    abtMain.innerText = tutor.about.split("##")[0]
+    abtMain.classList.add("abt-main")
+
+    const rmButton = document.createElement("div")
+    rmButton.id = "read-more-button"
+    rmButton.innerText = "Read More"
+    rmButton.onclick = () => {
+        about.setAttribute("read-more", "true")
+    }
+
+
+    const abtMore = document.createElement("span")
+    abtMore.innerText = "\n\n" + tutor.about.split("##")[1]
+    abtMore.classList.add("abt-more")
+
+    about.appendChild(abtMain)
+    about.appendChild(rmButton)
+    about.appendChild(abtMore)
 
     // for (let s in tutor.subjects) {
     //     if (tutor.subjects[s].length > 0) {

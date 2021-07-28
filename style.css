@@ -1013,3 +1013,26 @@ body {
 [contenteditable] {
     cursor: text;
 }
+
+[read-more="false"]>#read-more-button {
+    display: inline;
+    color: var(--maroon);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+[read-more="true"]>#read-more-button {
+    display: none;
+}
+
+[read-more="false"]>.abt-main::after {
+    content: "..";
+}
+
+[read-more="false"]>.abt-more {
+    display: none;
+}
+
+[read-more="true"]>.abt-more {
+    display: inline;
+}
