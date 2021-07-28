@@ -1085,14 +1085,16 @@ body {
     cursor: text;
 }
 
-[read-more="false"]>#read-more-button {
+[read-more="false"]>#read-more-button,
+[read-more="true"]>#read-less-button {
     display: inline;
     color: var(--maroon);
     text-decoration: underline;
     cursor: pointer;
 }
 
-[read-more="true"]>#read-more-button {
+[read-more="true"]>#read-more-button,
+[read-more="false"]>#read-less-button {
     display: none;
 }
 

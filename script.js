@@ -189,6 +189,8 @@ document.body.onclick = function (e) {
                 if (h.classList.contains("filter-dropdown-header")) {
                     h.setAttribute('selected-inside', '')
                     h.setAttribute('all-selected', 'false')
+                } else if (h.classList.contains("filter-item-container")) {
+                    h.children[0].setAttribute('checked', 'false')
                 }
             }
 
@@ -366,7 +368,7 @@ function toggleClassOpenClosed(element, pre) {
 function toggleAttributeCheckBox(element, attr, usage) {
     if (element.getAttribute(attr) == "true") {
         element.setAttribute(attr, "false")
-        if (usage == "subjects") {
+        if (usage == "subjects" || usage == "subject") {
             removeElementFromArray(chosenSubjects, element.innerText)
         } else if (usage == "school") {
             removeElementFromArray(chosenSchools, element.innerText)
@@ -377,7 +379,7 @@ function toggleAttributeCheckBox(element, attr, usage) {
         }
     } else if (element.getAttribute(attr) == "false") {
         element.setAttribute(attr, "true")
-        if (usage == "subjects") {
+        if (usage == "subjects" || usage == "subject") {
             if (!chosenSubjects.includes(element.innerText)) {
                 chosenSubjects.push(element.innerText)
             }
@@ -395,16 +397,18 @@ function toggleAttributeCheckBox(element, attr, usage) {
             }
         }
     }
-    if (usage == "subjects") {
+    if (usage == "subjects" || usage == "subject") {
         const header = element.parentNode.parentNode.previousSibling
         if (chosenSubjects.length == 0) {
             document.getElementById("Subject").setAttribute("selected", "All")
             document.getElementById("subjectdrop").setAttribute("selected", "All")
             document.getElementById("All-subjects").setAttribute("selected", "true")
             document.getElementById("All-subjectsreq").setAttribute("selected", "true")
-            if (header.classList.toString().includes("-dropdown-header")) {
-                header.setAttribute("selected-inside", "")
-                header.setAttribute("all-selected", "false")
+            if (header.classList != null) {
+                if (header.classList.toString().includes("-dropdown-header")) {
+                    header.setAttribute("selected-inside", "")
+                    header.setAttribute("all-selected", "false")
+                }
             }
         } else {
 
@@ -413,12 +417,14 @@ function toggleAttributeCheckBox(element, attr, usage) {
             document.getElementById("All-subjects").setAttribute("selected", "false")
             document.getElementById("All-subjectsreq").setAttribute("selected", "false")
 
-            if (header.classList.toString().includes("-dropdown-header")) {
-                header.setAttribute("selected-inside", chosenSubjects.join(", "))
-                if ([...element.parentNode.parentNode.children].every(x => x.children[0].getAttribute("checked") == "true")) {
-                    header.setAttribute("all-selected", "true")
-                } else {
-                    header.setAttribute("all-selected", "false")
+            if (header.classList != null) {
+                if (header.classList.toString().includes("-dropdown-header")) {
+                    header.setAttribute("selected-inside", chosenSubjects.join(", "))
+                    if ([...element.parentNode.parentNode.children].every(x => x.children[0].getAttribute("checked") == "true")) {
+                        header.setAttribute("all-selected", "true")
+                    } else {
+                        header.setAttribute("all-selected", "false")
+                    }
                 }
             }
         }
@@ -552,11 +558,17 @@ function processTutors(givenTutors, initial) { // Iterate through tutors to make
         sur.innerHTML = ""
         sur.appendChild(returnAllButton("subjectsreq", true))
         for (let s in allSubjects) { // subjects
-            c.appendChild(returnDropdownHeader(s))
-            c.appendChild(returnDropdownItemsAdded(allSubjects[s]))
-            sur.appendChild(returnDropdownHeader(s, true))
-            sur.appendChild(returnDropdownItemsAdded(allSubjects[s], true))
+            if (s == "Essay") {
+                continue
+            } else {
+                c.appendChild(returnDropdownHeader(s))
+                c.appendChild(returnDropdownItemsAdded(allSubjects[s]))
+                sur.appendChild(returnDropdownHeader(s, true))
+                sur.appendChild(returnDropdownItemsAdded(allSubjects[s], true))
+            }
         }
+        c.appendChild(returnDropdownCheck(allSubjects["Essay"]))
+        sur.appendChild(returnDropdownCheck(allSubjects["Essay"], true))
 
         let s = document.getElementById("schools")
         s.innerHTML = ""
@@ -718,6 +730,13 @@ function fillSheet(tutor) {
         about.setAttribute("read-more", "true")
     }
 
+    const rlButton = document.createElement("div")
+    rlButton.id = "read-less-button"
+    rlButton.innerText = "Read Less"
+    rlButton.onclick = () => {
+        about.setAttribute("read-more", "false")
+    }
+
 
     const abtMore = document.createElement("span")
     abtMore.innerText = "\n\n" + tutor.about.split("##")[1]
@@ -726,6 +745,7 @@ function fillSheet(tutor) {
     about.appendChild(abtMain)
     about.appendChild(rmButton)
     about.appendChild(abtMore)
+    about.appendChild(rlButton)
 
     // for (let s in tutor.subjects) {
     //     if (tutor.subjects[s].length > 0) {
@@ -747,15 +767,17 @@ function fillSheet(tutor) {
     sat.innerHTML = ""
 
     if (tutor.sat != 0) {
-        sat.innerHTML += `SAT ${tutor.sat}`
-    }
+        const satdiv = document.createElement("div")
+        satdiv.innerHTML += `SAT ${tutor.sat}`
 
-    if (tutor.sat != 0 && tutor.act != 0) {
-        sat.innerHTML += "<br>"
+        sat.appendChild(satdiv)
     }
 
     if (tutor.act != 0) {
-        sat.innerHTML += `ACT ${tutor.act}`
+        const actdiv = document.createElement("div")
+        actdiv.innerHTML += `ACT ${tutor.act}`
+
+        sat.appendChild(actdiv)
     }
 
     // `${tutor.sat ? "SAT "+tutor.sat : ""}${(tutor.sat && tutor.act) ? "<br>" : ""}${tutor.act ? "ACT "+tutor.act : ""}`
@@ -894,7 +916,7 @@ function organizeSubject(subject) {
         return "History"
     } else if (String(subject).toLowerCase().includes("biology") || String(subject).toLowerCase().includes("chemistry") || String(subject).toLowerCase().includes("physics") || String(subject).toLowerCase().includes("science") || String(subject).toLowerCase().includes("econ")) {
         return "Science"
-    } else if (String(subject).toLowerCase().includes("college application")) {
+    } else if (String(subject).toLowerCase().includes("essay")) {
         return "Essay"
     } else if (String(subject).toLowerCase().includes("english") || String(subject).toLowerCase().includes("latin") || String(subject).toLowerCase().includes("spanish") || String(subject).toLowerCase().includes("chinese") || String(subject).toLowerCase().includes("french")) {
         return "Language"
