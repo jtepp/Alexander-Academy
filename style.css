@@ -32,9 +32,9 @@
 
 @font-face {
     font-family: 'TradeGothicLTDstd';
-    font-weight: 200;
+    font-weight: 400;
     font-style: normal;
-    src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/TradeGothicLTStd-Light.otf')
+    src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/TradeGothicLTStd.otf')
 }
 
 @font-face {
@@ -42,6 +42,13 @@
     font-weight: 700;
     font-style: normal;
     src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/TradeGothicLTStd-Bold.otf')
+}
+
+@font-face {
+    font-family: 'TradeGothicLTDstd';
+    font-weight: 700;
+    font-style: condensed;
+    src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/TradeGothicLTStd-BoldCnd.otf')
 }
 
 @font-face {
@@ -66,15 +73,17 @@ body {
 
 #teaching-staff-header {
     position: relative;
+    font-size: 36px;
+    line-height: 43.2px;
 }
 
 #teaching-staff-header::before {
     content: "";
     height: 2px;
-    width: 9em;
+    width: 147px;
     position: absolute;
     left: 0;
-    top: -20px;
+    top: -22px;
     background-color: var(--maroon);
 }
 
@@ -89,7 +98,7 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 0px 50px;
+    gap: 0px 54px;
 }
 
 .filter-button {
@@ -994,31 +1003,32 @@ body {
     margin-top: 213px;
     display: flex;
     flex-direction: column;
-    /* min-width: 252px; */
     width: max-content;
-    /* align-items: center; */
     text-align: left;
-    gap: 15px;
+    gap: 16px;
 }
 
-#sidebar>*::before {
-    content: attr(text);
+#sidebar>*:not(#sidebar-about) {
     font-size: 18px;
     color: var(--black);
     cursor: pointer;
+    line-height: 22px;
 }
 
-#sidebar-about::before {
+#sidebar-about {
     font-weight: 700;
     font-size: 24px;
-    color: var(--maroon)
+    line-height: 29px;
+    color: var(--maroon);
+    cursor: pointer;
+    margin-bottom: 2px;
 }
 
 .sidebar-item {
     width: 252px;
 }
 
-[text="Teaching Staff"]::before {
+#teaching-staff {
     font-weight: 700;
 }
 
