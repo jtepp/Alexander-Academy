@@ -854,5 +854,11 @@ function organizeSubject(subject) {
         return "Math"
     } else if (subject.toLowerCase().includes("english")) {
         return "English"
+    } else if (subject.toLowerCase().includes("history")) {
+        return "History"
+    } else if (subject.toLowerCase().includes("biology") || subject.toLowerCase().includes("chemistry") || subject.toLowerCase().includes("physics") || subject.toLowerCase().includes("science")) {
+        return "Science"
+    } else if (subject.toLowerCase().includes("college application")) {
+        return "Essay"
     }
 }
