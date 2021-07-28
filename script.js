@@ -471,16 +471,19 @@ function randomElement(arr) {
 
 function returnTutor(tutor) {
     let tutorHtml = document.createElement("div")
+    let tutorImgCont = document.createElement("div")
     let tutorImg = document.createElement("img")
 
     tutorHtml.setAttribute('name', tutor.name)
     tutorHtml.setAttribute('school', tutor.school)
     tutorHtml.classList.add("tutor-cell")
 
+    tutorImgCont.classList.add("tutor-img")
     tutorImg.src = tutor.imgurl
     tutorImg.setAttribute("draggable", "false")
 
-    tutorHtml.appendChild(tutorImg)
+    tutorImgCont.appendChild(tutorImg)
+    tutorHtml.appendChild(tutorImgCont)
 
     tutorHtml.onclick = () => {
         fillSheet(tutor)
@@ -834,7 +837,7 @@ function toggleHeaderCheckbox(el) {
 }
 
 function imgfromname(name) {
-    const r = name.toLowerCase().split(" ").join("").replace(".", "").replace(" ", "").replace("gaorong(tommy)", "tommy")
+    const r = name.toLowerCase().split(" ").join("").replace(".", "").replace("gaorong(tommy)", "tommy")
     console.log(r)
     return r
 }
