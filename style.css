@@ -46,9 +46,16 @@
 
 @font-face {
     font-family: 'TradeGothicLTDstd';
-    font-weight: 700;
+    font-weight: 800;
     font-style: condensed;
-    src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/TradeGothicLTStd-BoldCnd.otf')
+    src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/TradeGothicLTStd-BoldCnd18.otf')
+}
+
+@font-face {
+    font-family: 'TradeGothicLTDstd';
+    font-weight: 900;
+    font-style: condensed;
+    src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/TradeGothicLTStd-BoldCnd20.otf')
 }
 
 @font-face {
@@ -88,7 +95,8 @@ body {
 }
 
 #main-container h1 {
-    font-weight: bolder;
+    font-weight: 700;
+    font-style: normal;
     color: var(--maroon);
     width: max-content;
     font-size: 36px;
@@ -119,7 +127,8 @@ body {
 .filter-button::after {
     content: attr(id);
     color: var(--black);
-    font-weight: 700;
+    font-weight: 800;
+    font-style: condensed;
     position: absolute;
     top: -29px;
     font-size: 18px;
@@ -465,7 +474,8 @@ body {
     bottom: -22px;
     left: 50%;
     transform: translateX(-50%) translateY(100%);
-    font-weight: bold;
+    font-weight: 700;
+    font-style: normal;
 }
 
 .tutor-cell::after {
@@ -575,6 +585,7 @@ body {
 
 .thanks-header {
     font-weight: 700;
+    font-style: normal;
     font-size: 18px;
     line-height: 25px;
     color: var(--maroon);
@@ -588,7 +599,8 @@ body {
 
 #sheet-name {
     color: var(--maroon);
-    font-weight: bold;
+    font-weight: 700;
+    font-style: normal;
     font-size: 18px;
 }
 
@@ -652,7 +664,8 @@ body {
     top: -20px;
     font-size: 16px;
     color: var(--black);
-    font-weight: bold;
+    font-weight: 700;
+    font-style: normal;
 }
 
 #sheet-body-subjects {
@@ -673,7 +686,8 @@ body {
     top: -20px;
     font-size: 16px;
     color: var(--black);
-    font-weight: bold;
+    font-weight: 700;
+    font-style: normal;
     line-height: 25px;
 }
 
@@ -1017,6 +1031,7 @@ body {
 
 #sidebar-about {
     font-weight: 700;
+    font-style: normal;
     font-size: 24px;
     line-height: 29px;
     color: var(--maroon);
@@ -1030,6 +1045,7 @@ body {
 
 #teaching-staff {
     font-weight: 700;
+    font-style: normal;
 }
 
 ::-webkit-scrollbar {
