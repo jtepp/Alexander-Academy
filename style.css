@@ -84,6 +84,7 @@ body {
     flex-direction: column;
     margin-top: 202px;
     margin-bottom: 305px;
+    margin-right: 7.5vw;
 }
 
 #teaching-staff-header {
@@ -662,6 +663,8 @@ body {
     object-position: center;
     width: max(100px, 12vw);
     height: max(100px, 12vw);
+    max-width: 137px;
+    max-height: 137px;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -1037,7 +1040,7 @@ body {
 }
 
 #sidebar {
-    padding-left: 108px;
+    margin-left: 7.5vw;
     margin-top: 213px;
     display: flex;
     flex-direction: column;
