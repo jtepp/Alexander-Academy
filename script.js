@@ -471,19 +471,16 @@ function randomElement(arr) {
 
 function returnTutor(tutor) {
     let tutorHtml = document.createElement("div")
-    let tutorImgCont = document.createElement("div")
     let tutorImg = document.createElement("img")
 
     tutorHtml.setAttribute('name', tutor.name)
     tutorHtml.setAttribute('school', tutor.school)
     tutorHtml.classList.add("tutor-cell")
 
-    tutorImgCont.classList.add("tutor-img")
     tutorImg.src = tutor.imgurl
     tutorImg.setAttribute("draggable", "false")
 
-    tutorImgCont.appendChild(tutorImg)
-    tutorHtml.appendChild(tutorImgCont)
+    tutorHtml.appendChild(tutorImg)
 
     tutorHtml.onclick = () => {
         fillSheet(tutor)
