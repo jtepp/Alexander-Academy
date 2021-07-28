@@ -598,12 +598,14 @@ body {
 }
 
 .sheet-pic {
+
+    object-fit: cover;
+    object-position: top center;
     width: max(100px, 12vw);
     height: max(100px, 12vw);
     border-radius: 10px;
-    max-width: 137px;
+    overflow: hidden;
 }
-
 
 #sheet-body-content {
     display: flex;
