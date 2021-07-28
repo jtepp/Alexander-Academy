@@ -7,8 +7,8 @@ class Tutor {
         this.act = obj.satact.split(",")[1]
         this.ap5 = obj.ap5.split(",")
         this.subjects = obj.subjects.split(", ")
-        this.imgurl = obj.imgurl
-        this.altimgurl = obj.altimgurl
+        this.imgurl = `https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/headshots/${imgfromname(obj.name)}_headshot.jpg`
+        this.altimgurl = (obj.name.toLowerCase().includes("nadine") || obj.name.toLowerCase().includes("rocio")) ? "" : `https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/headshots/${imgfromname(obj.name)}_fun.jpg`
         this.location = obj.location
         this.role = "Tutor" //obj.role
     }
@@ -831,4 +831,8 @@ function toggleHeaderCheckbox(el) {
         }
     }
     console.log(header.getAttribute("selected-inside"))
+}
+
+function imgfromname(name) {
+    return name.split(" ").join("").replace(".", "").toLowerCase()
 }
