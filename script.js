@@ -850,7 +850,9 @@ function imgfromname(name) {
 
 
 function organizeSubject(subject) {
-    if (subject.toLowerCase().includes("algebra") || subject.toLowerCase().includes("calc") || subject.toLowerCase().includes("stat") || subject.toLowerCase().includes("calc") || subject.toLowerCase().includes("computer") || subject.toLowerCase().includes("calc")) {
+    if (subject.toLowerCase().includes("algebra") || subject.toLowerCase().includes("calc") || subject.toLowerCase().includes("stat") || subject.toLowerCase().includes("calc") || subject.toLowerCase().includes("computer") || subject.toLowerCase().includes("geometry") || subject.toLowerCase().includes("econ")) {
         return "Math"
+    } else if (subject.toLowerCase().includes("english")) {
+        return "English"
     }
 }
