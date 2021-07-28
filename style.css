@@ -978,7 +978,7 @@ body {
     margin-top: 213px;
     display: flex;
     flex-direction: column;
-    min-width: 252px;
+    /* min-width: 252px; */
     width: max-content;
     /* align-items: center; */
     text-align: left;
