@@ -677,6 +677,7 @@ body {
     font-size: 14px;
     height: 485px;
     overflow-y: scroll;
+    font-weight: 200;
     /* max-width: 320px; */
 }
 
