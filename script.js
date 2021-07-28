@@ -39,6 +39,7 @@ var chosenTutors = []
 var chosenSchools = []
 var chosenLocations = []
 var allSubjects = {}
+var realAllSubjects = []
 var allSchools = []
 var allLocations = []
 var allTutors = [] //make list of tutors
@@ -46,7 +47,13 @@ var allTutors = [] //make list of tutors
 fetch("https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/staff.json").then(res => res.json()).then(json => {
 
     json.forEach(tutor => {
-        allTutors.push(new Tutor(tutor))
+        const tt = new Tutor(tutor)
+        allTutors.push(tt)
+        tt.subjects.forEach(subject => {
+            if (!realAllSubjects.includes(subject)) {
+                realAllSubjects.push(subject)
+            }
+        })
     })
 
     processTutors(allTutors, true)
@@ -837,6 +844,13 @@ function toggleHeaderCheckbox(el) {
 
 function imgfromname(name) {
     const r = name.toLowerCase().split(" ").join("").replace(".", "").replace("gaorong(tommy)", "tommy")
-    console.log(r)
+    // console.log(r)
     return r
+}
+
+
+function organizeSubject(subject) {
+    if (subject.toLowerCase().includes("algebra") || subject.toLowerCase().includes("calc") || subject.toLowerCase().includes("stat") || subject.toLowerCase().includes("calc") || subject.toLowerCase().includes("computer") || subject.toLowerCase().includes("calc")) {
+        return "Math"
+    }
 }
