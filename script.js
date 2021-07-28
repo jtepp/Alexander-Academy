@@ -572,7 +572,7 @@ function processTutors(givenTutors, initial) { // Iterate through tutors to make
             er.appendChild(returnDropdownText(l, true))
         }
     }
-    document.getElementById("filter-reset-line").children[0].innerHTML = `Viewing ${givenTutors.length} of ${allTutors.length} results&nbsp;`
+    document.getElementById("filter-reset-line").children[0].innerHTML = `Viewing ${givenTutors.length} of ${allTutors.length} results.&nbsp;`
 }
 
 function returnDropdownHeader(name, request) {

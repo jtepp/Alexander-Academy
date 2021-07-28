@@ -14,6 +14,7 @@
 
 :root {
     --maroon: #50181A;
+    --maroon2: #401315;
     --background: #fff;
     --black: #333333;
     --border: #CBCBCB;
@@ -35,6 +36,13 @@
     font-weight: 400;
     font-style: normal;
     src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/TradeGothicLTStd.otf')
+}
+
+@font-face {
+    font-family: 'TradeGothicLTDstd';
+    font-weight: 200;
+    font-style: normal;
+    src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/TradeGothicLTStd-Light.otf')
 }
 
 @font-face {
@@ -82,6 +90,7 @@ body {
     position: relative;
     font-size: 36px;
     line-height: 43.2px;
+    color: var(--maroon2);
 }
 
 #teaching-staff-header::before {
@@ -91,13 +100,13 @@ body {
     position: absolute;
     left: 0;
     top: -22px;
-    background-color: var(--maroon);
+    background-color: var(--maroon2);
 }
 
 #main-container h1 {
     font-weight: 700;
     font-style: normal;
-    color: var(--maroon);
+    color: var(--maroon2);
     width: max-content;
     font-size: 36px;
 }
@@ -107,12 +116,14 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 0px 54px;
+    margin-top: 25px;
+    margin-left: 5px;
 }
 
 .filter-button {
     width: 200px;
-    height: 31px;
-    border: 1px solid var(--border);
+    height: 29px;
+    border: 0.913242px solid var(--border);
     border-radius: 5px;
     position: relative;
     /* margin-right: 50px; */
@@ -127,11 +138,14 @@ body {
 .filter-button::after {
     content: attr(id);
     color: var(--black);
-    font-weight: 800;
-    font-style: condensed;
+    font-weight: 700;
+    font-style: normal;
     position: absolute;
-    top: -29px;
-    font-size: 18px;
+    top: -32px;
+    font-size: 17px;
+    line-height: 22px;
+    transform-origin: top;
+    transform: scaleY(1.1);
 }
 
 .filter-button::before {
@@ -146,7 +160,7 @@ body {
     height: 0;
     border-style: solid;
     border-width: 8px 7px 0 7px;
-    border-color: #000000 transparent transparent transparent;
+    border-color: #505050 transparent transparent transparent;
     margin-right: 12px;
     pointer-events: none;
 }
@@ -437,11 +451,14 @@ body {
     display: flex;
     flex-direction: row;
     margin-top: 29px;
+    margin-left: 5px;
+    font-weight: 200;
+    color: black;
 }
 
 .link-button {
-    color: var(--maroon);
-    text-decoration: underline;
+    color: var(--maroon2);
+    /* text-decoration: underline; */
     cursor: pointer;
 }
 
@@ -451,8 +468,9 @@ body {
     flex-direction: row;
     justify-content: left;
     flex-wrap: wrap;
-    gap: 55px 83px;
+    gap: 55px 70px;
     min-width: 260px;
+    margin-left: 25px;
 }
 
 .tutor-cell {
@@ -460,30 +478,36 @@ body {
     width: 176px;
     height: 176px;
     margin-top: 72px;
-    font-size: 18px;
+    font-size: 16px;
+    line-height: 20px;
     position: relative;
     cursor: pointer;
     box-shadow: none;
     min-width: 120px;
     transition: transform var(--transition);
+    color: var(--black);
 }
 
 .tutor-cell::before {
     position: absolute;
     content: attr(name);
-    bottom: -22px;
+    bottom: -28px;
     left: 50%;
     transform: translateX(-50%) translateY(100%);
-    font-weight: 700;
+    /* font-weight: 700; */
+    text-shadow: 0.6px 0 0 currentColor;
     font-style: normal;
+    font-weight: 400;
+
 }
 
 .tutor-cell::after {
     position: absolute;
     content: attr(school);
-    bottom: -42px;
+    bottom: -48px;
     left: 50%;
     transform: translateX(-50%) translateY(100%);
+    font-weight: 400;
 }
 
 .tutor-cell>img {
