@@ -432,7 +432,7 @@ body {
 
 .tutor-cell {
     width: 176px;
-    height: auto;
+    height: 176px;
     margin-top: 72px;
     font-size: 18px;
     position: relative;
@@ -461,7 +461,7 @@ body {
 
 .tutor-cell>img {
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 50%;
     overflow: hidden;
     transform: scale(1);
@@ -596,7 +596,7 @@ body {
 
 .sheet-pic {
     width: max(100px, 12vw);
-    height: auto;
+    height: max(100px, 12vw);
     border-radius: 10px;
     max-width: 137px;
 }

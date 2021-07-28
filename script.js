@@ -834,5 +834,7 @@ function toggleHeaderCheckbox(el) {
 }
 
 function imgfromname(name) {
-    return name.split(" ").join("").replace(".", "").toLowerCase()
+    const r = name.toLowerCase().replace("gaorong(tommy)", "tommy").split(" ").join("").replace(".", "")
+    console.log(r)
+    return r
 }
