@@ -7,8 +7,8 @@ class Tutor {
         this.act = obj.satact.split(",")[1]
         this.ap5 = obj.ap5.split(",")
         this.subjects = obj.subjects.split(", ")
-        this.imgurl = `https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/headshots/${imgfromname(obj.name)}_headshot.jpg`
-        this.altimgurl = (obj.name.toLowerCase().includes("nadine") || obj.name.toLowerCase().includes("rocio")) ? "" : `https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/headshots/${imgfromname(obj.name)}_fun.jpg`
+        this.imgurl = `https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/headshots/${imgfromname(obj.name)}_headshot.jpeg`
+        this.altimgurl = (obj.name.toLowerCase().includes("nadine") || obj.name.toLowerCase().includes("rocio")) ? "" : `https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/headshots/${imgfromname(obj.name)}_fun.jpeg`
         this.location = obj.location
         this.role = "Tutor" //obj.role
     }
