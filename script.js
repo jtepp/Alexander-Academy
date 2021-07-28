@@ -16,6 +16,15 @@ class Tutor {
 
     orgSubs() {
         let subs = {}
+
+        if (this.act != 0) {
+            this.subjectsArr = ["ACT", ...this.subjectsArr]
+        }
+
+        if (this.sat != 0) {
+            this.subjectsArr = ["SAT", ...this.subjectsArr]
+        }
+
         this.subjectsArr.forEach(x => {
             if (subs[organizeSubject(x)] == null) {
                 subs[organizeSubject(x)] = []
@@ -733,7 +742,21 @@ function fillSheet(tutor) {
     const sat = document.createElement("div")
     sat.setAttribute("field", "SAT/ACTs")
 
-    sat.innerHTML = `${tutor.sat ? "SAT "+tutor.sat : ""}${(tutor.sat && tutor.act) ? "<br>" : ""}${tutor.act ? "ACT "+tutor.act : ""}`
+    sat.innerHTML = ""
+
+    if (tutor.sat != 0) {
+        sat.innerHTML += `SAT ${tutor.sat}`
+    }
+
+    if (tutor.sat != 0 && tutor.act != 0) {
+        sat.innerHTML += "<br>"
+    }
+
+    if (tutor.act != 0) {
+        sat.innerHTML += `ACT ${tutor.act}`
+    }
+
+    `${tutor.sat ? "SAT "+tutor.sat : ""}${(tutor.sat && tutor.act) ? "<br>" : ""}${tutor.act ? "ACT "+tutor.act : ""}`
 
     const ap5 = document.createElement("div")
     ap5.setAttribute("field", "AP 5's")
@@ -863,20 +886,18 @@ function imgfromname(name) {
 
 
 function organizeSubject(subject) {
-    if (String(subject).toLowerCase().includes("algebra") || String(subject).toLowerCase().includes("calc") || String(subject).toLowerCase().includes("stat") || String(subject).toLowerCase().includes("calc") || String(subject).toLowerCase().includes("computer") || String(subject).toLowerCase().includes("geometry") || String(subject).toLowerCase().includes("econ")) {
+    if (String(subject).toLowerCase().includes("algebra") || String(subject).toLowerCase().includes("calc") || String(subject).toLowerCase().includes("stat") || String(subject).toLowerCase().includes("calc") || String(subject).toLowerCase().includes("geometry")) {
         return "Math"
-    } else if (String(subject).toLowerCase().includes("english")) {
-        return "English"
-    } else if (String(subject).toLowerCase().includes("history")) {
+    } else if (String(subject).toLowerCase().includes("history") || String(subject).toLowerCase().includes("art")) {
         return "History"
-    } else if (String(subject).toLowerCase().includes("biology") || String(subject).toLowerCase().includes("chemistry") || String(subject).toLowerCase().includes("physics") || String(subject).toLowerCase().includes("science")) {
+    } else if (String(subject).toLowerCase().includes("biology") || String(subject).toLowerCase().includes("chemistry") || String(subject).toLowerCase().includes("physics") || String(subject).toLowerCase().includes("science") || String(subject).toLowerCase().includes("econ")) {
         return "Science"
     } else if (String(subject).toLowerCase().includes("college application")) {
         return "Essay"
-    } else if (String(subject).toLowerCase().includes("art")) {
-        return "Art"
-    } else if (String(subject).toLowerCase().includes("latin") || String(subject).toLowerCase().includes("spanish") || String(subject).toLowerCase().includes("chinese") || String(subject).toLowerCase().includes("french")) {
+    } else if (String(subject).toLowerCase().includes("english") || String(subject).toLowerCase().includes("latin") || String(subject).toLowerCase().includes("spanish") || String(subject).toLowerCase().includes("chinese") || String(subject).toLowerCase().includes("french")) {
         return "Language"
+    } else if (String(subject).toLowerCase().includes("sat") || String(subject).toLowerCase().includes("act")) {
+        return "SAT/ACT"
     } else {
         return "Other"
     }

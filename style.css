@@ -20,6 +20,7 @@
     --border: #CBCBCB;
     --accent: #fafafa;
     --transition: 0.3s ease-out;
+    --page-margin: 5vw;
 }
 
 
@@ -84,7 +85,7 @@ body {
     flex-direction: column;
     margin-top: 202px;
     margin-bottom: 305px;
-    margin-right: 7.5vw;
+    margin-right: var(--page-margin);
 }
 
 #teaching-staff-header {
@@ -1040,7 +1041,7 @@ body {
 }
 
 #sidebar {
-    margin-left: 7.5vw;
+    margin-left: var(--page-margin);
     margin-top: 213px;
     display: flex;
     flex-direction: column;
