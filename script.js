@@ -1,36 +1,36 @@
 class Tutor {
-    // constructor(obj) {
-    //     this.name = obj.name
-    //     this.about = obj.about
-    //     this.school = obj.school
-    //     this.sat = obj.satact.split(",")[0]
-    //     this.act = obj.satact.split(",")[1]
-    //     this.ap5 = obj.ap5.split(",")
-    //     this.subjects = obj.subjects.split(", ")
-    //     this.imgurl = obj.imgurl
-    //     this.altimgurl = obj.altimgurl
-    //     this.location = obj.location
-    //     this.role = "Tutor" //obj.role
-    // }
-    constructor() {
-        this.name = randomElement(["Emma Smith", "Clay Oxford", "Krystal McRae", "Sophia Smith", "Alexandria Ferguson", "Nora McRae", "Mia Smith", "Sophia Fine"])
-        this.school = randomElement(["Yale", "Duke", "Georgia Tech", "Harvard", "Columbia", "MIT", "Stanford"])
-        this.sat = Math.floor(150 + Math.random() * 1) * 10
-        this.act = Math.floor(30 + Math.random() * 9)
-        this.ap5 = ["Calculus", "Biology", "Forensics", "Psychology", "US History", "Chemistry", "Physics 1"]
-        this.about = "Aradhya is a PhD student studying Quantitative Biosciences at Georgia Tech. Originally from New Jersey, Aradhya is an avid musician, playing both violin and guitar. He also enjoys reading and learning more about various subjects, including math and computer science.##Aradhya has been teaching SAT and ACT for more than four years and is the director of Alexander Academy’s yearly Math for College Workshop at Georgia Tech. He has also taught various high school subjects including chemistry, physics, and calculus. Aradhya finds teaching like a puzzle, finding new perspectives to better explain concepts. He enjoys seeing students quickly improve after they learn a new way to solve a problem."
-        this.subjects = {
-            "Math": randomSlice(["Algebra 1", "Algebra 2", "Calculus", "Geometry", "Linear Algebra"], 2),
-            "English": randomSlice(["Creative Writing", "Shakespeare", "Literature", "Public Speaking", "Spelling"], 3),
-            "Science": randomSlice(["Biology", "Chemistry", "Physics", "Biology"], 2),
-            "History": [randomElement(["World History", "United States", "Civilizations"])],
-            "SAT/ACT": [randomElement(["SAT", "ACT"])]
-        }
-        this.imgurl = "https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/Tutor" + Math.floor(Math.random() * 2 + 1) + ".png"
-        this.altimgurl = "https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/alttutor.png"
-        this.location = randomElement(["Atlanta", "Boston", "New York"])
-        this.role = randomElement(["Tutor", "Admin"])
+    constructor(obj) {
+        this.name = obj.name
+        this.about = obj.about
+        this.school = obj.school
+        this.sat = obj.satact.split(",")[0]
+        this.act = obj.satact.split(",")[1]
+        this.ap5 = obj.ap5.split(",")
+        this.subjects = obj.subjects.split(", ")
+        this.imgurl = obj.imgurl
+        this.altimgurl = obj.altimgurl
+        this.location = obj.location
+        this.role = "Tutor" //obj.role
     }
+    // constructor() {
+    //     this.name = randomElement(["Emma Smith", "Clay Oxford", "Krystal McRae", "Sophia Smith", "Alexandria Ferguson", "Nora McRae", "Mia Smith", "Sophia Fine"])
+    //     this.school = randomElement(["Yale", "Duke", "Georgia Tech", "Harvard", "Columbia", "MIT", "Stanford"])
+    //     this.sat = Math.floor(150 + Math.random() * 1) * 10
+    //     this.act = Math.floor(30 + Math.random() * 9)
+    //     this.ap5 = ["Calculus", "Biology", "Forensics", "Psychology", "US History", "Chemistry", "Physics 1"]
+    //     this.about = "Aradhya is a PhD student studying Quantitative Biosciences at Georgia Tech. Originally from New Jersey, Aradhya is an avid musician, playing both violin and guitar. He also enjoys reading and learning more about various subjects, including math and computer science.##Aradhya has been teaching SAT and ACT for more than four years and is the director of Alexander Academy’s yearly Math for College Workshop at Georgia Tech. He has also taught various high school subjects including chemistry, physics, and calculus. Aradhya finds teaching like a puzzle, finding new perspectives to better explain concepts. He enjoys seeing students quickly improve after they learn a new way to solve a problem."
+    //     this.subjects = {
+    //         "Math": randomSlice(["Algebra 1", "Algebra 2", "Calculus", "Geometry", "Linear Algebra"], 2),
+    //         "English": randomSlice(["Creative Writing", "Shakespeare", "Literature", "Public Speaking", "Spelling"], 3),
+    //         "Science": randomSlice(["Biology", "Chemistry", "Physics", "Biology"], 2),
+    //         "History": [randomElement(["World History", "United States", "Civilizations"])],
+    //         "SAT/ACT": [randomElement(["SAT", "ACT"])]
+    //     }
+    //     this.imgurl = "https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/Tutor" + Math.floor(Math.random() * 2 + 1) + ".png"
+    //     this.altimgurl = "https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/alttutor.png"
+    //     this.location = randomElement(["Atlanta", "Boston", "New York"])
+    //     this.role = randomElement(["Tutor", "Admin"])
+    // }
 
 }
 
@@ -41,10 +41,17 @@ var chosenLocations = []
 var allSubjects = {}
 var allSchools = []
 var allLocations = []
-var allTutors = [...Array(Math.floor(16 + Math.random() * 10))].map(() => new Tutor()) //make list of tutors
+var allTutors = [] //make list of tutors
 
-processTutors(allTutors, true)
-filterTutors()
+fetch("https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/staff.json").then(res => res.json()).then(json => {
+
+    json.forEach(tutor => {
+        allTutors.push(new Tutor(tutor))
+    })
+
+    processTutors(allTutors, true)
+    filterTutors()
+})
 
 document.body.onclick = function (e) {
 

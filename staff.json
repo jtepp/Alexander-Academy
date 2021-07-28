@@ -179,22 +179,13 @@
         "ap5": "Calculus AB,Calculus BC,Biology,Physics C: Electricity & Magnetism,World History,Macroeconomics,Microeconomics"
     },
     {
-        "name": "Jacob Page",
+        "name": "Jacob Paige",
         "about": "Jacob is currently a 2nd-year student at Columbia University where he is studying Economics and Computer Science. He is also a member of the Columbia Heavyweight Rowing program.##Jacob found his passion for tutoring in high school where he created a tutoring system to ensure academic success for his dorm. His favorite part of tutoring is seeing students� breakthroughs when discovering how to solve a problem. In his free time, Jacob enjoys traveling and everything outdoors.",
         "satact": "1550,0",
         "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, Linear Algebra, Statistics, Economics, US History",
         "school": "Columbia",
         "location": "New York",
         "ap5": "Environmental Science,US History"
-    },
-    {
-        "name": "Jake Gilbert",
-        "about": "Jacob is currently a 2nd-year student at Columbia University where he is studying Economics and Computer Science. He is also a member of the Columbia Heavyweight Rowing program.##Jacob found his passion for tutoring in high school where he created a tutoring system to ensure academic success for his dorm. His favorite part of tutoring is seeing students’ breakthroughs when discovering how to solve a problem. In his free time, Jacob enjoys traveling and everything outdoors.",
-        "satact": "2350,0",
-        "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, Linear Algebra, Biology, Computer Science, English Lang, English Lit, US History, World History, Essay: College Application",
-        "school": "Harvard",
-        "location": "Boston",
-        "ap5": "Biology,Calculus AB,Calculus BC,Computer Science A,English Language and Composition,US History,World History"
     },
     {
         "name": "Janet Liu",
@@ -223,15 +214,7 @@
         "location": "Boston",
         "ap5": "World History,Statistics,English Literature and Composition,English Language and Composition,Human Geography,U.S. History,Macroeconomics,Microeconomics,Calculus AB,Biology"
     },
-    {
-        "name": "John Eng",
-        "about": "John Eng is a 5th year biomedical engineering major at Georgia Tech, soon to graduate. John is a member of Georgia tech soccer and co-captain of the mock trial teams. He is also a certified EMT, loves science, and (as can be seen from the picture) potato chips!##John has been tutoring for several years now in many different capacities, including SAT, ACT and academic tutoring. John also works with younger students, teaching STEM through an outreach program called Georgia Tech Healthreach. He enjoys finding new approaches to teaching his students and feels that making education fun is a key to getting results. He plans on pursuing a career as a surgeon.",
-        "satact": "",
-        "subjects": "",
-        "school": "",
-        "location": "",
-        "ap5": ""
-    },
+
     {
         "name": "Josh Hammonds",
         "about": "Josh is a 4th year Mechanical Engineering student at Georgia Tech and a member of the Air Force Reserve Officer Training Corps. After graduating, Josh hopes to receive a commission as an officer and to work as a developmental engineer in the Air Force. Josh has extensive experience tutoring, having worked with high schoolers of all ages on math and science, as well as the SAT.##Joshua enjoys being a mentor to his students and cadets alike, helping them to pursue excellence. He is also passionate about cooking and soccer!",
@@ -277,15 +260,7 @@
         "location": "Boston",
         "ap5": "English Language and Composition,French Language & Composition"
     },
-    {
-        "name": "Kaavya Gudapati",
-        "about": "Kaavya is a first year Neuroscience and Business double major at Georgia Tech. She is currently conducting research on diabetic retinopathy with Dr. Pardue, and is the hospital relations chair for For the Kids. In high school, Kaavya actively worked with students of all ages, from elementary school to high school, tutoring them in any subject through the National Honor Societies.##She also spearheaded the ACT tutoring program in the National Science Honor Society in her high school. Her hobbies include playing soccer, adventuring, traveling, and creating videos. She is also a third degree black belt in TaeKwonDo!",
-        "satact": "0,35",
-        "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, Statistics, Biology, Chemistry, Economics, English Lang, English Lit",
-        "school": "Georgia Institute of Technology",
-        "location": "Atlanta",
-        "ap5": "Chemistry,Biology,English Language and Composition,Spanish Language & Culture,Calculus BC,Macroeconomics,US Government and Politics,Psychology,World History,Statistics"
-    },
+
     {
         "name": "Karishma Pradhan",
         "about": "Karishma is an 3rd year Industrial Engineering student at Georgia Tech. Originally from Atlanta, GA, she graduated from Pace Academy cum laud. She is a recipient of the Zell Miller Scholarship and Women in Engineering Scholarship and holds a 4.0 GPA.##Karishma is a member of a collegiate, all-women’s, competitive dance team, and has a great passion for dancing, drawing and acting. For the past two summers, Karishma has worked as an assistant teacher at the Goddard preschool. Her love for children and teaching has further led to teach at Alexander Academy. She looks forward to working with all of the bright, motivated students she has the honor of tutoring.",
@@ -387,7 +362,7 @@
     },
     {
         "name": "Rocio Eiriz",
-        "about": "Rocio is a junior studying Economics at Harvard. Originally from Buenos Aires, Argentina, she serves on the executive board of the Harvard Organization for Latin America. On campus, she is actively involved in the Women in Business association and several educational conferences.##Rocío has been tutoring students on the SAT and college admissions since going through the application process herself. She enjoys helping students to build their test-taking skills and confidence, and achieve their goals.",
+        "about": "Rocio is a junior studying Economics at Harvard. Originally from Buenos Aires, Argentina, she serves on the executive board of the Harvard Organization for Latin America. On campus, she is actively involved in the Women in Business association and several educational conferences.##Rocio has been tutoring students on the SAT and college admissions since going through the application process herself. She enjoys helping students to build their test-taking skills and confidence, and achieve their goals.",
         "satact": "1570,0",
         "subjects": "Economics, Essay: College Application",
         "school": "Harvard",
@@ -420,15 +395,6 @@
         "school": "Harvard",
         "location": "Boston",
         "ap5": "Calculus BC,US History"
-    },
-    {
-        "name": "Shanivi Srikonda",
-        "about": "Shanivi is currently an undergraduate at Harvard College, studying engineering and biology. She writes for various publications at Harvard, from The Crimson to different undergraduate journals on campus. Outside of the classroom, Shanivi likes exploring Boston and enjoying nature. She also enjoys going to art museums, and is a fan of impressionism. She is also interested in learning other languages, having taken Latin at Harvard.##Shanivi is enthusiastic about teaching and mentorship, and has also been involved in programs aimed at teaching others during her time in college. She believes that learning is vital to ensuring a brighter tomorrow.",
-        "satact": "1500,33",
-        "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, English Lang, English Lit, US History, World History, Essay: College Application",
-        "school": "Harvard",
-        "location": "Boston",
-        "ap5": "Calculus AB,English Language and Composition,English Literature and Composition,Environmental Science,US Government & Politics,US History,World History"
     },
     {
         "name": "Siddarth Seemakurti",
