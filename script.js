@@ -721,7 +721,9 @@ function fillSheet(tutor) {
 
 
     subjects.appendChild(sat)
-    subjects.appendChild(ap5)
+    if (tutor.ap5[0] != "") {
+        subjects.appendChild(ap5)
+    }
     subjects.appendChild(ts)
 
 }

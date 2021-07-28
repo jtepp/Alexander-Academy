@@ -183,6 +183,7 @@ body {
     cursor: pointer;
     background: #fff;
     padding: 11px 0 10px 13px;
+    font-size: 18px;
 }
 
 .filter-item-container:hover,
