@@ -9,7 +9,7 @@ class Tutor {
         this.subjectsArr = obj.subjects.split(", ")
         this.subjects = this.orgSubs()
         this.imgurl = `https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/headshots/${imgfromname(obj.name)}_headshot.jpeg`
-        this.altimgurl = (obj.name.toLowerCase().includes("nadine") || obj.name.toLowerCase().includes("rocio")) ? "" : `https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/headshots/${imgfromname(obj.name)}_fun.jpeg`
+        this.altimgurl = `https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/headshots/${(obj.name.toLowerCase().includes("nadine") || obj.name.toLowerCase().includes("rocio")) ? "blank" : (imgfromname(obj.name)+"_fun")}.jpeg`
         this.location = obj.location
         this.role = obj.role || "Tutor"
     }
