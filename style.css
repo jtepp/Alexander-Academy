@@ -482,11 +482,14 @@ body {
 @media (max-width: 1055px) {
     .tutor-cell {
         width: 30%;
+        height: auto;
+        aspect-ratio: 1;
+
         font-size: max(14px, 1.6vw);
     }
 
     #tutor-container {
-        gap: 5%;
+        gap: 20px 5%;
     }
 
     #main-container {
@@ -498,6 +501,8 @@ body {
 @media (max-width: 500px) {
     .tutor-cell {
         width: 40%;
+        height: auto;
+        aspect-ratio: 1;
     }
 }
 
@@ -905,11 +910,6 @@ body {
 #tutorsreq {
     max-height: 150px;
     overflow-y: scroll;
-}
-
-#sheet-request-tutor-request.disabled-button {
-    background: var(--border);
-    color: var(--black);
 }
 
 .unfilled-box {

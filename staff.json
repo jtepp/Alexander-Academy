@@ -5,7 +5,8 @@
         "subjects": "Pre-calc, Algebra I, Algebra II, College Application",
         "school": "Columbia",
         "location": "New York",
-        "ap5": "Calculus AB"
+        "ap5": "Calculus AB",
+        "role": "Tutor"
     },
     {
         "name": "Adam Johnson",
@@ -14,7 +15,8 @@
         "subjects": "Biology, Chemistry, Economics, US History, World History, English Lang, English Lit, Geometry, Algebra I, Algebra II, Pre-Calc, Calculus, Linear Algebra",
         "school": "Duke",
         "location": "Durham",
-        "ap5": "Biology,Calculus AB,Calculus BC,Chemistry,English Language and Composition,Human Geography,Macroeconomics,US History,World History"
+        "ap5": "Biology,Calculus AB,Calculus BC,Chemistry,English Language and Composition,Human Geography,Macroeconomics,US History,World History",
+        "role": "Tutor"
     },
     {
         "name": "Alixandra Rubin",
@@ -23,7 +25,8 @@
         "subjects": "Geometry, Algebra I, Algebra II, Pre-Calc, Calculus, Linear Algebra, Computer Science, Physics, Biology, Economics, US History, World History, Art, English Lit",
         "school": "Georgia Tech",
         "location": "Atlanta",
-        "ap5": "Art History,Biology,Calculus AB,Caluclus BC,Computer Science Principles,English Literature and Composition,Macroeconomics,Psychology,US Government & Politics,US History,World History"
+        "ap5": "Art History,Biology,Calculus AB,Caluclus BC,Computer Science Principles,English Literature and Composition,Macroeconomics,Psychology,US Government & Politics,US History,World History",
+        "role": "Tutor"
     },
     {
         "name": "Ameera Patel",
@@ -32,7 +35,8 @@
         "subjects": "Economics, English Lit, English Lang",
         "school": "Georgia Tech",
         "location": "Atlanta",
-        "ap5": "Macroeconomics,English Language and Composition,Psychology,Human Geography"
+        "ap5": "Macroeconomics,English Language and Composition,Psychology,Human Geography",
+        "role": "Tutor"
     },
     {
         "name": "Anna Gumberg",
@@ -41,7 +45,8 @@
         "subjects": "Geometry, Algebra I, Algebra II, Pre-Calc, Calculus, Linear Algebra, English Lang, English Lit, US History, World History",
         "school": "Yale",
         "location": "New Haven",
-        "ap5": "Calculus AB,Calculus BC,English Language and Composition,US History,World History"
+        "ap5": "Calculus AB,Calculus BC,English Language and Composition,US History,World History",
+        "role": "Tutor"
     },
     {
         "name": "Aradhya Rajanala",
@@ -50,7 +55,8 @@
         "subjects": "Geometry, Algebra I, Algebra II, Pre-Calc, Calculus, Linear Algebra, English Lang, English Lit, Computer Science, Physics, US History",
         "school": "Georgia Tech",
         "location": "Atlanta",
-        "ap5": "Calculus AB,Calculus BC,English Language and Composition,Computer Science A,U.S. History,Physics 1: Algebra-Based,Physics C: Electricity & Magnetism,Physics C: Mechanics"
+        "ap5": "Calculus AB,Calculus BC,English Language and Composition,Computer Science A,U.S. History,Physics 1: Algebra-Based,Physics C: Electricity & Magnetism,Physics C: Mechanics",
+        "role": "Tutor"
     },
     {
         "name": "Audrey Johnson",
@@ -59,7 +65,8 @@
         "subjects": "Geometry, Algebra I, Algebra II, Pre-Calc, Calculus, Linear Algebra, English Lang, English Lit, Economics, US History, World History",
         "school": "Georgia Tech",
         "location": "Atlanta",
-        "ap5": "Calculus AB,Caluclus BC,English Literature and Composition,Macroeconomics,US Government & Politics,US History,World History"
+        "ap5": "Calculus AB,Caluclus BC,English Literature and Composition,Macroeconomics,US Government & Politics,US History,World History",
+        "role": "Tutor"
     },
     {
         "name": "Caitlin Chun",
@@ -68,7 +75,8 @@
         "subjects": "Geometry, Algebra I, Algebra II, Pre-Calc, Calculus, Linear Algebra, Physics, Biology, Art, Chemistry, English Lang, English Lit",
         "school": "Yale",
         "location": "New Haven",
-        "ap5": "Art History,Biology,Calculus AB,Calculus BC,Chemistry,English Language and Composition,Macroeconomics,Physics 1: Algebra-Based,U.S. History,World History"
+        "ap5": "Art History,Biology,Calculus AB,Calculus BC,Chemistry,English Language and Composition,Macroeconomics,Physics 1: Algebra-Based,U.S. History,World History",
+        "role": "Tutor"
     },
     {
         "name": "Carter Martindale",
@@ -77,7 +85,8 @@
         "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, English Lang",
         "school": "Harvard",
         "location": "Boston",
-        "ap5": "Calculus AB,English Language and Composition,US Government & Politics"
+        "ap5": "Calculus AB,English Language and Composition,US Government & Politics",
+        "role": "Tutor"
     },
     {
         "name": "Clay Oxford",
@@ -86,7 +95,8 @@
         "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, Economics, Statistics, US History, World History, College Application",
         "school": "Harvard",
         "location": "Boston",
-        "ap5": "Calculus AB,Calculus BC,Environmental Science,Statistics,U.S. History,World History"
+        "ap5": "Calculus AB,Calculus BC,Environmental Science,Statistics,U.S. History,World History",
+        "role": "Tutor"
     },
     {
         "name": "Elmira Hezarkhani",
@@ -95,7 +105,8 @@
         "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, Spanish, Statistics, US History",
         "school": "Duke",
         "location": "Durham",
-        "ap5": "Calculus BC,Human Geography,Spanish Language & Culture,Statistics,US History"
+        "ap5": "Calculus BC,Human Geography,Spanish Language & Culture,Statistics,US History",
+        "role": "Tutor"
     },
     {
         "name": "Ethan Dong",
@@ -104,7 +115,8 @@
         "subjects": "Geometry, Algebra I, Algebra II, Pre-Calc, Calculus, Linear Algebra, Statistics, Computer Science, Physics, Chemistry, Economics, Chinese",
         "school": "Yale",
         "location": "New Haven",
-        "ap5": "Calculus AB,Calculus BC,Chemistry,Chinese Language & Culture,Computer Science A,Microeconomics,Physics 1: Algebra-Based,Physics 2: Algebra-Based,Statistics"
+        "ap5": "Calculus AB,Calculus BC,Chemistry,Chinese Language & Culture,Computer Science A,Microeconomics,Physics 1: Algebra-Based,Physics 2: Algebra-Based,Statistics",
+        "role": "Tutor"
     },
     {
         "name": "Frank Malone",
@@ -113,7 +125,8 @@
         "subjects": "Geometry, Algebra I, Algebra II, Pre-Calc, Calculus, Linear Algebra, Physics, World History",
         "school": "Georgia Tech",
         "location": "Atlanta",
-        "ap5": "Calculus AB,Caluclus BC,Physics 1: Algebra-Based,Physics C: Electricity & Magnetism,World History"
+        "ap5": "Calculus AB,Caluclus BC,Physics 1: Algebra-Based,Physics C: Electricity & Magnetism,World History",
+        "role": "Tutor"
     },
     {
         "name": "Gabrielle Amar",
@@ -122,7 +135,8 @@
         "subjects": "Geometry, Algebra I, Algebra II, Pre-Calc, Calculus",
         "school": "Columbia",
         "location": "New York",
-        "ap5": "Calculus BC"
+        "ap5": "Calculus BC",
+        "role": "Tutor"
     },
     {
         "name": "Gaorong (Tommy) Wang",
@@ -131,7 +145,8 @@
         "subjects": "Geometry, Algebra I, Algebra II, Pre-Calc, Calculus, Computer Science, Physics, World History",
         "school": "Georgia Tech",
         "location": "Atlanta",
-        "ap5": "Calculus AB,Caluclus BC,Computer Science Principles,Human Geography,Physics 1: Algebra-Based,Physics C: Electricity & Magnetism,Psychology,US Government & Politics,World History"
+        "ap5": "Calculus AB,Caluclus BC,Computer Science Principles,Human Geography,Physics 1: Algebra-Based,Physics C: Electricity & Magnetism,Psychology,US Government & Politics,World History",
+        "role": "Tutor"
     },
     {
         "name": "Hyuk Lee",
@@ -140,7 +155,8 @@
         "subjects": "Geometry, Algebra I, Algebra II, Pre-Calc, Calculus, Computer Science, Physics",
         "school": "Georgia Tech",
         "location": "Atlanta",
-        "ap5": "Calculus AB,Caluclus BC,Computer Science Principles,Human Geography"
+        "ap5": "Calculus AB,Caluclus BC,Computer Science Principles,Human Geography",
+        "role": "Tutor"
     },
     {
         "name": "Irene Ju",
@@ -149,7 +165,8 @@
         "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, Latin, World History",
         "school": "Harvard",
         "location": "Boston",
-        "ap5": "Calculus AB,Latin,World History"
+        "ap5": "Calculus AB,Latin,World History",
+        "role": "Tutor"
     },
     {
         "name": "Isaac Alexander Gershberg",
@@ -158,7 +175,8 @@
         "subjects": "Geometry, Algebra I, Algebra II, Pre-Calc, Calculus, Linear Algebra, Statistics, Biology, English Lang, English Lit, Art, US History, Economics",
         "school": "Columbia",
         "location": "New York",
-        "ap5": "Biology,Calculus AB,English Language and Composition,Psychology,Studio Art: 2-D Design,US History"
+        "ap5": "Biology,Calculus AB,English Language and Composition,Psychology,Studio Art: 2-D Design,US History",
+        "role": "Tutor"
     },
     {
         "name": "Jacob Brachey",
@@ -167,7 +185,8 @@
         "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, Linear Algebra, Statistics, Computer Science, Biology, Physics, World History, Economics",
         "school": "Georgia Tech",
         "location": "Atlanta",
-        "ap5": "Calculus AB,Calculus BC,Biology,Physics C: Electricity & Magnetism,World History,Macroeconomics,Microeconomics"
+        "ap5": "Calculus AB,Calculus BC,Biology,Physics C: Electricity & Magnetism,World History,Macroeconomics,Microeconomics",
+        "role": "Tutor"
     },
     {
         "name": "Jacob Paige",
@@ -176,7 +195,8 @@
         "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, Linear Algebra, Statistics, Economics, US History",
         "school": "Columbia",
         "location": "New York",
-        "ap5": "Environmental Science,US History"
+        "ap5": "Environmental Science,US History",
+        "role": "Tutor"
     },
     {
         "name": "Janet Liu",
@@ -185,7 +205,8 @@
         "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, Linear Algebra, Biology, Chemistry, Computer Science, English Lit, English Lang, Economics, Statistics",
         "school": "Harvard",
         "location": "Boston",
-        "ap5": "Biology,Calculus AB,Caluclus BC,Chemistry,English Literature and Composition,Microeconomics,Physics 1: Algebra-Based,Statistics"
+        "ap5": "Biology,Calculus AB,Caluclus BC,Chemistry,English Literature and Composition,Microeconomics,Physics 1: Algebra-Based,Statistics",
+        "role": "Tutor"
     },
     {
         "name": "Jerry Han",
@@ -194,7 +215,8 @@
         "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, Linear Algebra, Chinese, Computer Science, English Lit, English Lang, French, Economics, Physics",
         "school": "MIT",
         "location": "Boston",
-        "ap5": "Calculus BC,Chinese Language & Culture,Computer Science A,English Literature and Composition,French Language & Culture,Macroeconomics,Microeconomics,Physics C: Electricity & Magnetism"
+        "ap5": "Calculus BC,Chinese Language & Culture,Computer Science A,English Literature and Composition,French Language & Culture,Macroeconomics,Microeconomics,Physics C: Electricity & Magnetism",
+        "role": "Tutor"
     },
     {
         "name": "Jessica Moore",
@@ -203,7 +225,8 @@
         "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, Statistics, World History, English Lang, English Lit, US History, World History, Economics, Biology",
         "school": "Harvard",
         "location": "Boston",
-        "ap5": "World History,Statistics,English Literature and Composition,English Language and Composition,Human Geography,U.S. History,Macroeconomics,Microeconomics,Calculus AB,Biology"
+        "ap5": "World History,Statistics,English Literature and Composition,English Language and Composition,Human Geography,U.S. History,Macroeconomics,Microeconomics,Calculus AB,Biology",
+        "role": "Tutor"
     },
 
     {
@@ -213,7 +236,8 @@
         "subjects": "Geometry, Algebra I, Algebra II, Pre-Calc, Calculus, Linear Algebra, Physics",
         "school": "Georgia Tech",
         "location": "Atlanta",
-        "ap5": ""
+        "ap5": "",
+        "role": "Tutor"
     },
     {
         "name": "Julia Oladipo",
@@ -222,7 +246,8 @@
         "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, Statistics, Biology, Chemistry, US History",
         "school": "Yale",
         "location": "New Haven",
-        "ap5": "Calculus BC,US History"
+        "ap5": "Calculus BC,US History",
+        "role": "Tutor"
     },
     {
         "name": "Julianna Snoeblen",
@@ -231,7 +256,8 @@
         "subjects": "Geometry, Algebra I, Algebra II, Pre-Calc, Calculus, Linear Algebra, Physics",
         "school": "Georgia Tech",
         "location": "Atlanta",
-        "ap5": ""
+        "ap5": "",
+        "role": "Tutor"
     },
     {
         "name": "Julien Mermelstein",
@@ -240,7 +266,8 @@
         "subjects": "Economics, English Lang, English Lit, French, US History, World History",
         "school": "Duke",
         "location": "Durham",
-        "ap5": "English Literature and Composition,French Language & Culture,US History,World History"
+        "ap5": "English Literature and Composition,French Language & Culture,US History,World History",
+        "role": "Tutor"
     },
     {
         "name": "Julius Ewungkem Jr.",
@@ -249,7 +276,8 @@
         "subjects": "Biology, English Lang, French, English Lit",
         "school": "Harvard",
         "location": "Boston",
-        "ap5": "English Language and Composition,French Language & Composition"
+        "ap5": "English Language and Composition,French Language & Composition",
+        "role": "Tutor"
     },
 
     {
@@ -259,7 +287,8 @@
         "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus",
         "school": "Georgia Tech",
         "location": "Atlanta",
-        "ap5": ""
+        "ap5": "",
+        "role": "Tutor"
     },
     {
         "name": "Laine Garber",
@@ -268,7 +297,8 @@
         "subjects": "Biology, Chemistry",
         "school": "Yale",
         "location": "New Haven",
-        "ap5": ""
+        "ap5": "",
+        "role": "Tutor"
     },
     {
         "name": "Marc Leroux-Parra",
@@ -277,7 +307,8 @@
         "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, English Lang, English Lit, Spanish, US History, College Application",
         "school": "Harvard",
         "location": "Boston",
-        "ap5": "Calculus AB,Comparative Government & Politics,English Language and Composition,Environmental Science,Spanish Language & Culture,US History"
+        "ap5": "Calculus AB,Comparative Government & Politics,English Language and Composition,Environmental Science,Spanish Language & Culture,US History",
+        "role": "Tutor"
     },
     {
         "name": "Megan Knauer",
@@ -286,7 +317,8 @@
         "subjects": "Biology, Algebra I, Algebra II, Pre-Calc, Calculus, Chemistry, English Lang, English Lit, Statistics, US History",
         "school": "Duke",
         "location": "Durham",
-        "ap5": "Biology,Calculus AB,Chemistry,English Language and Composition,English Literature and Composition,Statistics,U.S. Government and Politics,U.S. History"
+        "ap5": "Biology,Calculus AB,Chemistry,English Language and Composition,English Literature and Composition,Statistics,U.S. Government and Politics,U.S. History",
+        "role": "Tutor"
     },
     {
         "name": "Michael Medaugh",
@@ -295,7 +327,8 @@
         "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, Biology, Chemistry, Computer Science, English Lang, English Lit, European History, Economics, Physics, Statistics",
         "school": "Harvard",
         "location": "Boston",
-        "ap5": "Biology,Calculus AB,Caluclus BC,Chemistry,Comparative Government & Politics,Computer Science A,English Language and Composition,English Literature and Composition,Environmental Science,European History,Human Geography,Microeconomics,Macroeconomics,Physics 1: Algebra-Based,Psychology,Statistics,US Government & Politics"
+        "ap5": "Biology,Calculus AB,Caluclus BC,Chemistry,Comparative Government & Politics,Computer Science A,English Language and Composition,English Literature and Composition,Environmental Science,European History,Human Geography,Microeconomics,Macroeconomics,Physics 1: Algebra-Based,Psychology,Statistics,US Government & Politics",
+        "role": "Tutor"
     },
     {
         "name": "Nadine Khoury",
@@ -304,7 +337,8 @@
         "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, Biology",
         "school": "Harvard",
         "location": "Boston",
-        "ap5": ""
+        "ap5": "",
+        "role": "Tutor"
     },
     {
         "name": "Noa Kligfield",
@@ -313,7 +347,8 @@
         "subjects": "Computer Science, Linear Algebra, Algebra I, Algebra II",
         "school": "Harvard",
         "location": "Boston",
-        "ap5": ""
+        "ap5": "",
+        "role": "Tutor"
     },
     {
         "name": "Noga Hurwitz",
@@ -322,7 +357,8 @@
         "subjects": "College Application",
         "school": "Columbia",
         "location": "New York",
-        "ap5": "Environmental Science"
+        "ap5": "Environmental Science",
+        "role": "Tutor"
     },
     {
         "name": "Olivia McAuliffe",
@@ -331,7 +367,8 @@
         "subjects": "Economics, Algebra I, Algebra II, Pre-Calc, Calculus, English Lang, English Lit, US History, World History, College Application",
         "school": "Duke",
         "location": "Durham",
-        "ap5": "Calculus BC,English Language and Composition,English Literature and Composition,US Government and Politics,US History,World History"
+        "ap5": "Calculus BC,English Language and Composition,English Literature and Composition,US Government and Politics,US History,World History",
+        "role": "Tutor"
     },
     {
         "name": "Portia Gaitskell",
@@ -340,7 +377,8 @@
         "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, Chemistry, Computer Science, French, Physics, US History",
         "school": "MIT",
         "location": "Boston",
-        "ap5": "Calculus AB,Calculus BC,Chemistry,Computer Science A,French Language & Culture,Physics C: Electricity & Magnetism,U.S. History"
+        "ap5": "Calculus AB,Calculus BC,Chemistry,Computer Science A,French Language & Culture,Physics C: Electricity & Magnetism,U.S. History",
+        "role": "Tutor"
     },
     {
         "name": "Regina De Nigris",
@@ -349,7 +387,8 @@
         "subjects": "Economics, Algebra I, Algebra II, Pre-Calc, Calculus, English Lang, English Lit, Spanish, US History, College Application",
         "school": "Yale",
         "location": "New Haven",
-        "ap5": "Calculus AB,English Literature and Composition,Spanish Language & Culture,U.S. History"
+        "ap5": "Calculus AB,English Literature and Composition,Spanish Language & Culture,U.S. History",
+        "role": "Tutor"
     },
     {
         "name": "Rocio Eiriz",
@@ -358,7 +397,8 @@
         "subjects": "Economics, College Application",
         "school": "Harvard",
         "location": "Boston",
-        "ap5": ""
+        "ap5": "",
+        "role": "Tutor"
     },
     {
         "name": "Roopsha D Bandopadhyay",
@@ -367,7 +407,8 @@
         "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, Biology, English Lang, English Lit, Physics, Spanish, US History",
         "school": "MIT",
         "location": "Boston",
-        "ap5": "Biology,Calculus BC,English Literature and Composition,Environmental Science,Music Theory,Physics 2: Algebra-Based,Physics C: Electricity & Magnetism,Spanish Language & Culture,Spanish Literature & Culture,US History"
+        "ap5": "Biology,Calculus BC,English Literature and Composition,Environmental Science,Music Theory,Physics 2: Algebra-Based,Physics C: Electricity & Magnetism,Spanish Language & Culture,Spanish Literature & Culture,US History",
+        "role": "Tutor"
     },
     {
         "name": "Samantha Owusu-Antwi",
@@ -376,7 +417,8 @@
         "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, Chemistry, Biology, Statistics, English Lang, English Lit, US History, College Application",
         "school": "Duke",
         "location": "Durham",
-        "ap5": "Calculus AB,Calculus BC,Chemistry,Biology,Statistics,English Literature and Composition,English Language and Composition,U.S. History,Comparative Government and Polotics,Human Geography"
+        "ap5": "Calculus AB,Calculus BC,Chemistry,Biology,Statistics,English Literature and Composition,English Language and Composition,U.S. History,Comparative Government and Polotics,Human Geography",
+        "role": "Tutor"
     },
     {
         "name": "Sarah Mann",
@@ -385,7 +427,8 @@
         "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, US History",
         "school": "Harvard",
         "location": "Boston",
-        "ap5": "Calculus BC,US History"
+        "ap5": "Calculus BC,US History",
+        "role": "Tutor"
     },
     {
         "name": "Siddarth Seemakurti",
@@ -394,7 +437,8 @@
         "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, Linear Algebra, Statistics, Biology, Physics, Chemistry",
         "school": "Georgia Tech",
         "location": "Atlanta",
-        "ap5": "Statistics,Biology,Physics 1: Algebra-Based"
+        "ap5": "Statistics,Biology,Physics 1: Algebra-Based",
+        "role": "Tutor"
     },
     {
         "name": "Sindhura Siddapureddy",
@@ -403,7 +447,8 @@
         "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, Chemistry, English Lang, English Lit, European History, Economics, US History",
         "school": "Yale",
         "location": "New Haven",
-        "ap5": "Calculus AB,Calculus BC,Chemistry,English Language and Composition,European History,Macroeconomics,Psychology,US History"
+        "ap5": "Calculus AB,Calculus BC,Chemistry,English Language and Composition,European History,Macroeconomics,Psychology,US History",
+        "role": "Tutor"
     },
     {
         "name": "Siofra Murdoch",
@@ -412,7 +457,8 @@
         "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, Biology",
         "school": "Harvard",
         "location": "Boston",
-        "ap5": "Biology,Calculus AB"
+        "ap5": "Biology,Calculus AB",
+        "role": "Tutor"
     },
     {
         "name": "Tyler Bolo",
@@ -421,6 +467,7 @@
         "subjects": "Algebra I, Algebra II, Pre-Calc, Calculus, Linear Algebra, US History, Statistics, Economics, Physics",
         "school": "Georgia Tech",
         "location": "Atlanta",
-        "ap5": "Calculus AB,Calculus BC,U.S. History,Statistics,Physics 1: Algebra-Based,Physics 2: Algebra-Based,Macroeconomics,Microeconomics"
+        "ap5": "Calculus AB,Calculus BC,U.S. History,Statistics,Physics 1: Algebra-Based,Physics 2: Algebra-Based,Macroeconomics,Microeconomics",
+        "role": "Tutor"
     }
 ]

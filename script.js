@@ -6,12 +6,25 @@ class Tutor {
         this.sat = obj.satact.split(",")[0]
         this.act = obj.satact.split(",")[1]
         this.ap5 = obj.ap5.split(",")
-        this.subjects = obj.subjects.split(", ")
+        this.subjectsArr = obj.subjects.split(", ")
+        this.subjects = this.orgSubs()
         this.imgurl = `https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/headshots/${imgfromname(obj.name)}_headshot.jpeg`
         this.altimgurl = (obj.name.toLowerCase().includes("nadine") || obj.name.toLowerCase().includes("rocio")) ? "" : `https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/headshots/${imgfromname(obj.name)}_fun.jpeg`
         this.location = obj.location
-        this.role = "Tutor" //obj.role
+        this.role = obj.role || "Tutor"
     }
+
+    orgSubs() {
+        let subs = {}
+        this.subjectsArr.forEach(x => {
+            if (subs[organizeSubject(x)] == null) {
+                subs[organizeSubject(x)] = []
+            }
+            subs[organizeSubject(x)].push(x)
+        })
+        return subs
+    }
+
     // constructor() {
     //     this.name = randomElement(["Emma Smith", "Clay Oxford", "Krystal McRae", "Sophia Smith", "Alexandria Ferguson", "Nora McRae", "Mia Smith", "Sophia Fine"])
     //     this.school = randomElement(["Yale", "Duke", "Georgia Tech", "Harvard", "Columbia", "MIT", "Stanford"])
@@ -49,11 +62,11 @@ fetch("https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/staff.json
     json.forEach(tutor => {
         const tt = new Tutor(tutor)
         allTutors.push(tt)
-        tt.subjects.forEach(subject => {
-            if (!realAllSubjects.includes(subject)) {
-                realAllSubjects.push(subject)
-            }
-        })
+        // tt.subjects.forEach(subject => {
+        //     if (!realAllSubjects.includes(subject)) {
+        //         realAllSubjects.push(subject)
+        //     }
+        // })
     })
 
     processTutors(allTutors, true)
@@ -850,15 +863,21 @@ function imgfromname(name) {
 
 
 function organizeSubject(subject) {
-    if (subject.toLowerCase().includes("algebra") || subject.toLowerCase().includes("calc") || subject.toLowerCase().includes("stat") || subject.toLowerCase().includes("calc") || subject.toLowerCase().includes("computer") || subject.toLowerCase().includes("geometry") || subject.toLowerCase().includes("econ")) {
+    if (String(subject).toLowerCase().includes("algebra") || String(subject).toLowerCase().includes("calc") || String(subject).toLowerCase().includes("stat") || String(subject).toLowerCase().includes("calc") || String(subject).toLowerCase().includes("computer") || String(subject).toLowerCase().includes("geometry") || String(subject).toLowerCase().includes("econ")) {
         return "Math"
-    } else if (subject.toLowerCase().includes("english")) {
+    } else if (String(subject).toLowerCase().includes("english")) {
         return "English"
-    } else if (subject.toLowerCase().includes("history")) {
+    } else if (String(subject).toLowerCase().includes("history")) {
         return "History"
-    } else if (subject.toLowerCase().includes("biology") || subject.toLowerCase().includes("chemistry") || subject.toLowerCase().includes("physics") || subject.toLowerCase().includes("science")) {
+    } else if (String(subject).toLowerCase().includes("biology") || String(subject).toLowerCase().includes("chemistry") || String(subject).toLowerCase().includes("physics") || String(subject).toLowerCase().includes("science")) {
         return "Science"
-    } else if (subject.toLowerCase().includes("college application")) {
+    } else if (String(subject).toLowerCase().includes("college application")) {
         return "Essay"
+    } else if (String(subject).toLowerCase().includes("art")) {
+        return "Art"
+    } else if (String(subject).toLowerCase().includes("latin") || String(subject).toLowerCase().includes("spanish") || String(subject).toLowerCase().includes("chinese") || String(subject).toLowerCase().includes("french")) {
+        return "Language"
+    } else {
+        return "Other"
     }
 }
