@@ -829,6 +829,7 @@ body {
     align-items: center;
     gap: 20px;
     transition: left var(--transition);
+    overflow-y: scroll;
 }
 
 #sheet-request-header {

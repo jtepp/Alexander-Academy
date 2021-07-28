@@ -440,7 +440,7 @@ function toggleAttributeCheckBox(element, attr, usage) {
         }
     } else if (usage == "location") {
         if (chosenLocations.length == 0) {
-            document.getElementById("Location").setAttribute("selected", "All")
+            document.getElementById("Location").setAttribute("selected", "Online")
         } else {
             document.getElementById("Location").setAttribute("selected", chosenLocations.length < 3 ? chosenLocations.join(", ") : `${chosenLocations[0]}, ${chosenLocations[1]},...`)
         }
@@ -527,7 +527,9 @@ function processTutors(givenTutors, initial) { // Iterate through tutors to make
             allSchools.push(t.school)
         }
         if (!allLocations.includes(t.location)) { // if list doesnt have this location, add it
-            allLocations.push(t.location)
+            if (t.location == "Boston" || t.location == "New York" || t.location == "Atlanta") {
+                allLocations.push(t.location)
+            }
         }
         for (let s in t.subjects) { // subjects
             for (let c of t.subjects[s]) { // classes
@@ -756,7 +758,7 @@ function fillSheet(tutor) {
         sat.innerHTML += `ACT ${tutor.act}`
     }
 
-    `${tutor.sat ? "SAT "+tutor.sat : ""}${(tutor.sat && tutor.act) ? "<br>" : ""}${tutor.act ? "ACT "+tutor.act : ""}`
+    // `${tutor.sat ? "SAT "+tutor.sat : ""}${(tutor.sat && tutor.act) ? "<br>" : ""}${tutor.act ? "ACT "+tutor.act : ""}`
 
     const ap5 = document.createElement("div")
     ap5.setAttribute("field", "AP 5's")
