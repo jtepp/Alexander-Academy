@@ -681,6 +681,10 @@ body {
     /* max-width: 320px; */
 }
 
+#sheet-body-content :not(::before) {
+    letter-spacing: 0.2px;
+}
+
 #sheet-body-about {
     position: relative;
     margin-top: 20px;
