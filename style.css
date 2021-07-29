@@ -278,7 +278,7 @@ body {
 }
 
 .request-dropdown-header>.header-box {
-    left: 171px;
+    right: 13px;
 }
 
 [selected-inside=""]>.header-box {
