@@ -719,8 +719,8 @@ function fillSheet(tutor) {
 
     about.setAttribute("read-more", "false")
 
-    const abtMain = document.createElement("span")
-    abtMain.innerText = tutor.about.split("##")[0]
+    const abtMain = document.createElement("div")
+    abtMain.innerText = tutor.aboutMain
     abtMain.classList.add("abt-main")
 
     const rmButton = document.createElement("div")
@@ -738,8 +738,8 @@ function fillSheet(tutor) {
     }
 
 
-    const abtMore = document.createElement("span")
-    abtMore.innerText = "\n\n" + tutor.about.split("##")[1]
+    const abtMore = document.createElement("div")
+    abtMore.innerText = "\n\n" + tutor.aboutMore + "\n"
     abtMore.classList.add("abt-more")
 
     about.appendChild(abtMain)
