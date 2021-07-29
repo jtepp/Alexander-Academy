@@ -1104,7 +1104,7 @@ body {
 }
 
 [read-more="false"]>.abt-main::after {
-    content: "..";
+    content: "...";
 }
 
 [read-more="false"]>.abt-more {

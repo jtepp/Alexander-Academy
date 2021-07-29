@@ -2,6 +2,7 @@ class Tutor {
     constructor(obj) {
         this.name = obj.name
         this.about = obj.about
+        this.aboutOrg = this.orgAbout()
         this.school = obj.school
         this.sat = obj.satact.split(",")[0]
         this.act = obj.satact.split(",")[1]
@@ -32,6 +33,23 @@ class Tutor {
             subs[organizeSubject(x)].push(x)
         })
         return subs
+    }
+
+    orgAbout() {
+        let charCount = 0
+        let main = []
+        let more = []
+        const maxChars = 250;
+
+        for (let w of this.about.split(" ")) {
+            if (charCount < maxChars) {
+                main.push(w)
+                charCount += w.length
+            } else {
+                more.push(w)
+            }
+        }
+        return [main.join(" "), " " + more.join(" ")]
     }
 
     // constructor() {
@@ -719,13 +737,13 @@ function fillSheet(tutor) {
 
     about.setAttribute("read-more", "false")
 
-    const abtMain = document.createElement("div")
-    abtMain.innerText = tutor.aboutMain
+    const abtMain = document.createElement("span")
+    abtMain.innerText = tutor.aboutOrg[0]
     abtMain.classList.add("abt-main")
 
     const rmButton = document.createElement("div")
     rmButton.id = "read-more-button"
-    rmButton.innerText = "Read More"
+    rmButton.innerText = "\nRead More"
     rmButton.onclick = () => {
         about.setAttribute("read-more", "true")
     }
@@ -738,8 +756,8 @@ function fillSheet(tutor) {
     }
 
 
-    const abtMore = document.createElement("div")
-    abtMore.innerText = "\n\n" + tutor.aboutMore + "\n"
+    const abtMore = document.createElement("span")
+    abtMore.innerText = tutor.aboutOrg[1] + "\n"
     abtMore.classList.add("abt-more")
 
     about.appendChild(abtMain)
