@@ -84,7 +84,7 @@ var allSchools = []
 var allLocations = []
 var allTutors = [] //make list of tutors
 
-fetch("https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/staff.json").then(res => res.json()).then(json => {
+fetch("https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/teachers/resources/staff.json").then(res => res.json()).then(json => {
 
     json.forEach(tutor => {
         const tt = new Tutor(tutor)
