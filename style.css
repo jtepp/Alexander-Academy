@@ -890,8 +890,13 @@ body {
     border-radius: 5px;
     height: 36px;
     color: var(--black);
-    font-size: 18px;
+    font-size: 14px;
+    line-height: 18px;
     transition: background var(--transition);
+}
+
+.request-box:not([contenteditable]) {
+    font-size: 18px;
 }
 
 .request-box::before {
@@ -928,8 +933,7 @@ body {
     background: #fff;
     border: 1px solid rgb(133, 133, 133);
     border-radius: 5px;
-    color: rgb(133, 133, 133);
-    font-size: 14px;
+    color: #333;
     word-wrap: break-word;
     resize: none;
     margin-top: -2px;
