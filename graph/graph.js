@@ -31,23 +31,38 @@ let allResults = [];
 
 })()
 
-grph.onclick = function (e) {
-    const base = grph.getAttribute("base")
-    const top = grph.getAttribute("top")
-    const scale = (top - base) / graphSize("gr1", "height")
+// grph.onclick = function (e) {
+//     const base = grph.getAttribute("base")
+//     const top = grph.getAttribute("top")
+//     const scale = (top - base) / graphSize("gr1", "height")
 
-    if (!this.classList.contains("opened")) { //if not opened, open it
-        for (let p of document.getElementsByClassName("point-range")) {
-            const id = p.getAttribute("id")
-            console.log(id)
-            p.style.height = `${(allResults[id].higher - allResults[id].lower) * scale}px`
+//     if (!this.classList.contains("opened")) { //if not opened, open it
+//         for (let p of document.getElementsByClassName("point-range")) {
+//             const id = p.getAttribute("id")
+//             console.log(id)
+//             p.style.height = `${(allResults[id].higher - allResults[id].lower) * scale}px`
+//         }
+//         grph.classList.add("opened")
+//     } else { //if opened, close it
+//         for (let p of document.getElementsByClassName("point-range")) {
+//             p.style.height = `0px`
+//         }
+//         grph.classList.remove("opened")
+//     }
+// }
+
+for (let b of document.getElementsByClassName("test-button")) {
+
+    b.onclick = function (e) {
+        if (b.id == "reset") {
+            closeGraph("gr1")
+        } else {
+            document.documentElement.style = "--graph-transition: " + e.target.getAttribute("transition") + ";"
+
+            openGraph("gr1")
+
+
         }
-        grph.classList.add("opened")
-    } else { //if opened, close it
-        for (let p of document.getElementsByClassName("point-range")) {
-            p.style.height = `0px`
-        }
-        grph.classList.remove("opened")
     }
 }
 
@@ -87,8 +102,29 @@ function returnDataElement(result, isAvg) {
     return cont
 }
 
+function openGraph(gId) {
+    const cGraph = document.getElementById(gId)
+    const base = cGraph.getAttribute("base")
+    const top = cGraph.getAttribute("top")
+    const scale = (top - base) / graphSize(gId, "height")
 
+    if (!cGraph.classList.contains("opened")) { //if not opened, open it
+        for (let p of document.getElementsByClassName("point-range")) {
+            const id = p.getAttribute("id")
+            console.log(id)
+            p.style.height = `${(allResults[id].higher - allResults[id].lower) * scale}px`
+        }
+        cGraph.classList.add("opened")
+        //     }
+    }
+}
 
+function closeGraph(gId) {
+    for (let p of document.getElementsByClassName("point-range")) {
+        p.style.height = `0px`
+    }
+    document.getElementById(gId).classList.remove("opened")
+}
 
 // return average value of array
 function average(array) {

@@ -1,3 +1,7 @@
+:root {
+    --graph-transition: ease-in-out 1000ms;
+}
+
 #main {
     display: flex;
     flex-direction: row;
@@ -5,6 +9,7 @@
     align-items: center;
     width: 100vw;
     height: 100vh;
+    gap: 200px;
 }
 
 .vertcent {
@@ -12,8 +17,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    /* width: 100%; */
+    /* height: 100%; */
 }
 
 graph {
@@ -61,7 +66,7 @@ graph::after {
     position: absolute;
     width: 0px;
     height: 0px;
-    transition: height ease-in-out 1000ms;
+    transition: height var(--graph-transition);
     left: 50%;
     /* background-color: #0f0; */
     border: 1px dashed #333;
@@ -117,7 +122,7 @@ graph::after {
     color: #333;
     border-radius: 4px;
     opacity: 0;
-    transition: opacity ease-in-out 1000ms;
+    transition: opacity var(--graph-transition);
     z-index: 1;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
 
@@ -180,4 +185,17 @@ graph::after {
 #improvement-score::before {
     background-color: #0f0;
     border-radius: 1px;
+}
+
+.test-button {
+    margin: 10px;
+    background-color: darkslategrey;
+    color: white;
+    padding: 4px 6px 0 6px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#reset {
+    background-color: red;
 }
