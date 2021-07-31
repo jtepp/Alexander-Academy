@@ -24,6 +24,17 @@ lightbox {
     cursor: pointer;
 }
 
+.inline-lb::before {
+    content: "Click to enlarge \2935";
+    position: absolute;
+    transform: translate(-50%, -100%);
+    top: 0;
+    right: 0;
+    font-style: oblique;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 .lb-thumbnails {
     position: absolute;
     display: flex;
@@ -91,14 +102,15 @@ lightbox * {
 
 .lb-nav {
     position: absolute;
-    top: 0;
-    height: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 20px;
     width: 30px;
-    transition: transform var(--transition);
+    transition: transform ease-out 100ms;
 }
 
 .lb-nav:hover {
-    transform: scale(1.4);
+    transform: translateY(-50%) scale(1.1);
 }
 
 .lb-nav::after {

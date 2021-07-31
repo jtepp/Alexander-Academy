@@ -483,7 +483,7 @@ function setFalseExceptAll(onlyCheckboxes) {
         if (el.id == "Location") {
             el.setAttribute('selected', 'Online')
         } else if (el.id == "People") {
-            el.setAttribute('selected', 'Tutor')
+            el.setAttribute('selected', 'All')
         } else {
             el.setAttribute('selected', 'All')
         }
@@ -743,12 +743,12 @@ function fillSheet(tutor) {
 
     const rmButton = document.createElement("div")
     rmButton.id = "read-more-button"
-    rmButton.innerText = "\nRead More"
+    rmButton.innerText = "Read More"
     rmButton.onclick = () => {
         about.setAttribute("read-more", "true")
     }
 
-    const rlButton = document.createElement("div")
+    const rlButton = document.createElement("span")
     rlButton.id = "read-less-button"
     rlButton.innerText = "Read Less"
     rlButton.onclick = () => {
@@ -757,7 +757,7 @@ function fillSheet(tutor) {
 
 
     const abtMore = document.createElement("span")
-    abtMore.innerText = tutor.aboutOrg[1] + "\n"
+    abtMore.innerText = tutor.aboutOrg[1] + " "
     abtMore.classList.add("abt-more")
 
     about.appendChild(abtMain)
