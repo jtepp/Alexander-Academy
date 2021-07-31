@@ -46,7 +46,6 @@ lightbox[left]>.lb-thumbnails {
     top: 0;
     height: 100%;
     flex-direction: column;
-    transform: translate(100%, 0);
     gap: 10px;
 }
 
