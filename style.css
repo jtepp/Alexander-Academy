@@ -36,42 +36,42 @@
     font-family: 'TradeGothicLTDstd';
     font-weight: 400;
     font-style: normal;
-    src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/TradeGothicLTStd.otf')
+    src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/teachers/resources/TradeGothicLTStd.otf')
 }
 
 @font-face {
     font-family: 'TradeGothicLTDstd';
     font-weight: 200;
     font-style: normal;
-    src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/TradeGothicLTStd-Light.otf')
+    src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/teachers/resources/TradeGothicLTStd-Light.otf')
 }
 
 @font-face {
     font-family: 'TradeGothicLTDstd';
     font-weight: 700;
     font-style: normal;
-    src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/TradeGothicLTStd-Bold.otf')
+    src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/teachers/resources/TradeGothicLTStd-Bold.otf')
 }
 
 @font-face {
     font-family: 'TradeGothicLTDstd';
     font-weight: 800;
     font-style: condensed;
-    src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/TradeGothicLTStd-BoldCnd18.otf')
+    src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/teachers/resources/TradeGothicLTStd-BoldCnd18.otf')
 }
 
 @font-face {
     font-family: 'TradeGothicLTDstd';
     font-weight: 900;
     font-style: condensed;
-    src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/TradeGothicLTStd-BoldCnd20.otf')
+    src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/teachers/resources/TradeGothicLTStd-BoldCnd20.otf')
 }
 
 @font-face {
     font-family: 'TradeGothicLTDstd';
     font-weight: 400;
     font-style: oblique;
-    src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/TradeGothicLTStd-Obl.otf')
+    src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/teachers/resources/TradeGothicLTStd-Obl.otf')
 }
 
 body {
@@ -294,7 +294,7 @@ body {
     width: 15px;
     height: 15px;
     background-color: #CBCBCB;
-    background-image: url("https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/dash.svg");
+    background-image: url("https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/teachers/resources/dash.svg");
     background-position: center;
     background-repeat: no-repeat;
     box-sizing: border-box;
@@ -306,7 +306,7 @@ body {
     width: 15px;
     height: 15px;
     background-color: #CBCBCB;
-    background-image: url("https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/checkmark.svg");
+    background-image: url("https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/teachers/resources/checkmark.svg");
     background-position: center;
     background-repeat: no-repeat;
     box-sizing: border-box;
@@ -411,7 +411,7 @@ body {
     width: 15px;
     height: 15px;
     background-color: #CBCBCB;
-    background-image: url("https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/checkmark.svg");
+    background-image: url("https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/teachers/resources/checkmark.svg");
     background-position: center;
     background-repeat: no-repeat;
     box-sizing: border-box;
@@ -440,7 +440,7 @@ body {
     width: 15px;
     height: 15px;
     background-color: #CBCBCB;
-    background-image: url("https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/checkmark.svg");
+    background-image: url("https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/teachers/resources/checkmark.svg");
     background-position: center;
     background-repeat: no-repeat;
     box-sizing: border-box;
@@ -774,7 +774,7 @@ body {
     position: absolute;
     right: 16px;
     top: 20px;
-    background-image: url("https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/closesheet.svg");
+    background-image: url("https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/teachers/resources/closesheet.svg");
     background-size: contain;
     background-repeat: no-repeat;
     cursor: pointer;
