@@ -6,7 +6,7 @@ class Result {
     // }
     constructor() {
         this.id = allResults.length
-        this.lower = Math.round(1220 + Math.random() * 200)
+        this.lower = Math.round(1220 + Math.random() * 180)
         this.higher = Math.round(this.lower + Math.random() * 150 + 50)
     }
 }
@@ -25,14 +25,11 @@ let avg;
     //     })
     // })
 
-    const resultCount = 30;
+    const resultCount = 150;
 
     for (let i = 0; i < resultCount; i++) {
         allResults.push(new Result())
     }
-    allResults.sort(function (a, b) {
-        return a.higher - b.higher
-    })
     avg = new Result({ //made average object, id is the next index, so calling it will now be end index (-1)
         id: `${allResults.length}`,
         lower: average(allResults.map(result => result.lower)),
@@ -99,13 +96,12 @@ function openGraph(gId) {
     const base = cGraph.getAttribute("base")
     const top = cGraph.getAttribute("top")
     const scale = (top - base) / graphSize(gId, "height")
-
     if (!cGraph.classList.contains("opened")) { //if not opened, open it
         for (let p of document.querySelectorAll("#" + gId + " .point-range")) {
             const id = p.getAttribute("id")
-            p.style.height = `${(allResults[id].higher - allResults[id].lower) * scale}px`
+            p.style.height = `${(allResults[id].higher - allResults[id].lower)}px`
         }
-        document.getElementById("average-cont").style.height = `${(avg.higher - avg.lower) * scale}px`
+        document.getElementById("average-cont").style.height = `${(avg.higher - avg.lower)}px`
         cGraph.classList.add("opened")
         //     }
     } else {

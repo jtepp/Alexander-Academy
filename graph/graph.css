@@ -1,5 +1,6 @@
 :root {
     --graph-transition: ease-in-out 1000ms;
+    --point-size: 6px;
 }
 
 #main {
@@ -75,8 +76,8 @@ graph::after {
 .point {
     position: absolute;
     border-radius: 50%;
-    width: 10px;
-    height: 10px;
+    width: var(--point-size);
+    height: var(--point-size);
     left: 0;
 }
 
@@ -111,9 +112,12 @@ graph::after {
     color: #333;
     border-radius: 4px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+    pointer-events: none;
+
 }
 
 .point-range::after {
+    pointer-events: none;
     content: attr(improvement);
     position: absolute;
     left: 50%;
