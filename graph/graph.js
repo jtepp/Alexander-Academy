@@ -37,13 +37,18 @@ grd.onclick = function (e) {
     const top = grd.getAttribute("top")
     const scale = (top - base) / graphLength
 
-    if (!this.classList.contains("opened")) {
+    if (!this.classList.contains("opened")) { //if not opened, open it
         for (let p of document.getElementsByClassName("point-range")) {
             const id = p.getAttribute("id")
             console.log(id)
             p.style.height = `${(allResults[id].higher - allResults[id].lower) * scale}px`
         }
         grd.classList.add("opened")
+    } else { //if opened, close it
+        for (let p of document.getElementsByClassName("point-range")) {
+            p.style.height = `0px`
+        }
+        grd.classList.remove("opened")
     }
 }
 
