@@ -103,7 +103,6 @@ function openGraph(gId) {
     if (!cGraph.classList.contains("opened")) { //if not opened, open it
         for (let p of document.querySelectorAll("#" + gId + " .point-range")) {
             const id = p.getAttribute("id")
-            console.log(id)
             p.style.height = `${(allResults[id].higher - allResults[id].lower) * scale}px`
         }
         document.getElementById("average-cont").style.height = `${(avg.higher - avg.lower) * scale}px`

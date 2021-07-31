@@ -160,7 +160,7 @@ body {
 @media (max-width: 1364px) and (min-width: 1056px) {
     .filter-button {
         width: 14vw;
-        font-size: 1.3vw;
+        font-size: 1.2vw;
     }
 
     #filter-cont {
