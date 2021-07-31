@@ -116,6 +116,9 @@ function openGraph(gId) {
         }
         cGraph.classList.add("opened")
         //     }
+    } else {
+        closeGraph(gId)
+        setTimeout(() => openGraph(gId), 1000)
     }
 }
 
