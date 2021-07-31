@@ -29,7 +29,7 @@ graph {
 }
 
 #gr1 {
-    width: 400px;
+    width: 800px;
     height: 400px;
 }
 
@@ -60,6 +60,7 @@ graph::after {
 .point-cont {
     position: relative;
     height: 100%;
+    z-index: 0;
 }
 
 .point-range {
@@ -69,7 +70,6 @@ graph::after {
     transition: height var(--graph-transition);
     left: 50%;
     /* background-color: #0f0; */
-    border: 1px dashed #333;
 }
 
 .point {
@@ -92,6 +92,10 @@ graph::after {
     z-index: 2;
     top: 0;
     transform: translate(-50%, -50%);
+}
+
+.point-cont:hover {
+    z-index: 4;
 }
 
 .point-cont:hover .point::after {
@@ -122,27 +126,62 @@ graph::after {
     color: #333;
     border-radius: 4px;
     opacity: 0;
-    transition: opacity var(--graph-transition);
     z-index: 1;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
-
 }
 
-.opened .point-range::after {
+.opened .point-cont:hover .point-range::after {
     opacity: 1;
 }
 
-.point-cont.avg {
-    z-index: 0;
-    background: rgb(220, 220, 220);
-}
-
-.point-cont.avg::after {
+/* .point-cont.avg::after {
     content: "Average";
     position: absolute;
     left: 50%;
     bottom: 0;
     transform: translate(-50%, calc(100% + 10px));
+} */
+
+#average-cont {
+    transition: opacity ease-in 100ms, height var(--graph-transition);
+    position: absolute;
+    bottom: 0;
+    transform: translateX(100%);
+    right: -20px;
+    height: 0;
+    width: 10px;
+    border-top: 2px solid #333;
+    border-right: 2px solid #333;
+    border-bottom: 2px solid #333;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    opacity: 0;
+}
+
+.opened #average-cont {
+    opacity: 1;
+}
+
+#average-cont::before {
+    /* line */
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(100%, -50%);
+    height: 2px;
+    width: 10px;
+    background: #333;
+}
+
+#average-cont::after {
+    /* label */
+    position: absolute;
+    content: "Average improvement: "attr(value) " points";
+    max-width: 165px;
+    top: 50%;
+    left: 14px;
+    transform: translate(10px, -50%);
 }
 
 .graph-legend {
@@ -180,22 +219,4 @@ graph::after {
 
 #ending-score::before {
     background-color: #00f;
-}
-
-#improvement-score::before {
-    background-color: #0f0;
-    border-radius: 1px;
-}
-
-.test-button {
-    margin: 10px;
-    background-color: darkslategrey;
-    color: white;
-    padding: 4px 6px 0 6px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#reset {
-    background-color: red;
 }

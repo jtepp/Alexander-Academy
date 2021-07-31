@@ -95,10 +95,11 @@ lightbox * {
     top: 0;
     height: 100%;
     width: 30px;
+    transition: transform var(--transition);
 }
 
 .lb-nav:hover {
-    background-color: #00000030;
+    transform: scale(1.4);
 }
 
 .lb-nav::after {
