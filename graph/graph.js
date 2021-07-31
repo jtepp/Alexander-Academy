@@ -6,8 +6,7 @@ class Result {
     }
 }
 
-const graphLength = 400;
-const grd = document.getElementById("gr1")
+const grph = document.getElementById("gr1")
 
 let allResults = [];
 
@@ -32,10 +31,10 @@ let allResults = [];
 
 })()
 
-grd.onclick = function (e) {
-    const base = grd.getAttribute("base")
-    const top = grd.getAttribute("top")
-    const scale = (top - base) / graphLength
+grph.onclick = function (e) {
+    const base = grph.getAttribute("base")
+    const top = grph.getAttribute("top")
+    const scale = (top - base) / graphSize("gr1", "height")
 
     if (!this.classList.contains("opened")) { //if not opened, open it
         for (let p of document.getElementsByClassName("point-range")) {
@@ -43,25 +42,25 @@ grd.onclick = function (e) {
             console.log(id)
             p.style.height = `${(allResults[id].higher - allResults[id].lower) * scale}px`
         }
-        grd.classList.add("opened")
+        grph.classList.add("opened")
     } else { //if opened, close it
         for (let p of document.getElementsByClassName("point-range")) {
             p.style.height = `0px`
         }
-        grd.classList.remove("opened")
+        grph.classList.remove("opened")
     }
 }
 
 
 function returnDataElement(result, isAvg) {
-    const base = grd.getAttribute("base")
-    const top = grd.getAttribute("top")
+    const base = grph.getAttribute("base")
+    const top = grph.getAttribute("top")
 
-    const scale = (top - base) / graphLength
+    const scale = (top - base) / graphSize("gr1", "height")
 
     const cont = document.createElement("div")
     cont.className = "point-cont" + (isAvg ? " avg" : "")
-    cont.style.width = graphLength / allResults.length + "px"
+    cont.style.width = graphSize("gr1", "width") / allResults.length + "px"
 
     const range = document.createElement("div")
     range.classList.add("point-range")
@@ -94,4 +93,8 @@ function returnDataElement(result, isAvg) {
 // return average value of array
 function average(array) {
     return array.reduce((a, b) => a + b) / array.length
+}
+
+function graphSize(id, prop) {
+    return window.getComputedStyle(document.querySelector("#" + id))[prop].replace(/px/g, "")
 }
