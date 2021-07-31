@@ -157,6 +157,17 @@ body {
     margin-bottom: -5px;
 }
 
+@media (max-width: 1364px) and (min-width: 1056px) {
+    .filter-button {
+        width: 14vw;
+        font-size: 1.3vw;
+    }
+
+    #filter-cont {
+        column-gap: 2vw;
+    }
+}
+
 .triangle-down {
     width: 0;
     height: 0;
@@ -549,11 +560,23 @@ body {
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 841px) {
     .tutor-cell {
         width: 40%;
+    }
+
+}
+
+@media (max-width: 680px) {
+    .tutor-cell {
+        width: 80%;
         height: auto;
         aspect-ratio: 1;
+        font-size: 18px;
+    }
+
+    #tutor-container {
+        row-gap: 30px;
     }
 }
 

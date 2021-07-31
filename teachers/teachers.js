@@ -466,7 +466,7 @@ function toggleAttributeCheckBox(element, attr, usage) {
         if (chosenLocations.length == 0) {
             document.getElementById("Location").setAttribute("selected", "Online")
         } else {
-            document.getElementById("Location").setAttribute("selected", chosenLocations.length < 3 ? chosenLocations.join(", ") : `${chosenLocations[0]}, ${chosenLocations[1]},...`)
+            document.getElementById("Location").setAttribute("selected", chosenLocations.length < 2 ? chosenLocations.join(", ") : `${chosenLocations[0]},...`)
         }
     }
     filterTutors()
@@ -576,16 +576,16 @@ function processTutors(givenTutors, initial) { // Iterate through tutors to make
         sur.innerHTML = ""
         sur.appendChild(returnAllButton("subjectsreq", true))
         for (let s in allSubjects) { // subjects
-            if (s == "Essay") {
-                continue
-            } else {
-                c.appendChild(returnDropdownHeader(s))
-                c.appendChild(returnDropdownItemsAdded(allSubjects[s]))
-                sur.appendChild(returnDropdownHeader(s, true))
-                sur.appendChild(returnDropdownItemsAdded(allSubjects[s], true))
-            }
+            // if (s == "Essay") {
+            //     continue
+            // } else {
+            c.appendChild(returnDropdownHeader(s))
+            c.appendChild(returnDropdownItemsAdded(allSubjects[s]))
+            sur.appendChild(returnDropdownHeader(s, true))
+            sur.appendChild(returnDropdownItemsAdded(allSubjects[s], true))
+            // }
         }
-        c.appendChild(returnDropdownCheck(allSubjects["Essay"]))
+        // c.appendChild(returnDropdownCheck(allSubjects["Essay"]))
         sur.appendChild(returnDropdownCheck(allSubjects["Essay"], true))
 
         let s = document.getElementById("schools")
@@ -935,7 +935,7 @@ function organizeSubject(subject) {
     } else if (String(subject).toLowerCase().includes("biology") || String(subject).toLowerCase().includes("chemistry") || String(subject).toLowerCase().includes("physics") || String(subject).toLowerCase().includes("science") || String(subject).toLowerCase().includes("econ")) {
         return "Science"
     } else if (String(subject).toLowerCase().includes("essay")) {
-        return "Essay"
+        return "Essay Consulting"
     } else if (String(subject).toLowerCase().includes("english") || String(subject).toLowerCase().includes("latin") || String(subject).toLowerCase().includes("spanish") || String(subject).toLowerCase().includes("chinese") || String(subject).toLowerCase().includes("french")) {
         return "Language"
     } else if (String(subject).toLowerCase().includes("sat") || String(subject).toLowerCase().includes("act")) {
