@@ -135,3 +135,48 @@ graph::after {
     left: 50%;
     bottom: 0;
     transform: translate(-50%, calc(100% + 10px));
+}
+
+.graph-legend {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: -12px;
+    transform: translate(-100%, -50%);
+    border-radius: 5px;
+    background-color: #e3e3e3;
+    padding: 4px 6px 0 6px;
+    width: max-content;
+    height: max-content;
+    gap: 4px;
+}
+
+.graph-legend-item {
+    position: relative;
+    margin-left: 14px;
+}
+
+.graph-legend-item::before {
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    left: 0;
+    top: 0%;
+    transform: translate(-14px, 25%);
+}
+
+#starting-score::before {
+    background-color: #f00;
+}
+
+#ending-score::before {
+    background-color: #00f;
+}
+
+#improvement-score::before {
+    background-color: #0f0;
+    border-radius: 1px;
+}
