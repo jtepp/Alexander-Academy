@@ -99,7 +99,8 @@ graph::after {
     line-height: 14px;
     padding: 4px 2px 0 2px;
     color: #333;
-    border-radius: 2px;
+    border-radius: 4px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
 }
 
 .point-range::after {
@@ -114,10 +115,12 @@ graph::after {
     line-height: 14px;
     padding: 4px 2px 0 2px;
     color: #333;
-    border-radius: 2px;
+    border-radius: 4px;
     opacity: 0;
     transition: opacity ease-in-out 1000ms;
     z-index: 1;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+
 }
 
 .opened .point-range::after {
@@ -147,8 +150,6 @@ graph::after {
     border-radius: 5px;
     background-color: #e3e3e3;
     padding: 4px 6px 0 6px;
-    width: max-content;
-    height: max-content;
     gap: 4px;
 }
 
