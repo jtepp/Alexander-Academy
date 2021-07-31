@@ -638,7 +638,7 @@ body {
 #sheet-header {
     display: flex;
     flex-direction: column;
-    /* gap: 16px; */
+    gap: 6px;
     margin-bottom: 20px;
     align-items: left;
     font-size: 18px;
@@ -673,7 +673,7 @@ body {
 #sheet-body-content {
     display: flex;
     flex-direction: column;
-    gap: 45px;
+    gap: 35px;
     font-size: 14px;
     height: 485px;
     overflow-y: scroll;
@@ -704,7 +704,7 @@ body {
 #sheet-body-subjects {
     display: flex;
     flex-direction: column;
-    gap: 55px;
+    gap: 35px;
     line-height: 20px;
 }
 
