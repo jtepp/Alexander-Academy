@@ -7,7 +7,7 @@ class Result {
 }
 
 const graphLength = 400;
-const grd = document.getElementById("gr1-data")
+const grd = document.getElementById("gr1")
 
 let allResults = [];
 
@@ -20,10 +20,16 @@ let allResults = [];
         })
     })
 
-
-    allResults.forEach(result => {
-        document.getElementById("gr1-data").appendChild(returnDataElement(result))
+    const avg = new Result({ //made average object, id is the next index, so calling it will now be end index (-1)
+        id: `${allResults.length}`,
+        lower: average(allResults.map(result => result.lower)),
+        higher: average(allResults.map(result => result.higher))
     })
+    allResults.push(avg)
+    allResults.forEach(result => {
+        document.getElementById("gr1-data").appendChild(returnDataElement(result, result.id == `${allResults.length-1}`))
+    })
+
 })()
 
 grd.onclick = function (e) {
@@ -31,25 +37,32 @@ grd.onclick = function (e) {
     const top = grd.getAttribute("top")
     const scale = (top - base) / graphLength
 
-    for (let p of document.getElementsByClassName("point-cont")) {
-        const id = p.getAttribute("id")
-        console.log(id)
-        p.style.height = `${(allResults[id].higher - allResults[id].lower) * scale}px`
+    if (!this.classList.contains("opened")) {
+        for (let p of document.getElementsByClassName("point-range")) {
+            const id = p.getAttribute("id")
+            console.log(id)
+            p.style.height = `${(allResults[id].higher - allResults[id].lower) * scale}px`
+        }
+        grd.classList.add("opened")
     }
 }
 
 
-function returnDataElement(result) {
+function returnDataElement(result, isAvg) {
     const base = grd.getAttribute("base")
     const top = grd.getAttribute("top")
 
     const scale = (top - base) / graphLength
 
-    const point = document.createElement("div")
-    point.classList.add("point-cont")
-    point.setAttribute("id", result.id)
-    point.style.left = `${calculateLeftOffest(allResults.indexOf(result))}px`
-    point.style.bottom = `${(result.lower - base) * scale}px`
+    const cont = document.createElement("div")
+    cont.className = "point-cont" + (isAvg ? " avg" : "")
+    cont.style.width = graphLength / allResults.length + "px"
+
+    const range = document.createElement("div")
+    range.classList.add("point-range")
+    range.setAttribute("id", result.id)
+    range.setAttribute("improvement", `+${result.higher - result.lower}`)
+    range.style.bottom = `${(result.lower - base) * scale}px`
 
 
     let lower = document.createElement("div")
@@ -62,13 +75,18 @@ function returnDataElement(result) {
     higher.classList.add("higher")
     higher.setAttribute("value", result.higher)
 
-    point.appendChild(lower)
-    point.appendChild(higher)
+    range.appendChild(lower)
+    range.appendChild(higher)
 
-    return point
+    cont.appendChild(range)
+
+    return cont
 }
 
 
-function calculateLeftOffest(index) {
-    return (index + 1) * graphLength / (allResults.length)
+
+
+// return average value of array
+function average(array) {
+    return array.reduce((a, b) => a + b) / array.length
 }
