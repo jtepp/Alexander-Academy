@@ -109,7 +109,7 @@ function openGraph(gId) {
     const scale = (top - base) / graphSize(gId, "height")
 
     if (!cGraph.classList.contains("opened")) { //if not opened, open it
-        for (let p of document.getElementsByClassName("point-range")) {
+        for (let p of document.querySelectorAll("#" + gId + " .point-range")) {
             const id = p.getAttribute("id")
             console.log(id)
             p.style.height = `${(allResults[id].higher - allResults[id].lower) * scale}px`
@@ -120,7 +120,7 @@ function openGraph(gId) {
 }
 
 function closeGraph(gId) {
-    for (let p of document.getElementsByClassName("point-range")) {
+    for (let p of document.querySelectorAll("#" + gId + " .point-range")) {
         p.style.height = `0px`
     }
     document.getElementById(gId).classList.remove("opened")
