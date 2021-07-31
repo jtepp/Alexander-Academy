@@ -59,11 +59,12 @@ graph::after {
 
 .point-range {
     position: absolute;
-    width: 1px;
+    width: 0px;
     height: 0px;
     transition: height ease-in-out 1000ms;
     left: 50%;
     /* background-color: #0f0; */
+    border: 1px dashed #333;
 }
 
 .point {
@@ -109,7 +110,6 @@ graph::after {
     left: 50%;
     top: 50%;
     transform: translate(15px, -50%);
-    /* transform: translate(25%, -25%); */
     background: #0f0;
     font-size: 14px;
     line-height: 14px;
