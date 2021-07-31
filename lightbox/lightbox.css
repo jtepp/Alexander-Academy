@@ -1,9 +1,10 @@
 :root {
-    --lb1-img: url("images/lb0.png");
+    --lb-img: url("images/lb0.png");
 }
 
 
 #page-container {
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -18,36 +19,141 @@
 }
 
 lightbox {
+    display: block;
     position: relative;
+    cursor: pointer;
 }
 
 .lb-thumbnails {
     position: absolute;
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
 lightbox[bottom]>.lb-thumbnails {
-    bottom: 0;
+    bottom: -10px;
     left: 0;
+    width: 100%;
     flex-direction: row;
+    transform: translate(0, 100%);
+    gap: 10px;
+}
+
+lightbox[left]>.lb-thumbnails {
+    left: 0px;
+    top: 0;
+    height: 100%;
+    flex-direction: column;
+    transform: translate(100%, 0);
+    gap: 10px;
 }
 
 .lb-image-button {
-    width: 20px;
+    width: 50px;
+    cursor: pointer;
+}
 
+.lb-image-button[selected] {
+    outline: 2px solid #000;
 }
 
 .inline-lb {
     width: 300px;
     height: 300px;
-    background-image: var(--lb1-img);
+    background-image: var(--lb-img);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
+.popover-lb {
+    width: 50vw;
+    height: 50vw;
+    max-height: 60vh;
+    background-image: var(--lb-img);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
 lightbox>img {
     width: 100%;
     object-fit: contain;
+}
+
+lightbox * {
+    user-select: none;
+}
+
+.lb-nav {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 30px;
+    background-color: #fff;
+}
+
+.lb-nav:hover {
+    background-color: #00000030;
+}
+
+.lb-nav::after {
+    left: 50%;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background-image: url(images/lb-nav.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    transition: background-color var(--transition);
+}
+
+.lb-nav.left {
+    left: 0;
+}
+
+.lb-nav.left::after {
+    position: absolute;
+    content: "";
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.lb-nav.right {
+    right: 0;
+}
+
+.lb-nav.right::after {
+    position: absolute;
+    content: "";
+    transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+#popover-cont {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000030;
+    z-index: 10;
+    transition: backdrop-filter var(--transition), opacity var(--transition);
+}
+
+.show {
+    backdrop-filter: blur(6px);
+    opacity: 1;
+    pointer-events: all;
+}
+
+.hide {
+    backdrop-filter: blur(0px);
+    opacity: 0;
+    pointer-events: none;
 }
