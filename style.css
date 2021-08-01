@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
     font-family: 'TradeGothicLTDstd';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 *::before {
@@ -98,7 +101,9 @@ body {
 #teaching-staff-header::before {
     content: "";
     height: 2px;
-    width: 147px;
+    width: 10.7vw;
+    max-width: 147px;
+    min-width: 100px;
     position: absolute;
     left: 0;
     top: -22px;
@@ -545,7 +550,7 @@ body {
 @media (max-width: 1055px) {
     .tutor-cell {
         width: 40%;
-        max-width: 190px;
+        max-width: 210px;
         height: auto;
         aspect-ratio: 1;
         font-size: max(14px, 1.6vw);
