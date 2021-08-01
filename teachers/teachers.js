@@ -483,9 +483,9 @@ function setFalseExceptAll(onlyCheckboxes) {
         if (el.id == "Location") {
             el.setAttribute('selected', 'Online')
         } else if (el.id == "People") {
-            el.setAttribute('selected', 'All')
+            el.setAttribute('selected', 'Selected..')
         } else {
-            el.setAttribute('selected', 'All')
+            el.setAttribute('selected', 'Selected..')
         }
     }
     for (let el of document.getElementsByClassName("filter-item-checkbox")) {
@@ -500,7 +500,7 @@ function setFalseExceptAll(onlyCheckboxes) {
     }
     //set all elements of request-dropdown to attribuute selected = All
     for (let el of document.getElementsByClassName("request-dropdown")) {
-        el.setAttribute('selected', 'All')
+        el.setAttribute('selected', 'Selected..')
     }
     for (let el of document.getElementsByClassName("request-item-checkbox")) {
         el.setAttribute('checked', 'false')
@@ -828,7 +828,7 @@ function filterTutors() {
             return Object.values(tutor.subjects).flat().includes(subject)
         })
         const tLocation = currentLocation == "Online" ? true : chosenLocations.includes(tutor.location)
-        const tPeople = currentPeople == "All" ? true : currentPeople == tutor.role
+        const tPeople = (currentPeople == "All" || currentPeople == "Selected..") ? true : currentPeople == tutor.role
 
         return (tSchool && tSubjects && tLocation && tPeople)
     })
