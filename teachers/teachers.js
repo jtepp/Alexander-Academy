@@ -682,6 +682,9 @@ function returnDropdownCheck(name, request) {
 function closeSheet() {
     document.getElementById("sheet-back").classList.remove("sopen")
     document.getElementById("sheet-back").classList.add("sclosed")
+    for (let r of document.getElementsByClassName("red")) {
+        r.classList.remove("red")
+    }
     setTimeout(() => {
         document.getElementById("sheet-container").classList.remove("srequest")
         document.getElementById("sheet-container").classList.remove("sthanks")
