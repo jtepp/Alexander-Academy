@@ -475,15 +475,16 @@ body {
     flex-direction: row;
     justify-content: left;
     flex-wrap: wrap;
-    gap: 55px 70px;
+    gap: 55px min(4.861vw, 70px);
     min-width: 260px;
     margin-left: 25px;
 }
 
 .tutor-cell {
     user-select: none;
-    width: 176px;
-    height: 176px;
+    aspect-ratio: 1;
+    width: min(176px, 12.3vw);
+    height: min(176px, 12.3vw);
     margin-top: 72px;
     font-size: 16px;
     line-height: 20px;
@@ -550,10 +551,10 @@ body {
 @media (max-width: 1055px) {
     .tutor-cell {
         width: 40%;
-        max-width: 210px;
         height: auto;
-        aspect-ratio: 1;
-        font-size: max(14px, 1.6vw);
+        max-width: 210px;
+        font-size: 16px;
+        /*max(14px, 1.6vw);*/
     }
 
     #tutor-container {
