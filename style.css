@@ -503,9 +503,9 @@ body {
     left: 50%;
     transform: translateX(-50%) translateY(100%);
     /* font-weight: 700; */
-    text-shadow: 0.6px 0 0 currentColor;
+    /* text-shadow: 0.6px 0 0 currentColor; */
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
 
 }
 
