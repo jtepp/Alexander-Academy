@@ -59,15 +59,9 @@
 @font-face {
     font-family: 'TradeGothicLTDstd';
     font-weight: 800;
-    font-style: condensed;
-    src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/teachers/resources/TradeGothicLTStd-BoldCnd18.otf')
+    font-style: normal;
+    src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/teachers/resources/TradeGothicLTStd-BoldStr.otf')
 }
-
-@font-face {
-    font-family: 'TradeGothicLTDstd';
-    font-weight: 900;
-    font-style: condensed;
-    src: url('https://cdn.statically.io/gh/jtepp/Alexander-Academy/main/teachers/resources/TradeGothicLTStd-BoldCnd20.otf')
 }
 
 @font-face {
@@ -146,14 +140,14 @@ body {
 .filter-button::after {
     content: attr(id);
     color: var(--black);
-    font-weight: 700;
+    font-weight: 800;
     font-style: normal;
     position: absolute;
     top: -32px;
     font-size: 17px;
     line-height: 22px;
     transform-origin: top;
-    transform: scaleY(1.1);
+    /* transform: scaleY(1.1); */
 }
 
 .filter-button::before {
