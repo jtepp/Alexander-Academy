@@ -823,8 +823,8 @@ function filterTutors() {
     const currentLocation = document.getElementById("Location").getAttribute("selected")
 
     let givenTutors = allTutors.filter(tutor => {
-        const tSchool = currentSchool == "All" ? true : chosenSchools.includes(tutor.school)
-        const tSubjects = currentSubject == "All" ? true : chosenSubjects.every(subject => {
+        const tSchool = (currentSchool == "All" || currentSchool == "Selected..") ? true : chosenSchools.includes(tutor.school)
+        const tSubjects = (currentSubject == "All" || currentSubject == "Selected..") ? true : chosenSubjects.every(subject => {
             return Object.values(tutor.subjects).flat().includes(subject)
         })
         const tLocation = currentLocation == "Online" ? true : chosenLocations.includes(tutor.location)

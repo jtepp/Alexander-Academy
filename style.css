@@ -544,9 +544,17 @@ body {
     }
 
     #filter-cont {
-        column-gap: 2vw;
+        column-gap: 2.9vw;
     }
 }
+
+@media (min-width: 1200px) {
+    #filter-cont {
+        transition: column-gap var(--transition);
+    }
+}
+
+
 
 @media (max-width: 1055px) {
     .tutor-cell {
