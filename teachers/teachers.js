@@ -840,7 +840,7 @@ function filterTutors() {
             return Object.values(tutor.subjects).flat().includes(subject)
         })
         const tLocation = currentLocation == "Online" ? true : chosenLocations.includes(tutor.location)
-        const tPeople = (currentPeople == "All") ? true : currentPeople == tutor.role
+        const tPeople = (currentPeople == "All" || currentPeople == "Selected..") ? true : currentPeople == tutor.role
 
         return (tSchool && tSubjects && tLocation && tPeople)
     })
