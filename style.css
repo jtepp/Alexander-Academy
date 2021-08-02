@@ -478,8 +478,8 @@ body {
 .tutor-cell {
     user-select: none;
     aspect-ratio: 1;
-    width: min(176px, 12.3vw);
-    height: min(176px, 12.3vw);
+    width: min(176px, 12vw);
+    height: min(176px, 12vw);
     margin-top: 72px;
     font-size: 16px;
     line-height: 20px;
@@ -537,7 +537,7 @@ body {
     }
 }
 
-@media (max-width: 1439px) and (min-width: 1056px) {
+@media (max-width: 1439px) and (min-width: 1143px) {
     .filter-button {
         width: 13vw;
         font-size: 1.2vw;
@@ -549,7 +549,7 @@ body {
 
     #filter-cont,
     #tutor-container {
-        column-gap: 2.6vw;
+        column-gap: 2.1vw;
     }
 }
 
@@ -563,7 +563,7 @@ body {
 
 
 
-@media (max-width: 1055px) {
+@media (max-width: 1142px) {
     .tutor-cell {
         width: 40%;
         height: auto;
@@ -586,7 +586,7 @@ body {
     }
 }
 
-@media (max-width: 841px) {
+@media (max-width: 865px) {
 
     #filter-cont,
     #filter-reset-line {
