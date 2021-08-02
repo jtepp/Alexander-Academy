@@ -83,6 +83,7 @@ var realAllSubjects = []
 var allSchools = []
 var allLocations = []
 var allTutors = [] //make list of tutors
+const urlSchool = new URLSearchParams(window.location.search).get("school") || "Selected.."
 
 fetch("https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/teachers/resources/staff.json").then(res => res.json()).then(json => {
 
@@ -614,6 +615,17 @@ function processTutors(givenTutors, initial) { // Iterate through tutors to make
         }
     }
     document.getElementById("filter-reset-line").children[0].innerHTML = `Viewing ${givenTutors.length} of ${allTutors.length} results.&nbsp;`
+
+    if (initial) {
+        // document.getElementById("School").setAttribute("selected", urlSchool)
+        // chosenSchools = [urlSchool]
+        for (el of document.getElementById("schools").children) {
+            if (el.children[0].innerText == urlSchool) {
+                toggleAttributeCheckBox(el.children[0], "checked", "school")
+                el.setAttribute('selected', 'true')
+            }
+        }
+    }
 }
 
 function returnDropdownHeader(name, request) {
