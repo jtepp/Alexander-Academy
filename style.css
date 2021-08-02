@@ -83,7 +83,7 @@ body {
     flex-direction: column;
     margin-top: 202px;
     margin-bottom: 305px;
-    margin-right: var(--page-margin);
+    /* margin-right: var(--page-margin); */
 }
 
 #teaching-staff-header {
