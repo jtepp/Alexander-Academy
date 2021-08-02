@@ -528,7 +528,7 @@ body {
 } */
 
 .tutor-cell:hover {
-    transform: scale(1.05);
+    transform: scale(1.025);
 }
 
 @media (min-width: 1440px) {
