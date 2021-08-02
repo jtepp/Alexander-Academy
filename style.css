@@ -537,7 +537,7 @@ body {
     }
 }
 
-@media (max-width: 1460px) and (min-width: 1056px) {
+@media (max-width: 1439px) and (min-width: 1056px) {
     .filter-button {
         width: 13vw;
         font-size: 1.2vw;
