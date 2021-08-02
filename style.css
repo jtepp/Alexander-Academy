@@ -537,7 +537,7 @@ body {
     }
 }
 
-@media (max-width: 1439px) and (min-width: 1056px) {
+@media (max-width: 1460px) and (min-width: 1056px) {
     .filter-button {
         width: 13vw;
         font-size: 1.2vw;
@@ -566,6 +566,11 @@ body {
         max-width: 210px;
         font-size: 16px;
         /*max(14px, 1.6vw);*/
+    }
+
+    .filter-button {
+        width: 140px;
+        font-size: 13px;
     }
 
     #tutor-container {
