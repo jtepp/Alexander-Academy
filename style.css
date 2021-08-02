@@ -1101,7 +1101,7 @@ body {
 }
 
 #sidebar {
-    margin-left: var(--page-margin);
+    /* margin-left: var(--page-margin); */
     margin-top: 213px;
     display: flex;
     flex-direction: column;
