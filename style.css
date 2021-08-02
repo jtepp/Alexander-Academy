@@ -543,6 +543,10 @@ body {
         font-size: 1.2vw;
     }
 
+    #filter-cont {
+        width: 110%;
+    }
+
     #filter-cont,
     #tutor-container {
         column-gap: 2.6vw;
