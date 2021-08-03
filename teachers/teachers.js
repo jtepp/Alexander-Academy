@@ -102,6 +102,7 @@ fetch("https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/teachers/r
 
     processTutors(allTutors, true)
     filterTutors()
+    document.getElementById("School").setAttribute("selected", "Selected..") // even when urlSchool
 })
 
 document.body.onclick = function (e) {
@@ -620,7 +621,6 @@ function processTutors(givenTutors, initial) { // Iterate through tutors to make
     document.getElementById("filter-reset-line").children[0].innerHTML = `Viewing ${givenTutors.length} of ${allTutors.length} results.&nbsp;`
 
     if (initial) {
-        // document.getElementById("School").setAttribute("selected", urlSchool)
         // chosenSchools = [urlSchool]
         for (el of document.getElementById("schools").children) {
             if (el.children[0].innerText == urlSchool) {
