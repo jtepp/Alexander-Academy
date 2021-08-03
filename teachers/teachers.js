@@ -4,13 +4,13 @@ class Tutor {
         this.about = obj.about
         this.aboutOrg = this.orgAbout()
         this.school = obj.school
-        this.sat = obj.satact.split(",")[0]
-        this.act = obj.satact.split(",")[1]
-        this.ap5 = obj.ap5.split(",")
-        this.subjectsArr = obj.subjects.split(", ")
+        this.sat = (obj.satact || ",").split(",")[0]
+        this.act = (obj.satact || ",").split(",")[1]
+        this.ap5 = (obj.ap5 || "").split(",")
+        this.subjectsArr = (obj.subjects || "").split(", ")
         this.subjects = this.orgSubs()
         this.imgurl = `https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/headshots/${imgfromname(obj.name)}_headshot.jpeg`
-        this.altimgurl = `https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/headshots/${(obj.name.toLowerCase().includes("nadine") || obj.name.toLowerCase().includes("rocio")) ? "blank" : (imgfromname(obj.name)+"_fun")}.jpeg`
+        this.altimgurl = `https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/headshots/${(obj.name.toLowerCase().includes("nadine") || obj.name.toLowerCase().includes("rocio")) || obj.role == "Admin" ? "blank" : (imgfromname(obj.name)+"_fun")}.jpeg`
         this.location = obj.location
         this.role = obj.role || "Tutor"
     }
@@ -39,7 +39,7 @@ class Tutor {
         let charCount = 0
         let main = []
         let more = []
-        const maxChars = 250;
+        const maxChars = 245;
 
         for (let w of this.about.split(" ")) {
             if (charCount < maxChars) {
@@ -820,11 +820,17 @@ function fillSheet(tutor) {
     ap5.innerText = tutor.ap5.map(a => "AP " + a).join(", ")
 
 
-    subjects.appendChild(sat)
+    if (tutor.sat != 0 && tutor.act != 0) {
+        subjects.appendChild(sat)
+    }
+
     if (tutor.ap5[0] != "") {
         subjects.appendChild(ap5)
     }
-    subjects.appendChild(ts)
+
+    if (tutor.subjects != {}) {
+        subjects.appendChild(ts)
+    }
 
 }
 
