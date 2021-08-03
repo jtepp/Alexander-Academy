@@ -102,7 +102,6 @@ fetch("https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/teachers/r
 
     processTutors(allTutors, true)
     filterTutors()
-    document.getElementById("School").setAttribute("selected", "Selected..") // even when urlSchool
 })
 
 document.body.onclick = function (e) {
@@ -485,13 +484,7 @@ function setFalseExceptAll(onlyCheckboxes) {
     }
     //set all elements of filter-button to attribuute selected = All
     for (let el of document.getElementsByClassName("filter-button")) {
-        if (el.id == "Location") {
-            el.setAttribute('selected', 'Online')
-        } else if (el.id == "People") {
-            el.setAttribute('selected', 'Selected..')
-        } else {
-            el.setAttribute('selected', 'Selected..')
-        }
+        el.setAttribute('selected', 'Selected..')
     }
     for (let el of document.getElementsByClassName("filter-item-checkbox")) {
         el.setAttribute('checked', 'false')
@@ -851,8 +844,8 @@ function filterTutors() {
         const tSubjects = (currentSubject == "All" || currentSubject == "Selected..") ? true : chosenSubjects.every(subject => {
             return Object.values(tutor.subjects).flat().includes(subject)
         })
-        const tLocation = currentLocation == "Online" ? true : chosenLocations.includes(tutor.location)
-        const tPeople = (currentPeople == "All") ? true : currentPeople == "Selected.." ? tutor.role == "Tutor" : currentPeople == tutor.role
+        const tLocation = (currentLocation == "Online" || currentLocation == "Selected..") ? true : chosenLocations.includes(tutor.location)
+        const tPeople = (currentPeople == "All") ? true : ((currentPeople == "Selected..") ? tutor.role == "Tutor" : currentPeople == tutor.role)
 
         return (tSchool && tSubjects && tLocation && tPeople)
     })
