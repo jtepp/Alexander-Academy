@@ -814,6 +814,10 @@ body {
     -webkit-user-select: none;
 }
 
+[role="Admin"] .sheet-request-tutor {
+    display: none;
+}
+
 #sheet-request-tutor-request {
     bottom: 18px;
 }

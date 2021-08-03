@@ -18,6 +18,9 @@ class Tutor {
     orgSubs() {
         let subs = {}
 
+        if (this.subjectsArr.includes("")) {
+            return ""
+        }
         if (this.act != 0) {
             this.subjectsArr = ["ACT", ...this.subjectsArr]
         }
@@ -828,9 +831,12 @@ function fillSheet(tutor) {
         subjects.appendChild(ap5)
     }
 
-    if (tutor.subjects != {}) {
+    if (tutor.subjects != "") {
         subjects.appendChild(ts)
     }
+
+    document.getElementById("sheet-container").setAttribute("role", tutor.role)
+
 
 }
 
