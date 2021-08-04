@@ -43,6 +43,14 @@
     <div id="button" class="reset-btn dont-close">
         Reset
     </div>
+    <script>
+        document.body.onclick = function (e) {
+            if (!e.target.classList.contains("dont-close")) {
+                document.getElementById("infographic-overlay").classList.remove("opened")
+            }
+
+        }
+    </script>
     <script src="trifold.js"></script>
 </body>
 
