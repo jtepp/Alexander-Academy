@@ -45,6 +45,7 @@
     </div>
     <script>
         document.body.onclick = function (e) {
+            console.log(e)
             if (!e.target.classList.contains("dont-close")) {
                 document.getElementById("infographic-overlay").classList.remove("opened")
             }
