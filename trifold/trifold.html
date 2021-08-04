@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 
 <html>
 
@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="trifold.css">
     <title>Trifold | Alexander Academy</title>
-</head>
+</head> -->
 
-<body id="infographic-body">
+<div id="infographic-body">
 
     <div id="book" class="flipped" class="dont-close">
         <div class="page top" id="p1">
@@ -39,20 +39,20 @@
         </div>
 
     </div>
-    </div>
-    <div id="button" class="reset-btn dont-close">
-        Reset
-    </div>
-    <script>
-        document.body.onclick = function (e) {
-            console.log(e)
-            if (!e.target.classList.contains("dont-close")) {
-                document.getElementById("infographic-overlay").classList.remove("opened")
-            }
-
+</div>
+<div id="button" class="reset-btn dont-close">
+    Reset
+</div>
+<script>
+    document.body.onclick = function (e) {
+        console.log(e.target)
+        if (!e.target.classList.contains("dont-close")) {
+            document.parentNode.parentNode.classList.remove("opened")
         }
-    </script>
-    <script src="trifold.js"></script>
-</body>
 
-</html>
+    }
+</script>
+<script src="trifold.js"></script>
+</div>
+
+<!-- </html> -->
