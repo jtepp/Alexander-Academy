@@ -9,6 +9,7 @@ body {
     justify-content: center;
     /* padding: 50px; */
     height: 100vh;
+    background: transparent !important;
 }
 
 .page {
@@ -111,15 +112,13 @@ body {
     display: flex;
     flex-direction: row;
     position: relative;
-    width: fit-content;
-    height: fit-content;
-    /* transform-origin: center; */
     transition: transform ease-in-out var(--flip-duration);
     width: 100%;
     height: 100%;
     transform: scale(0.6);
     margin: -20%;
-    max-width: 2200px;
+    max-width: 80vw;
+
 }
 
 #book.flipped {
@@ -127,10 +126,11 @@ body {
 }
 
 #button {
+    backface-visibility: hidden;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -900%);
+    transform: translate(-50%, -750%) translateZ(0);
     font-size: 2vw;
     z-index: 12;
 
@@ -140,6 +140,6 @@ body {
 .reset-btn {
     color: blue;
     text-decoration: underline;
-    transform: translate(-50%, -1200%) !important;
+    transform: translate(-50%, -900%) translateZ(0) !important;
     cursor: pointer;
 }
