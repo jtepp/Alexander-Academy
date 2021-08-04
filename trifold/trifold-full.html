@@ -1,0 +1,238 @@
+<style>
+    :root {
+        --flip-duration: 400ms;
+    }
+
+    #infographic-body {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        /* padding: 50px; */
+        height: 100vh;
+        background: transparent !important;
+    }
+
+    .page {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* height: calc(1700px / 3); */
+        /* width: calc(733px / 3); */
+        width: 733px;
+        height: auto;
+        max-height: 1700px;
+        transition: transform ease-in-out var(--flip-duration);
+        z-index: 1;
+    }
+
+    .page img {
+        height: 100%;
+        width: 100%;
+    }
+
+
+    #p1 {
+        transform-origin: left;
+        /* border-radius: 0 5px 5px 0; */
+        left: 33.4%;
+    }
+
+    #p2 {
+        transform-origin: right;
+        /* border-radius: 5px 0 0 5px; */
+        left: -33.3%;
+    }
+
+    #p3 {
+        z-index: 0;
+    }
+
+
+    .page>div {
+        position: absolute;
+        display: flex;
+        transition: z-index linear 0s;
+        transition-delay: calc(var(--flip-duration) / 2);
+
+    }
+
+    .front {
+        z-index: 10;
+    }
+
+    .back {
+        z-index: 9;
+        transform: rotateY(180deg);
+    }
+
+    .page.flipped,
+    #book.flipped .page {
+        transform: rotateY(180deg);
+    }
+
+
+    #book.flipped .back {
+        z-index: 9;
+    }
+
+    #book.flipped .front {
+        z-index: 10;
+    }
+
+
+    .page.flipped>.back {
+        z-index: 10;
+    }
+
+    .page.flipped>.front {
+        z-index: 9;
+    }
+
+    #book.flipped #p3 {
+        transform: rotateY(0deg);
+    }
+
+    #book.flipped #p3>.back {
+        z-index: 10;
+    }
+
+    #book.flipped #p3>.front {
+        z-index: 9;
+    }
+
+
+    .top {
+        z-index: 2;
+    }
+
+    #book {
+        user-select: none;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        transition: transform ease-in-out var(--flip-duration);
+        width: 100%;
+        height: 100%;
+        transform: scale(0.6);
+        margin: -20%;
+        max-width: 80vw;
+
+    }
+
+    #book.flipped {
+        transform: rotateY(180deg) scale(0.6);
+    }
+
+    #button {
+        backface-visibility: hidden;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -750%) translateZ(0);
+        font-size: 2vw;
+        z-index: 12;
+
+
+    }
+
+    .reset-btn {
+        color: blue;
+        text-decoration: underline;
+        transform: translate(-50%, -900%) translateZ(0) !important;
+        cursor: pointer;
+    }
+</style>
+
+<div id="infographic-body">
+
+    <div id="book" class="flipped">
+        <div class="page top" id="p1">
+            <div class="front" id="p1-front">
+                <img src="https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/trifold/images/p1-front.webp"
+                    alt="p1 front" draggable="false">
+            </div>
+            <div class="back" id="p1-back">
+                <img src="https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/trifold/images/p1-back.webp"
+                    alt="p1 back" draggable="false">
+            </div>
+        </div>
+        <div class="page" id="p3">
+            <div class="front" id="p3-front">
+                <img src="https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/trifold/images/p3-front.webp"
+                    alt="p3 front" draggable="false">
+            </div>
+            <div class="back" id="p3-back">
+                <img src="https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/trifold/images/p3-back.webp"
+                    alt="p3 back" draggable="false">
+            </div>
+        </div>
+
+        <div class="page" id="p2">
+            <div class="front" id="p2-front">
+                <img src="https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/trifold/images/p2-front.webp"
+                    alt="p2 front" draggable="false">
+            </div>
+            <div class="back" id="p2-back">
+                <img src="https://raw.githubusercontent.com/jtepp/Alexander-Academy/main/trifold/images/p2-back.webp"
+                    alt="p2 back" draggable="false">
+            </div>
+        </div>
+
+    </div>
+</div>
+<div id="button" class="reset-btn">
+    Reset
+</div>
+<script>
+    const btn = document.getElementById("button")
+    const book = document.getElementById("book")
+    let closed = true
+
+    for (let p of document.getElementsByClassName("page")) {
+        p.onclick = function (e) {
+            if (p.id == "p3") {
+                book.classList.toggle("flipped")
+            } else {
+                p.classList.toggle("flipped");
+                for (let pel of document.getElementsByClassName("page")) {
+                    pel.classList.remove("top")
+                }
+                p.classList.add("top")
+            }
+        }
+    }
+
+    book.onclick = function (e) {
+        closed = document.getElementsByClassName("flipped").length > 0
+        if (closed) {
+            btn.innerText = "Reset"
+            btn.classList.add("reset-btn")
+        } else {
+            btn.innerHTML = "Click to open &#10549;"
+            btn.classList.remove("reset-btn")
+        }
+    }
+
+    btn.onclick = function (e) {
+        if (closed) {
+            for (let p of document.getElementsByClassName("page")) {
+                p.classList.remove("flipped")
+                p.classList.remove("top")
+            }
+            document.getElementById("p1").classList.add("top")
+            book.classList.remove("flipped")
+            closed = false
+            btn.innerHTML = "Click to open &#10549;"
+            btn.classList.remove("reset-btn")
+        }
+    }
+</script>
+
+
+
+
+
+</div>

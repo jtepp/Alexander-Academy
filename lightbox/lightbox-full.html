@@ -1,0 +1,263 @@
+<style>
+    :root {
+        --lb-img: url("images/lb0.png");
+    }
+
+
+    #page-container {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding-top: 200px;
+        padding-left: 200px;
+        gap: 200px;
+    }
+
+    #page-container>p {
+        width: 300px;
+    }
+
+    lightbox {
+        display: block;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .inline-lb::before {
+        content: "Click to enlarge \2935";
+        position: absolute;
+        transform: translate(-50%, -100%);
+        top: 0;
+        right: 0;
+        font-style: oblique;
+        font-size: 20px;
+    }
+
+    .lb-thumbnails {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    lightbox[bottom]>.lb-thumbnails {
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        flex-direction: row;
+        transform: translate(0, 100%);
+        gap: 10px;
+    }
+
+    lightbox[left]>.lb-thumbnails {
+        left: 0px;
+        top: 0;
+        height: 100%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .lb-image-button {
+        width: 50px;
+        cursor: pointer;
+    }
+
+    .lb-image-button[selected] {
+        outline: 2px solid #000;
+    }
+
+    .inline-lb {
+        width: 300px;
+        height: 300px;
+        background-image: var(--lb-img);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .popover-lb {
+        width: 50vw;
+        height: 50vw;
+        max-height: 60vh;
+        background-image: var(--lb-img);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+    }
+
+    lightbox>img {
+        width: 100%;
+        object-fit: contain;
+    }
+
+    lightbox * {
+        user-select: none;
+    }
+
+    .lb-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 20px;
+        width: 30px;
+        transition: transform ease-out 100ms;
+    }
+
+    .lb-nav:hover {
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    .lb-nav::after {
+        left: 50%;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        background-image: url(images/lb-nav.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 50%;
+        transition: background-color var(--transition);
+    }
+
+    .lb-nav.left {
+        left: 0;
+    }
+
+    .lb-nav.left::after {
+        position: absolute;
+        content: "";
+        transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .lb-nav.right {
+        right: 0;
+    }
+
+    .lb-nav.right::after {
+        position: absolute;
+        content: "";
+        transform: translate(-50%, -50%) rotate(-90deg);
+    }
+
+    #popover-cont {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #00000030;
+        z-index: 10;
+        transition: backdrop-filter var(--transition), opacity var(--transition);
+    }
+
+    .show {
+        backdrop-filter: blur(6px);
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .hide {
+        backdrop-filter: blur(0px);
+        opacity: 0;
+        pointer-events: none;
+    }
+</style>
+
+<div id="lb-body">
+
+    <div id="page-container">
+
+        <p>afl;dshjkl;asdjfkl;a sdjkl;asd jlfkadsjflk;asdj fkl;jasdfkl;jsd afkl;jasd l;kfj sd;klfjasd l;kfj sdakl;f
+            jasdl;kf jasd l;kfj
+            asl;kasdf sdkfja sdfjk;asdljfl;sd k f klasdj ;kls dajfl;kasd fjl;k asd jfkl;sdjf klsdjf l;kasdjfl;kasdj
+            fl;sdkajfl
+            ;asdkjfls dk;ajflasdk;fjsdklfjl;asdkfjdsl;kfjsrioagjsdfo
+            igjsdfiopjsdlvmlkjf8osd7u98sroj4 3io tjvflgknmfsd;g8o du sfgasioldj fgo;asd89fu 34pot jer90guerwtgl
+        </p>
+        <lightbox class="inline-lb" id="lb1" bottom>
+            <div class="lb-thumbnails">
+                <img src="images/lb0.png" class="lb-image-button" alt="" selected>
+                <img src="images/lb1.png" class="lb-image-button" alt="">
+                <img src="images/lb2.png" class="lb-image-button" alt="">
+                <img src="images/lb3.png" class="lb-image-button" alt="">
+            </div>
+            <div class="lb-nav left"></div>
+            <div class="lb-nav right"></div>
+        </lightbox>
+
+
+
+    </div>
+    <div id="popover-cont" class="hide">
+        <lightbox class="popover-lb" id="lb2" left>
+            <div class="lb-thumbnails">
+                <img src="images/lb0.png" class="lb-image-button" alt="" selected>
+                <img src="images/lb1.png" class="lb-image-button" alt="">
+                <img src="images/lb2.png" class="lb-image-button" alt="">
+                <img src="images/lb3.png" class="lb-image-button" alt="">
+            </div>
+        </lightbox>
+    </div>
+
+</div>
+
+<script>
+    for (let el of document.querySelectorAll(".lb-image-button")) {
+        el.onclick = function () {
+            document.querySelector(':root').style.setProperty('--lb-img', `url("${el.getAttribute("src")}"`)
+            for (let elem of document.getElementsByClassName("lb-image-button")) {
+                elem.removeAttribute("selected")
+            }
+            for (let elem of document.querySelectorAll(`[src="${el.getAttribute("src")}"`)) {
+                elem.setAttribute("selected", "")
+            }
+        }
+    }
+    document.querySelector(".lb-nav.right").onclick = function () {
+        const curSelected = document.querySelector("[selected]")
+        if (curSelected.nextElementSibling != null) {
+            curSelected.nextElementSibling.click()
+        } else {
+            curSelected.parentNode.children[0].click()
+        }
+    }
+
+    document.querySelector(".lb-nav.left").onclick = function () {
+        const curSelected = document.querySelector("[selected]")
+        if (curSelected.previousElementSibling != null) {
+            curSelected.previousElementSibling.click()
+        } else {
+            curSelected.parentNode.children[curSelected.parentNode.children.length - 1].click()
+        }
+    }
+
+    document.getElementById("lb1").onclick = function (e) {
+        if (!e.target.classList.contains("lb-image-button") &&
+            !e.target.classList.contains("lb-nav") &&
+            !e.target.classList.contains("lb-thumbnails") &&
+            !document.getElementById("popover-cont").classList.contains("show")) {
+            console.log(e.target.classList)
+            const pc = document.getElementById("popover-cont").classList
+            pc.toggle("show")
+            pc.toggle("hide")
+        }
+    }
+
+    document.getElementById("popover-cont").onclick = function (e) {
+        if (!e.target.classList.contains("lb-image-button") &&
+            !e.target.classList.contains("lb-nav") &&
+            !e.target.classList.contains("lb-thumbnails")
+            //&& e.target.id != "lb2"
+        ) {
+            this.classList.toggle("show")
+            this.classList.toggle("hide")
+        }
+    }
+</script>
