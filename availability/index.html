@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset=“UTF-8”>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <form>
+        <b>Day</b>
+        <br>
+        <div id="days">
+
+            <div>
+                <input type="radio" name="day" id="monday" value="monday">
+                <label for="monday">Monday</label>
+            </div>
+
+            <div>
+                <input type="radio" name="day" id="tuesday" value="tuesday">
+                <label for="tuesday">Tuesday</label>
+            </div>
+
+            <div>
+                <input type="radio" name="day" id="wednesday" value="wednesday">
+                <label for="wednesday">Wednesday</label>
+            </div>
+
+            <div>
+                <input type="radio" name="day" id="thursday" value="thursday">
+                <label for="thursday">Thursday</label>
+            </div>
+
+            <div>
+                <input type="radio" name="day" id="friday" value="friday">
+                <label for="friday">Friday</label>
+            </div>
+
+            <div>
+                <input type="radio" name="day" id="saturday" value="saturday">
+                <label for="saturday">Saturday</label>
+            </div>
+
+            <div>
+                <input type="radio" name="day" id="sunday" value="sunday">
+                <label for="sunday">Sunday</label>
+            </div>
+        </div id="days">
+
+        <br>
+
+        <b>Time</b>
+        <br>
+        <div id="times">
+
+            <div>
+                <input type="radio" name="time" id="morning" value="morning">
+                <label for="morning">Morning</label>
+            </div>
+
+            <div>
+                <input type="radio" name="time" id="afternoon" value="afternoon">
+                <label for="afternoon">Afternoon</label>
+            </div>
+
+            <div>
+                <input type="radio" name="time" id="evening" value="evening">
+                <label for="evening">Evening</label>
+            </div>
+        </div>
+        <br>
+        <input type="button" id="today" value="Today">
+        <br>
+
+        <input type="button" id="go" value="Go">
+
+    </form>
+
+    <div id="container"></div>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
